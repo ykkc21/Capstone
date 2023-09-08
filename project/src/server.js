@@ -4,7 +4,7 @@ const app = express();
 const server = require("http").createServer(app);
 
 //CORS 사용
-app.cors();
+app.use(cors());
 
 //API로 요청한 경우 hello 메세지를 보내는 콜랙함수
 app.get("/api", (req, res) => {
