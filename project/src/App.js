@@ -13,8 +13,6 @@ function App() {
   return (
     <div>
       <h1>React Start</h1>
-      <h2>내일 할일 메인 페이지 디자인 틀 짜기</h2>
-      <h2>나머지 웹 서비스 정의하기</h2>
     </div>
   );
 }
