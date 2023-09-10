@@ -1,19 +1,20 @@
-import "../src/styles/App.css";
-import React, { useEffect } from "react";
+import style from "../src/styles/App.module.css";
+import React, { useEffect, Fragment } from "react";
 function App() {
-  useEffect(() => {
-    fetch("http://localhost:8080/api")
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api")
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data))
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // });
 
   return (
-    <div>
-      <h1>React Start</h1>
-    </div>
+    <Fragment>
+      <header className={style.Header}></header>
+      <section className={style.View}></section>
+    </Fragment>
   );
 }
 
