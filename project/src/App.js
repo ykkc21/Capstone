@@ -12,36 +12,7 @@ function App() {
 
   return (
     <Fragment>
-      <header className={style.Header}>
-        <h1 className={style.header_logo}>LOGO</h1>
-        <ul className={style.header_ul}>
-          <li className={style.header_li}>
-            <a className={style.header_a} href="https://www.naver.com">
-              텍스트
-            </a>
-          </li>
-          <li className={style.header_li}>
-            <a className={style.header_a} href="/">
-              텍스트
-            </a>
-          </li>
-          <li className={style.header_li}>
-            <a className={style.header_a} href="/">
-              텍스트
-            </a>
-          </li>
-          <li className={style.header_li}>
-            <a className={style.header_a} href="/">
-              텍스트
-            </a>
-          </li>
-          <li className={style.header_li}>
-            <a className={style.header_a} href="/">
-              텍스트
-            </a>
-          </li>
-        </ul>
-      </header>
+      <header className={style.Header}></header>
       <section className={style.View}></section>
     </Fragment>
   );

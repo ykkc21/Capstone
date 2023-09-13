@@ -24,28 +24,3 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-.header_logo {
-  width: 620px;
-  height: 100%;
-  float: left;
-  text-align: center;
-  line-height: 100px;
-  font-size: 40px;
-}
-.header_ul {
-  width: 805px;
-  height: 100%;
-  float: left;
-  text-align: center;
-}
-
-.header_li {
-  display: inline-block;
-  font-size: 20px;
-  padding: 37px;
-}
-
-.header_a {
-  color: #fff;
-}
