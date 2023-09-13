@@ -71,11 +71,15 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border: none;
-  width: 88px;
+  width: 120px;
   height: 40px;
   background-color: #fff;
-  color: ;
+  color: #4181c9;
+  font-size: 18px;
+  border-radius: 10px;
 }
+
+/* View */
 
 .View {
   width: 100%;
@@ -83,6 +87,39 @@ body {
   background-image: url("../assets/img/hyangwonjeong-pavilion-5900902_1920.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+.ViewContainer {
+  max-width: 1440px;
+  width: 100%;
+  height: 780px;
+  margin: 0 auto;
+}
+
+.View_h1 {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 84px;
+  text-align: center;
+  z-index: 10;
+  text-shadow: 10px -5px 3px #000;
+}
+.View_box {
+  max-width: 1440px;
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px -5px 3px #000;
+  z-index: 10;
 }
 
 .View_Shadow {
@@ -90,4 +127,6 @@ body {
   height: 100%;
   background-color: #000;
   opacity: 0.4;
+  position: absolute;
+  top: 0%;
 }
