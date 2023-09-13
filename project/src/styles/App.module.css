@@ -118,7 +118,7 @@ body {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 10px -5px 3px #000;
+  box-shadow: 9px 7px 10px -2px black;
   z-index: 10;
 }
 
