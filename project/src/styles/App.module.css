@@ -14,13 +14,64 @@ body {
 
 .Header {
   width: 100%;
-  height: 100px;
+  height: 125px;
   position: fixed;
+  z-index: 10;
 }
+
+.Header_container {
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.Header_Logo {
+  width: 30%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  line-height: 125px;
+}
+.Header_Logo_a {
+  color: #fff;
+  font-size: 50px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+}
+
+.Header_ul {
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+
+.Header_li {
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+}
+
+.Hedaer_Login {
+  display: block;
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+
 .View {
   width: 100%;
-  height: 650px;
-  background-image: url("../assets/img/background.jpg");
+  height: 780px;
+  background-image: url("../assets/img/hyangwonjeong-pavilion-5900902_1920.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.View_Shadow {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.4;
 }
