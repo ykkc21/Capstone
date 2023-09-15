@@ -1,7 +1,12 @@
 import React from "react";
 import style from "../styles/Login.module.css";
+
 const Login = () => {
-  return <div>Login Page</div>;
+  return (
+    <div>
+      <h1>로그인 페이지 입니다.</h1>
+    </div>
+  );
 };
 
 export default Login;

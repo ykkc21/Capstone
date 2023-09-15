@@ -1,14 +1,18 @@
 import style from "../src/styles/App.module.css";
-import Hedaer from "./components/header";
-import View from "./components/Main_View";
+import Home from "./pages/Home";
+import Login from "./pages/login";
 import React, { useEffect, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <Fragment>
-      <Hedaer />
-      <View />
-    </Fragment>
+    <BrowserRouter>
+      <Fragment>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Fragment>
+    </BrowserRouter>
   );
 }
 
