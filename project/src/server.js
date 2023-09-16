@@ -11,6 +11,8 @@ app.get("/api", (req, res) => {
   res.json({ message: "hello" });
 });
 
+app.post("/login", (req, res) => {});
+
 // 서버가 잘 동작하는지 확인
 server.listen(8080, () => {
   console.log("server is running on 8080");

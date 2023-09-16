@@ -24,12 +24,19 @@ const Login = () => {
                 className={style.login_input}
                 placeholder="Password"
               />
-              <input
+              <button
                 type="submit"
-                value={"Sign up"}
+                value="Sign up"
                 className={style.login_input_submit}
-              />
+              >
+                Sign up
+              </button>
             </form>
+            <div className={style.iconbox}>
+              <a href="/" className={`${style.google} ${style.icon} `}></a>
+              <a href="/" className={`${style.naver} ${style.icon}`}></a>
+              <a href="/" className={`${style.facebook}  ${style.icon}`}></a>
+            </div>
           </div>
         </div>
       </div>
