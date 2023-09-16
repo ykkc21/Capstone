@@ -1,4 +1,5 @@
-import React from "react";
+import { React } from "react";
+import { Link } from "react-router-dom";
 import style from "../styles/Header.module.css";
 
 const Header = () => {
@@ -12,23 +13,25 @@ const Header = () => {
         </div>
         <ul className={style.Header_ul}>
           <li className={style.Header_li}>
-            <a href="/" className={style.Header_li_a}>
+            <Link to={"/"} className={style.Header_li_a}>
               TraveList
-            </a>
+            </Link>
           </li>
           <li className={style.Header_li}>
-            <a href="/" className={style.Header_li_a}>
+            <Link to={"/"} className={style.Header_li_a}>
               Hotel
-            </a>
+            </Link>
           </li>
           <li className={style.Header_li}>
-            <a href="/" className={style.Header_li_a}>
+            <Link to={"/"} className={style.Header_li_a}>
               AirlineTicket
-            </a>
+            </Link>
           </li>
         </ul>
         <div className={style.Hedaer_Login}>
-          <button className={style.Hedaer_Login_btn}>Sing in</button>
+          <Link to={"/login"} className={style.Hedaer_Login_btn}>
+            Sing in
+          </Link>
         </div>
       </div>
     </header>
