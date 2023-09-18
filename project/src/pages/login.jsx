@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <Fragment>
-      <div className={style.login_View}></div>
       <div className={style.login_wrap}>
+        <div className={style.login_View}></div>
         <div className={style.login_container}>
           <div className={style.login_box}>
             <h1 className={style.login_box_h1}>

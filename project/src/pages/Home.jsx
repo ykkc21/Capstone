@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Route, Router } from "react-router-dom";
 import Hedaer from "../components/header";
-import View from "../components/Main_View";
+import View from "../constants/Main_View";
+import About from "../constants/About";
 const Home = () => {
   return (
     <Fragment>
       <Hedaer />
       <View />
+      <About />
     </Fragment>
   );
 };
