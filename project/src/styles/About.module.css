@@ -9,7 +9,6 @@
 .AboutBox {
   width: 100%;
   height: 920px;
-  background-color: aqua;
   padding-top: 200px;
 }
 .AboutContainer {
@@ -25,9 +24,9 @@
 
 .ItemBox {
   width: 100%;
-  height: 550px;
+  height: 580px;
   background-color: azure;
-  margin-top: 80px;
+  margin-top: 70px;
   position: relative;
 }
 
@@ -44,6 +43,8 @@
   background-image: url("../assets/img/japan-1805865_1280.jpg");
   background-position: center;
   background-size: cover;
+  top: 4%;
+  /* left: 1.5%; */
 }
 
 .Item:nth-of-type(2) {
@@ -53,15 +54,19 @@
   background-image: url("../assets/img/back2.png");
   background-position: center;
   background-size: cover;
+  top: 52%;
+  /* left: 1.5%; */
 }
 
 .Item:nth-of-type(3) {
   background-color: aquamarine;
-  width: 380px;
-  height: 550px;
+  width: 370px;
+  height: 535px;
   background-image: url("../assets/img/eiffel-tower-1853365_1920.jpg");
   background-position: center;
   background-size: 100% 100%;
+  top: 4%;
+  left: 37.2%;
 }
 
 .Item:nth-of-type(4) {
@@ -71,6 +76,8 @@
   background-image: url("../assets/img/back3.jpeg");
   background-position: center;
   background-size: cover;
+  top: 4%;
+  right: 0%;
 }
 .Item:nth-of-type(5) {
   background-color: brown;
@@ -79,4 +86,20 @@
   background-image: url("../assets/img/paris-4793193_1280.jpg");
   background-position: center;
   background-size: cover;
+  top: 52%;
+  right: 0%;
+}
+
+.Item_TextBox {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+}
+
+.Item_TextBox > .Item_icon {
+  color: #fff;
+  font-size: 23px;
+  margin-top: 40px;
+  margin-left: 10px;
 }
