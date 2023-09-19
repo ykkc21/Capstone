@@ -11,17 +11,34 @@ const About = () => {
           <div className={style.ItemBox}>
             <div className={`${style.Item}`}>
               <div className={style.Item_TextBox}>
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className={style.Item_icon}
-                ></FontAwesomeIcon>
-                <span className={style.text}></span>
+                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+                <span className={style.Item_text}>Jpan</span>
               </div>
             </div>
-            <div className={`${style.Item}`}></div>
-            <div className={`${style.Item}`}></div>
-            <div className={`${style.Item}`}></div>
-            <div className={`${style.Item}`}></div>
+            <div className={`${style.Item}`}>
+              <div className={style.Item_TextBox}>
+                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+                <span className={style.Item_text}>Vietnam</span>
+              </div>
+            </div>
+            <div className={`${style.Item}`}>
+              <div className={style.Item_TextBox}>
+                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+                <span className={style.Item_text}>Paris</span>
+              </div>
+            </div>
+            <div className={`${style.Item}`}>
+              <div className={style.Item_TextBox}>
+                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+                <span className={style.Item_text}>Philippines</span>
+              </div>
+            </div>
+            <div className={`${style.Item}`}>
+              <div className={style.Item_TextBox}>
+                <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+                <span className={style.Item_text}>Paris</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
