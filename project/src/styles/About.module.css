@@ -115,3 +115,9 @@
   margin-left: 20px;
   text-shadow: 5px 5px 5px #000;
 }
+
+/* @media (max-width: 1440px) {
+  .AboutBox {
+    background-color: red;
+  }
+} */
