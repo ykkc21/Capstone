@@ -7,11 +7,11 @@ const About = () => {
         <div className={style.AboutContainer}>
           <h1>Where do you want to go? </h1>
           <div className={style.ItemBox}>
-            <div className={style.Item}></div>
-            <div className={style.Item}></div>
-            <div className={style.Item}></div>
-            <div className={style.Item}></div>
-            <div className={style.Item}></div>
+            <div className={`${style.Item}`}></div>
+            <div className={`${style.Item}`}></div>
+            <div className={`${style.Item}`}></div>
+            <div className={`${style.Item}`}></div>
+            <div className={`${style.Item}`}></div>
           </div>
         </div>
       </div>

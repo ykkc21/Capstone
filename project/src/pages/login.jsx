@@ -21,7 +21,7 @@ const Login = () => {
                 name="user_id"
               />
               <input
-                type="text"
+                type="password"
                 className={style.login_input}
                 placeholder="Password"
                 name="user_pw"
