@@ -1,0 +1,40 @@
+.SubAbout {
+  width: 100%;
+  height: 650px;
+  background-image: url("../assets/img/venice-1606938_1920.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.SubAbout > .mainbox {
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.SubAbout > .mainbox > .black {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: -1;
+}
+.SubAbout > .mainbox > h1 {
+  width: 450px;
+  height: 150px;
+  background-color: red;
+  display: block;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.SubAbout > .mainbox > .white {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.5;
+}
