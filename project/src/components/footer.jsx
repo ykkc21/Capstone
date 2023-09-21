@@ -1,7 +1,13 @@
-import React from "react";
-
+import { React, Fragment } from "react";
+import style from "../styles/Footer.module.css";
 const Footer = () => {
-  return <div></div>;
+  return (
+    <Fragment>
+      <div className={style.Footer}>
+        <div className={style.FooterConainer}></div>
+      </div>
+    </Fragment>
+  );
 };
 
 export default Footer;

@@ -4,6 +4,7 @@ import Hedaer from "../components/header";
 import View from "../constants/Main_View";
 import About from "../constants/About";
 import SubAbout from "../constants/SubAbout";
+import Footer from "../components/footer";
 const Home = () => {
   return (
     <Fragment>
@@ -11,6 +12,7 @@ const Home = () => {
       <View />
       <About />
       <SubAbout />
+      <Footer />
     </Fragment>
   );
 };
