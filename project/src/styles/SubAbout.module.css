@@ -23,13 +23,14 @@
 .SubAbout > .mainbox > h1 {
   width: 450px;
   height: 150px;
-  background-color: red;
   display: block;
   z-index: 10;
   position: absolute;
   top: 50%;
   left: 40%;
   transform: translate(-50%, -50%);
+  background-image: url("../assets/img/Main\ \ Functions.png");
+  background-size: 100% 100%;
 }
 
 .SubAbout > .mainbox > .white {
@@ -37,4 +38,180 @@
   height: 100%;
   background-color: white;
   opacity: 0.5;
+  position: relative;
+}
+
+.SubAbout > .mainbox > .funbox {
+  position: absolute;
+  width: 320px;
+  height: 460px;
+  display: block;
+  z-index: 10;
+  box-shadow: 2px 3px 5px #000;
+  border-radius: 20px;
+}
+
+.map {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  background-color: #1b2049;
+}
+
+.map::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 2px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.map > .fun_img {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map > .fun_img > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+}
+.map > p {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  opacity: 0.5;
+}
+.map > h1 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  width: 230px;
+}
+.search {
+  top: 55%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+.search::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 2px;
+  height: 15px;
+  background-color: #1b2049;
+}
+
+.search > .fun_img {
+  width: 100px;
+  height: 100px;
+  background-color: #4d6eb8;
+  border-radius: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.search > .fun_img > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+}
+
+.search > p {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b2049;
+  opacity: 0.5;
+}
+.search > h1 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b2049;
+  text-align: center;
+  font-size: 25px;
+  width: 230px;
+}
+
+.user {
+  top: 55%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+.user::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 2px;
+  height: 15px;
+  background-color: #1b2049;
+}
+
+.user > .fun_img {
+  width: 100px;
+  height: 100px;
+  background-color: #4d6eb8;
+  border-radius: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user > .fun_img > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+}
+
+.user > p {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b2049;
+  opacity: 0.5;
+}
+.user > h1 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1b2049;
+  text-align: center;
+  font-size: 25px;
+  width: 230px;
 }
