@@ -4,7 +4,10 @@ import style from "../styles/Join.module.css";
 const Join = () => {
   return (
     <Fragment>
-      <div></div>
+      <div className={style.Join}>
+        <div className={style.Join_BackWave}></div>
+        <div className={style.Join_BackImage}></div>
+      </div>
     </Fragment>
   );
 };

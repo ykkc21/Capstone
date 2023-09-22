@@ -1,0 +1,27 @@
+.Join {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.Join_BackWave {
+  width: 1200px;
+  height: 1000px;
+  background-image: url("../assets/img/joinBack.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+.Join_BackImage {
+  width: 1300px;
+  height: 1000px;
+  background-image: url("../assets/img/amsterdam-5768537_1280.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: -10%;
+  z-index: -1;
+}
