@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const server = require("http").createServer(app);
 
+const db = require("./connection/db.js");
 //CORS 사용
 app.use(cors());
 // 데이터를 json형식으로 파싱하겠다.
