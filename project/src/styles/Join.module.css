@@ -106,9 +106,11 @@ input {
 }
 
 .Cancel {
+  z-index: 10;
   display: block;
   width: 230px;
   height: 50px;
+  color: #000;
   background-color: #e1e1e1;
   text-align: center;
   line-height: 50px;

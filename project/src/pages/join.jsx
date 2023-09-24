@@ -1,5 +1,6 @@
 import { React, Fragment } from "react";
 import style from "../styles/Join.module.css";
+import { Link } from "react-router-dom";
 
 const Join = () => {
   return (
@@ -25,7 +26,9 @@ const Join = () => {
               </div>
               <button type="submit">Create</button>
             </form>
-            <a className={style.Cancel}>Cancel</a>
+            <Link href="/login" className={style.Cancel}>
+              Cancel
+            </Link>
           </div>
         </div>
         <div className={style.Join_BackImage}></div>

@@ -39,9 +39,9 @@ const Login = () => {
               <a href="/" className={`${style.naver} ${style.icon}`}></a>
               <a href="/" className={`${style.facebook}  ${style.icon}`}></a>
             </div> */}
-            <a className={style.join_text} href="/join">
+            <Link className={style.join_text} href="/join">
               저장된 회원정보가 없나요?
-            </a>
+            </Link>
           </div>
         </div>
       </div>
