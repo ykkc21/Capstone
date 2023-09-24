@@ -9,7 +9,11 @@ const Join = () => {
         <div className={style.Join_BackWave}>
           <div className={style.JoinBox}>
             <h1>Create Account</h1>
-            <form className={style.JoinForm} action="/">
+            <form
+              className={style.JoinForm}
+              action="http://localhost:8080/joinData"
+              method="POST"
+            >
               <div className={style.inputbox}>
                 <label>Name</label>
                 <input type="text" name="name" autoComplete="off" />
@@ -26,7 +30,7 @@ const Join = () => {
               </div>
               <button type="submit">Create</button>
             </form>
-            <Link href="/login" className={style.Cancel}>
+            <Link to={"/login"} className={style.Cancel}>
               Cancel
             </Link>
           </div>

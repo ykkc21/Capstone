@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import style from "../styles/Login.module.css";
 import { Link } from "react-router-dom";
+import Join from "../pages/join";
 
 const Login = () => {
   return (
@@ -39,7 +40,7 @@ const Login = () => {
               <a href="/" className={`${style.naver} ${style.icon}`}></a>
               <a href="/" className={`${style.facebook}  ${style.icon}`}></a>
             </div> */}
-            <Link className={style.join_text} href="/join">
+            <Link to={"/join"} className={style.join_text}>
               저장된 회원정보가 없나요?
             </Link>
           </div>
