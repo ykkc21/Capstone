@@ -5,17 +5,125 @@
   position: relative;
 }
 
+input {
+  outline: none;
+}
+
 .Join_BackWave {
   width: 1200px;
-  height: 1000px;
+  height: 100vh;
   background-image: url("../assets/img/joinBack.png");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: cover;
+  padding-top: 200px;
+  padding-left: 90px;
 }
+
+.Join_BackWave > .JoinBox {
+  width: 570px;
+  height: 660px;
+  padding-top: 30px;
+  position: relative;
+}
+
+.Join_BackWave > .JoinBox > h1 {
+  font-size: 70px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.Join_BackWave > .JoinBox > .JoinForm {
+  width: 100%;
+  height: 490px;
+  position: relative;
+  text-align: center;
+}
+
+.Join_BackWave > .JoinBox > .JoinForm > .inputbox {
+  width: 100%;
+  height: 100px;
+}
+.Join_BackWave > .JoinBox > .JoinForm > .inputbox > label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.Join_BackWave > .JoinBox > .JoinForm > .inputbox > input {
+  width: 85%;
+  height: 50px;
+  border: 3px solid #e2e2e2;
+  border-radius: 10px;
+}
+.Join_BackWave > .JoinBox > .JoinForm > .inputbox:nth-of-type(1) > label {
+  width: 40%;
+  margin: 0 !important;
+  position: absolute;
+  top: 0;
+}
+.Join_BackWave
+  > .JoinBox
+  > .JoinForm
+  > .inputbox:nth-of-type(1)
+  > label:nth-of-type(1) {
+  left: 6%;
+}
+.Join_BackWave
+  > .JoinBox
+  > .JoinForm
+  > .inputbox:nth-of-type(1)
+  > label:nth-of-type(2) {
+  left: 53%;
+}
+.Join_BackWave > .JoinBox > .JoinForm > .inputbox:nth-of-type(1) > input {
+  width: 40%;
+  float: left;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.Join_BackWave
+  > .JoinBox
+  > .JoinForm
+  > .inputbox:nth-of-type(1)
+  > input:nth-of-type(2) {
+  margin-left: 30px;
+}
+
+.Join_BackWave > .JoinBox > .JoinForm > button {
+  width: 230px;
+  height: 50px;
+  border: none;
+  border-radius: 37.5px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #4d6eb8;
+  color: #fff;
+  position: absolute;
+  top: 70%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+}
+
+.Cancel {
+  display: block;
+  width: 230px;
+  height: 50px;
+  background-color: #e1e1e1;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 37.5px;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 76.6%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+}
+
 .Join_BackImage {
   width: 1300px;
-  height: 1000px;
+  height: 100vh;
   background-image: url("../assets/img/amsterdam-5768537_1280.jpg");
   background-repeat: no-repeat;
   background-position: left;
