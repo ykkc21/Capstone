@@ -1,9 +1,32 @@
 import React, { Fragment } from "react";
 import style from "../styles/Login.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Join from "../pages/join";
 
 const Login = () => {
+  const LoginCheck = () => {
+    const email = document.getElementById("email");
+    const pw = document.getElementById("pw");
+    console.log(email.value, pw.value);
+
+    if (email.value == "" || pw.value == "") {
+      alert("이메일과 비밀번호를 작성해 주세요.");
+    } else {
+      alert("로그인 체크");
+      axios
+        .post("http://localhost:8080/loginData", {
+          email: email.value,
+          pw: pw.value,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
   return (
     <Fragment>
       <div className={style.login_wrap}>
@@ -14,27 +37,29 @@ const Login = () => {
               <Link to={"/"}>LOGO</Link>
             </h1>
             <p className={style.login_text}>Login</p>
-            <form action="http://localhost:8080/loginData" method="POST">
+            <div action="http://localhost:8080/loginData" method="POST">
               <input
                 type="text"
+                id="email"
                 className={style.login_input}
                 placeholder="User Id"
                 name="user_id"
               />
               <input
                 type="password"
+                id="pw"
                 className={style.login_input}
                 placeholder="Password"
                 name="user_pw"
               />
               <button
-                type="submit"
                 value="Sign up"
                 className={style.login_input_submit}
+                onClick={LoginCheck}
               >
                 Sign up
               </button>
-            </form>
+            </div>
             {/* <div className={style.iconbox}>
               <a href="/" className={`${style.google} ${style.icon} `}></a>
               <a href="/" className={`${style.naver} ${style.icon}`}></a>

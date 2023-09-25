@@ -12,13 +12,18 @@ app.use(express.json());
 //파싱하는 옵션지정 (false는 기본으로 내장된 querystring으로 받아온다.)
 app.use(express.urlencoded({ extended: false }));
 
-//API로 요청한 경우 hello 메세지를 보내는 콜랙함수
-app.get("/api", (req, res) => {
-  res.json({ message: "hello" });
-});
-
 app.post("/loginData", (req, res) => {
-  console.log(req.body);
+  const { email, pw } = req.body;
+
+  db.query(
+    "SELECT * from user where email='" + email + "' and pw='" + pw + "'",
+    (err, res, fields) => {
+      if (err) console.error(err);
+      console.log(res);
+    }
+  );
+
+  db.end();
 });
 
 app.post("/joinData", (req, res) => {
@@ -42,6 +47,7 @@ app.post("/joinData", (req, res) => {
       res.send(result);
     }
   );
+  db.end();
 });
 
 // 서버가 잘 동작하는지 확인
