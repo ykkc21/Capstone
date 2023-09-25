@@ -13,7 +13,7 @@ const Header = () => {
         </div>
         <ul className={style.Header_ul}>
           <li className={style.Header_li}>
-            <Link to={"/"} className={style.Header_li_a}>
+            <Link to={"/traveList"} className={style.Header_li_a}>
               TraveList
             </Link>
           </li>

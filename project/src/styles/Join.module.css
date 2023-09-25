@@ -135,3 +135,16 @@ input {
   right: -10%;
   z-index: -1;
 }
+
+@media (max-width: 1440px) {
+  .Join_BackWave {
+    padding-top: 100px;
+  }
+
+  .Join_BackWave > .JoinBox > .JoinForm > button {
+    top: 90%;
+  }
+  .Cancel {
+    top: 91%;
+  }
+}

@@ -23,8 +23,25 @@ app.post("/loginData", (req, res) => {
 
 app.post("/joinData", (req, res) => {
   console.log(req.body);
-  const { name, nickname, email, pw } = req.body;
-  console.log(name, email, pw);
+  const { name, nickname, bd, email, pw } = req.body;
+  console.log(name, nickname, bd, email, pw);
+  db.query(
+    "INSERT INTO user(name,nickname,email,pw,bd) VALUES('" +
+      name +
+      "','" +
+      nickname +
+      "','" +
+      email +
+      "','" +
+      pw +
+      "','" +
+      bd +
+      "')",
+    (err, result) => {
+      if (err) console.error(err);
+      res.send(result);
+    }
+  );
 });
 
 // 서버가 잘 동작하는지 확인
