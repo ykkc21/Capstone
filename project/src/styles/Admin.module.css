@@ -5,3 +5,42 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+.AdminContainer {
+  max-width: 1440px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.CountBox {
+  width: 100%;
+  height: 450px;
+  background-color: antiquewhite;
+  padding-top: 130px;
+  position: relative;
+}
+
+.CountBox > h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+.CountBox > .s_countbox {
+  width: 100%;
+  height: 130px;
+  background-color: red;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 150px;
+}
+
+.CountBox > .s_countbox > .s_box {
+  width: 260px;
+  height: 110px;
+  background-color: #000;
+  border-radius: 20px;
+  float: left;
+  margin: 0 12px;
+}
