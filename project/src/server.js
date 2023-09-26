@@ -13,17 +13,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post("/loginData", (req, res) => {
-  const { email, pw } = req.body;
+  const email = req.body.email;
+  const pw = req.body.pw;
 
-  db.query(
-    "SELECT * from user where email='" + email + "' and pw='" + pw + "'",
-    (err, res, fields) => {
-      if (err) console.error(err);
-      console.log(res);
-    }
-  );
+  if (email && pw) {
+    console.log("둘다 값이 잘 들어왔습니다.");
+    db.query(
+      `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
+      (err, row, fields) => {
+        if (err) console.error(err);
+        console.log(row);
+      }
+    );
+  } else {
+    console.log("둘 중 하나가 값이 없다.");
+  }
+  // db.query(
+  //   "SELECT * from user where email='" + email + "' and pw='" + pw + "'",
+  //   (err, res, fields) => {
+  //     if (err) console.error(err);
+  //     console.log(res);
+  //   }
+  // );
 
-  db.end();
+  // db.end();
 });
 
 app.post("/joinData", (req, res) => {

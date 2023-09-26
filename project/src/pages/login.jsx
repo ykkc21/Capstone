@@ -13,7 +13,6 @@ const Login = () => {
     if (email.value == "" || pw.value == "") {
       alert("이메일과 비밀번호를 작성해 주세요.");
     } else {
-      alert("로그인 체크");
       axios
         .post("http://localhost:8080/loginData", {
           email: email.value,
