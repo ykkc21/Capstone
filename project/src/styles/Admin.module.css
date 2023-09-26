@@ -58,3 +58,65 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+@media (max-width: 1440px) {
+  .CountBox > h1 {
+    left: 10.6%;
+  }
+  .CountBox > .s_countbox {
+    top: 78%;
+  }
+
+  .CountBox > .s_countbox > .s_box {
+    margin: 0 10px;
+  }
+
+  .CountBox > .s_countbox > .first {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .CountBox > .s_countbox > .last {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .ContentListBox {
+    width: 100%;
+    height: 600px;
+  }
+
+  .ContentListBox > .form {
+    width: 100%;
+    height: 50px;
+    position: relative;
+  }
+  .ContentListBox > .form > .search {
+    width: 200px;
+    height: 40px;
+    border: none;
+    box-shadow: 2px 2px 5px #000;
+    border-radius: 5px;
+    position: absolute;
+    top: 0%;
+    left: 1%;
+  }
+  .ContentListBox > .form > .search::placeholder {
+    padding-left: 40px;
+    background-image: url("../assets/img/free-icon-search-149852.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+  }
+
+  .ContentListBox > .form > .menu {
+    width: 180px;
+    height: 40px;
+    border: none;
+    box-shadow: 2px 2px 5px #000;
+    border-radius: 5px;
+    position: absolute;
+    top: 0%;
+    right: 1%;
+  }
+}
