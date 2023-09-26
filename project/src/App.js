@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/login";
 import Join from "./pages/join";
 import TraveList from "./pages/TraveList";
+import Admin from "./pages/admin";
 import React, { useEffect, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/join" element={<Join />} />
           <Route path="/traveList" element={<TraveList />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Fragment>
     </BrowserRouter>

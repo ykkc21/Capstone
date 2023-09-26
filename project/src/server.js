@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const server = require("http").createServer(app);
-
+const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
 const db = require("./connection/db.js");
 
 //CORS 사용
@@ -12,9 +13,27 @@ app.use(express.json());
 //파싱하는 옵션지정 (false는 기본으로 내장된 querystring으로 받아온다.)
 app.use(express.urlencoded({ extended: false }));
 
+const options = {
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "12341234",
+  database: "capstone",
+};
+const sesstionStore = new MySQLStore(options);
+app.use(
+  session({
+    secret: "!@#asdfghjkl", // 암호화에 대한 속성
+    resave: false,
+    saveUninitialized: true,
+    store: sesstionStore,
+  })
+);
+
 app.post("/loginData", (req, res) => {
-  const email = req.body.email;
-  const pw = req.body.pw;
+  const email = req.body.user_id;
+  const pw = req.body.user_pw;
+  console.log(email, pw);
 
   if (email && pw) {
     console.log("둘다 값이 잘 들어왔습니다.");
@@ -22,21 +41,15 @@ app.post("/loginData", (req, res) => {
       `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
       (err, row, fields) => {
         if (err) console.error(err);
-        console.log(row);
+        const user = (req.session.user = row[0]);
+        req.session.save(() => {
+          res.redirect("http://localhost:3000");
+        });
       }
     );
   } else {
     console.log("둘 중 하나가 값이 없다.");
   }
-  // db.query(
-  //   "SELECT * from user where email='" + email + "' and pw='" + pw + "'",
-  //   (err, res, fields) => {
-  //     if (err) console.error(err);
-  //     console.log(res);
-  //   }
-  // );
-
-  // db.end();
 });
 
 app.post("/joinData", (req, res) => {

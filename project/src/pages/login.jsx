@@ -8,7 +8,6 @@ const Login = () => {
   const LoginCheck = () => {
     const email = document.getElementById("email");
     const pw = document.getElementById("pw");
-    console.log(email.value, pw.value);
 
     if (email.value == "" || pw.value == "") {
       alert("이메일과 비밀번호를 작성해 주세요.");
@@ -36,7 +35,7 @@ const Login = () => {
               <Link to={"/"}>LOGO</Link>
             </h1>
             <p className={style.login_text}>Login</p>
-            <div action="http://localhost:8080/loginData" method="POST">
+            <form action="http://localhost:8080/loginData" method="POST">
               <input
                 type="text"
                 id="email"
@@ -51,14 +50,13 @@ const Login = () => {
                 placeholder="Password"
                 name="user_pw"
               />
-              <button
+              <input
+                type="submit"
                 value="Sign up"
                 className={style.login_input_submit}
-                onClick={LoginCheck}
-              >
-                Sign up
-              </button>
-            </div>
+                // onClick={LoginCheck}
+              />
+            </form>
             {/* <div className={style.iconbox}>
               <a href="/" className={`${style.google} ${style.icon} `}></a>
               <a href="/" className={`${style.naver} ${style.icon}`}></a>
