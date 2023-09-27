@@ -30,6 +30,9 @@ const admin = () => {
               <option value="유저">유저</option>
             </select>
           </form>
+          <div className={style.listBox}>
+            <div className={style.list}></div>
+          </div>
         </div>
       </div>
     </Fragment>
