@@ -1,13 +1,24 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { BrowserRouter, Route, Router } from "react-router-dom";
 import Hedaer from "../components/header";
 import View from "../constants/Main_View";
 import About from "../constants/About";
 import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
+import axios from "axios";
 const Home = () => {
+  const [userState, SetUserState] = useState([]);
+
+  console.log(userState);
   useEffect(() => {
-    console.log(123);
+    const user = axios
+      .get("http://localhost:8080/loginCheck")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
   return (
     <Fragment>

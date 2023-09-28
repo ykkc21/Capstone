@@ -30,10 +30,14 @@ app.use(
   })
 );
 
+app.get("/loginCheck", (req, res) => {
+  // console.log(req.session.user);
+  res.send("OK");
+});
+
 app.post("/loginData", (req, res) => {
   const email = req.body.user_id;
   const pw = req.body.user_pw;
-  console.log(email, pw);
 
   if (email && pw) {
     console.log("둘다 값이 잘 들어왔습니다.");
@@ -41,10 +45,11 @@ app.post("/loginData", (req, res) => {
       `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
       (err, row, fields) => {
         if (err) console.error(err);
-        const user = (req.session.user = row[0]);
+        req.session.user = row[0];
         req.session.save(() => {
           res.redirect("http://localhost:3000");
         });
+        console.log("sesstion확인:", req.session);
       }
     );
   } else {
@@ -53,9 +58,7 @@ app.post("/loginData", (req, res) => {
 });
 
 app.post("/joinData", (req, res) => {
-  console.log(req.body);
   const { name, nickname, bd, email, pw } = req.body;
-  console.log(name, nickname, bd, email, pw);
   db.query(
     "INSERT INTO user(name,nickname,email,pw,bd) VALUES('" +
       name +
