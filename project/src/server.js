@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const server = require("http").createServer(app);
 const session = require("express-session");
-const MySQLStore = require("express-mysql-session")(session);
+const fileStore = require("session-file-store")(session);
 const db = require("./connection/db.js");
 
 //CORS 사용
@@ -20,18 +20,17 @@ const options = {
   password: "12341234",
   database: "capstone",
 };
-const sesstionStore = new MySQLStore(options);
 app.use(
   session({
     secret: "!@#asdfghjkl", // 암호화에 대한 속성
     resave: false,
     saveUninitialized: true,
-    store: sesstionStore,
   })
 );
 
 app.get("/loginCheck", (req, res) => {
-  // console.log(req.session.user);
+  req.session.reload();
+  console.log(req.session.user);
   res.send("OK");
 });
 
