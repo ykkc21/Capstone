@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
+const cors = require("cors");
 const server = require("http").createServer(app);
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
@@ -13,24 +13,18 @@ app.use(express.json());
 //파싱하는 옵션지정 (false는 기본으로 내장된 querystring으로 받아온다.)
 app.use(express.urlencoded({ extended: false }));
 
-const options = {
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "12341234",
-  database: "capstone",
-};
 app.use(
   session({
-    secret: "!@#asdfghjkl", // 암호화에 대한 속성
+    httpOnly: true,
+    secret: "secret key", // 암호화에 대한 속성
     resave: false,
     saveUninitialized: true,
+    store: new fileStore(),
   })
 );
 
 app.get("/loginCheck", (req, res) => {
-  req.session.reload();
-  console.log(req.session.user);
+  console.log("로그인 체크:", req.session);
   res.send("OK");
 });
 
@@ -39,16 +33,16 @@ app.post("/loginData", (req, res) => {
   const pw = req.body.user_pw;
 
   if (email && pw) {
-    console.log("둘다 값이 잘 들어왔습니다.");
     db.query(
       `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
       (err, row, fields) => {
-        if (err) console.error(err);
-        req.session.user = row[0];
+        if (err) {
+          console.error(err);
+        }
+        req.session.user = row[0].name;
         req.session.save(() => {
           res.redirect("http://localhost:3000");
         });
-        console.log("sesstion확인:", req.session);
       }
     );
   } else {
