@@ -39,6 +39,8 @@ const Join = () => {
             pw.value = "";
             bd.value = "";
             // DB에 데이터 전송이 성공하면 로그인 페이지로 이동
+
+            alert("회원가입이 완료 되었습니다.");
             // eslint-disable-next-line no-restricted-globals
             location.href = "/login";
           }

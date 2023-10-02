@@ -6,34 +6,8 @@ const admin = () => {
     <Fragment>
       <Header />
       <div className={style.AdminContainer}>
-        <div className={style.CountBox}>
-          <h1>Content</h1>
-          <div className={style.s_countbox}>
-            <div className={`${style.s_box} ${style.first}`}></div>
-            <div className={style.s_box}></div>
-            <div className={style.s_box}></div>
-            <div className={`${style.s_box} ${style.last}`}></div>
-          </div>
-        </div>
-
-        <div className={style.ContentListBox}>
-          <form action="/" method="get" className={style.form}>
-            <input
-              type="search"
-              name="search"
-              className={style.search}
-              placeholder="Searching...."
-            />
-            <select name="menu" className={style.menu}>
-              <option value="게시글">게시글</option>
-              <option value="관광지">관광지</option>
-              <option value="유저">유저</option>
-            </select>
-          </form>
-          <div className={style.listBox}>
-            <div className={style.list}></div>
-          </div>
-        </div>
+        <h1>Home</h1>
+        <div className={style.ControllBox}></div>
       </div>
     </Fragment>
   );
