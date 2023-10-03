@@ -20,7 +20,6 @@
 .ControllBox {
   width: 100%;
   height: 780px;
-  border: 1px solid #000;
 }
 .ControllBox > .btnbox {
   width: 100%;
@@ -28,7 +27,7 @@
 }
 .ControllBox > .MainListBox {
   width: 100%;
-  height: 580px;
+  height: 698px;
   background-color: aqua;
 }
 
