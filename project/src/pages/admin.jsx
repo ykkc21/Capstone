@@ -8,55 +8,35 @@ const admin = () => {
   const items = ["User", "Content", "Bulletin"];
   const UserList = [
     {
-      name: "User1",
-      address: "Text",
+      Name: "User1",
+      Address: "테스트 중입니다.",
       Phone: "010-1234-5678",
       Email: "test@test.com",
     },
     {
-      name: "User2",
-      address: "Text",
+      Name: "User2",
+      Address: "테스트 중입니다.",
       Phone: "010-1234-5678",
       Email: "test@test.com",
     },
     {
-      name: "User3",
-      address: "Text",
+      Name: "User3",
+      Address: "테스트 중입니다.",
       Phone: "010-1234-5678",
       Email: "test@test.com",
     },
     {
-      name: "User4",
-      address: "Text",
+      Name: "User4",
+      Address: "테스트 중입니다.",
       Phone: "010-1234-5678",
       Email: "test@test.com",
     },
     {
-      name: "User5",
-      address: "Text",
+      Name: "User5",
+      Address: "테스트 중입니다.",
       Phone: "010-1234-5678",
       Email: "test@test.com",
     },
-  ];
-
-  const ContentList = [
-    "Content1",
-    "Content2",
-    "Content3",
-    "Content4",
-    "Content5",
-    "Content6",
-    "Content7",
-  ];
-
-  const BulletinList = [
-    "Bulletin1",
-    "Bulletin2",
-    "Bulletin3",
-    "Bulletin4",
-    "Bulletin5",
-    "Bulletin6",
-    "Bulletin7",
   ];
 
   const Check = (e) => {
@@ -101,17 +81,25 @@ const admin = () => {
           <div className={style.MainListBox}>
             <div id="user" className={`${style.UserList} ${style.List}`}>
               <table border={1}>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Emaile</th>
-                  </tr>
-                </thead>
+                <tr>
+                  <th>idx</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Emaile</th>
+                </tr>
               </table>
               {UserList.map((items, index) => {
-                return <ItemList key={index} name={items} />;
+                return (
+                  <ItemList
+                    key={index}
+                    idx={index}
+                    name={items.Name}
+                    address={items.Address}
+                    phone={items.Phone}
+                    email={items.Email}
+                  />
+                );
               })}
             </div>
             <div id="content" className={`${style.ContentList} ${style.List}`}>

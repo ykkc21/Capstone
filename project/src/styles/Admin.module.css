@@ -45,6 +45,7 @@
 .ControllBox > .MainListBox > .List > table {
   width: 100%;
   height: 50px;
+  border-collapse: collapse;
 }
 
 .ControllBox > .MainListBox > .UserList {

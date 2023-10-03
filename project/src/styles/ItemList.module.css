@@ -13,3 +13,13 @@
   border-radius: 10px;
   margin: 10px 0px;
 }
+
+.itemlist > table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+.itemlist > table > th {
+  width: 50%;
+  height: 100%;
+}
