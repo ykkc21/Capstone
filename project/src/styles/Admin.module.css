@@ -15,6 +15,7 @@
 }
 .AdminContainer > h1 {
   margin: 20px 0;
+  text-align: left;
 }
 
 .ControllBox {
@@ -29,7 +30,25 @@
   width: 100%;
   height: 698px;
   background-color: aqua;
+  position: relative;
 }
+
+.ControllBox > .MainListBox > .List {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  transition: 0.5s;
+  display: none;
+}
+
+.ControllBox > .MainListBox > .UserList {
+  display: block;
+}
+/* .ControllBox > .MainListBox > .ContentList {
+}
+.ControllBox > .MainListBox > .BulletinList {
+} */
 
 @media (max-width: 1440px) {
 }
