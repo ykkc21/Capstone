@@ -29,8 +29,9 @@
 .ControllBox > .MainListBox {
   width: 100%;
   height: 698px;
-  background-color: aqua;
+  background-color: rgba(238, 245, 245, 0.737);
   position: relative;
+  padding-top: 10px;
 }
 
 .ControllBox > .MainListBox > .List {
@@ -48,6 +49,7 @@
 
 .ControllBox > .MainListBox > .UserList {
   display: block;
+  padding-top: 10px;
 }
 /* .ControllBox > .MainListBox > .ContentList {
 }

@@ -8,7 +8,8 @@
 
 .itemlist {
   width: 100%;
-  height: 80px;
-  border: 2px solid #000;
-  border-radius: 20px;
+  height: 60px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 10px 0px;
 }
