@@ -41,6 +41,10 @@
   transition: 0.5s;
   display: none;
 }
+.ControllBox > .MainListBox > .List > table {
+  width: 100%;
+  height: 50px;
+}
 
 .ControllBox > .MainListBox > .UserList {
   display: block;

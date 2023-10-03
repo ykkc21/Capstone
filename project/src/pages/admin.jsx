@@ -1,9 +1,63 @@
 import { React, Fragment } from "react";
 import Header from "../components/header";
 import style from "../styles/Admin.module.css";
+import ItemList from "../constants/ItemList";
 import Button from "../constants/button";
+
 const admin = () => {
   const items = ["User", "Content", "Bulletin"];
+  const UserList = [
+    {
+      name: "User1",
+      address: "Text",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      name: "User2",
+      address: "Text",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      name: "User3",
+      address: "Text",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      name: "User4",
+      address: "Text",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      name: "User5",
+      address: "Text",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+  ];
+
+  const ContentList = [
+    "Content1",
+    "Content2",
+    "Content3",
+    "Content4",
+    "Content5",
+    "Content6",
+    "Content7",
+  ];
+
+  const BulletinList = [
+    "Bulletin1",
+    "Bulletin2",
+    "Bulletin3",
+    "Bulletin4",
+    "Bulletin5",
+    "Bulletin6",
+    "Bulletin7",
+  ];
 
   const Check = (e) => {
     const dom = e.target;
@@ -46,7 +100,19 @@ const admin = () => {
 
           <div className={style.MainListBox}>
             <div id="user" className={`${style.UserList} ${style.List}`}>
-              <h1>User</h1>
+              <table border={1}>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Emaile</th>
+                  </tr>
+                </thead>
+              </table>
+              {UserList.map((items, index) => {
+                return <ItemList key={index} name={items} />;
+              })}
             </div>
             <div id="content" className={`${style.ContentList} ${style.List}`}>
               <h1>Content</h1>
