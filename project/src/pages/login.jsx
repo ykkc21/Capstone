@@ -1,24 +1,34 @@
-import React, { Fragment } from "react";
+import { React, Fragment, useState } from "react";
 import style from "../styles/Login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import Join from "../pages/join";
 
 const Login = () => {
-  const LoginCheck = () => {
-    const email = document.getElementById("email");
-    const pw = document.getElementById("pw");
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
 
-    if (email.value == "" || pw.value == "") {
+  const LoginCheck = () => {
+    if (email == "" || pw == "") {
       alert("이메일과 비밀번호를 작성해 주세요.");
     } else {
       axios
         .post("http://localhost:8080/loginData", {
-          email: email.value,
-          pw: pw.value,
+          email,
+          pw,
         })
-        .then((res) => {
-          console.log("전송된 데이터:", res);
+        .then((result) => {
+          console.log(result);
+          if (result.data == "No_User") {
+            alert("계정을 다시한번 확인 해주세요");
+            setEmail("");
+            setPw("");
+          } else if (result.data == "OK") {
+            alert("계정을 찾았습니다.");
+            setEmail("");
+            setPw("");
+            // eslint-disable-next-line no-restricted-globals
+            location.href = "/";
+          }
         })
         .catch((err) => {
           console.error(err);
@@ -43,16 +53,20 @@ const Login = () => {
               <input
                 type="text"
                 id="email"
+                value={email}
                 className={style.login_input}
                 placeholder="User Id"
                 name="user_id"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 id="pw"
+                value={pw}
                 className={style.login_input}
                 placeholder="Password"
                 name="user_pw"
+                onChange={(e) => setPw(e.target.value)}
               />
               <button
                 value="Sign up"

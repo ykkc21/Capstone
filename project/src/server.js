@@ -34,25 +34,30 @@ app.post("/loginData", (req, res) => {
         if (err) {
           console.error(err);
         }
-        req.session.user = row[0];
-        req.session.save();
-        res.send("OK");
+
+        if (row.length === 0) {
+          res.send("No_User");
+        } else {
+          req.session.user = row[0];
+          req.session.save();
+          res.send("OK");
+        }
       }
     );
   } else {
-    console.log("둘 중 하나가 값이 없다.");
+    res.send("알맞는 계정이 없습니다.");
   }
 });
 
 app.get("/loginCheck", (req, res) => {
-  const user = { name: "Test", address: "test1" };
-  res.json(user);
+  const user = req.session.user;
+  res.send(`저장한 세션값 ${user}`);
 });
 
 app.post("/joinData", (req, res) => {
   const { name, nickname, bd, email, pw } = req.body;
   db.query(
-    "INSERT INTO user(name,nickname,email,pw,bd) VALUES('" +
+    "INSERT INTO user(name,nickname,email,pw,bd,state) VALUES('" +
       name +
       "','" +
       nickname +
@@ -62,7 +67,7 @@ app.post("/joinData", (req, res) => {
       pw +
       "','" +
       bd +
-      "')",
+      "','User')",
     (err, result) => {
       if (err) console.error(err);
       res.send(result);

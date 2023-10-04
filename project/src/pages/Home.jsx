@@ -7,6 +7,16 @@ import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
 import axios from "axios";
 const Home = () => {
+  useEffect(() => {
+    const user = axios
+      .get("http://localhost:8080/loginCheck")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <Fragment>
       <Hedaer />

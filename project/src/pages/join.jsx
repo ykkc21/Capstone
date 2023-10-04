@@ -1,45 +1,37 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/Join.module.css";
-import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Join = () => {
-  const InputValue = () => {
-    let name = document.getElementById("name");
-    let nickname = document.getElementById("nickname");
-    let bd = document.getElementById("bd");
-    let email = document.getElementById("email");
-    let pw = document.getElementById("pw");
+  const [name, setName] = useState("");
+  const [nickname, setNickName] = useState("");
+  const [bd, setBd] = useState("");
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
 
-    if (
-      name.value == "" ||
-      nickname.value == "" ||
-      bd.value == "" ||
-      email.value == "" ||
-      pw.value == ""
-    ) {
-      console.log(name.value, nickname.value, bd.value, email.value, pw.value);
+  const InputValue = () => {
+    console.log(name, nickname, bd, email, pw);
+    if (name == "" || nickname == "" || bd == "" || email == "" || pw == "") {
       alert("빈값이 있습니다. 다 채워주세요!");
     } else {
-      alert("서버에 값 전달하기");
       const sendUserData = axios
         .post("http://localhost:8080/joinData", {
-          name: name.value,
-          nickname: nickname.value,
-          bd: bd.value,
-          email: email.value,
-          pw: pw.value,
+          name,
+          nickname,
+          bd,
+          email,
+          pw,
         })
         .then(function (response) {
           console.log(response);
           if (response.statusText == "OK") {
-            name.value = "";
-            nickname.value = "";
-            email.value = "";
-            pw.value = "";
-            bd.value = "";
+            setName("");
+            setNickName("");
+            setBd("");
+            setEmail("");
+            setPw("");
             // DB에 데이터 전송이 성공하면 로그인 페이지로 이동
-
             alert("회원가입이 완료 되었습니다.");
             // eslint-disable-next-line no-restricted-globals
             location.href = "/login";
@@ -56,26 +48,34 @@ const Join = () => {
         <div className={style.Join_BackWave}>
           <div className={style.JoinBox}>
             <h1>Create Account</h1>
-            {/* <form
-              className={style.JoinForm}
-              action="http://localhost:8080/joinData"
-              method="POST"
-            > */}
             <div className={style.JoinForm}>
               <div className={style.inputbox}>
                 <label>Name</label>
-                <input type="text" name="name" id="name" autoComplete="off" />
+                <input
+                  type="text"
+                  name="name"
+                  onChange={(e) => setName(e.target.value)}
+                  id="name"
+                  autoComplete="off"
+                />
                 <label>NickName</label>
                 <input
                   type="text"
                   name="nickname"
                   id="nickname"
+                  onChange={(e) => setNickName(e.target.value)}
                   autoComplete="off"
                 />
               </div>
               <div className={style.inputbox}>
                 <label>Birthday</label>
-                <input type="date" name="bd" id="bd" autoComplete="off" />
+                <input
+                  type="date"
+                  name="bd"
+                  id="bd"
+                  onChange={(e) => setBd(e.target.value)}
+                  autoComplete="off"
+                />
               </div>
               <div className={style.inputbox}>
                 <label>Email</label>
@@ -83,12 +83,19 @@ const Join = () => {
                   type="email"
                   name="email"
                   id="email"
+                  onChange={(e) => setEmail(e.target.value)}
                   autoComplete="off"
                 />
               </div>
               <div className={style.inputbox}>
                 <label>Password</label>
-                <input type="password" id="pw" name="pw" autoComplete="off" />
+                <input
+                  type="password"
+                  id="pw"
+                  onChange={(e) => setPw(e.target.value)}
+                  name="pw"
+                  autoComplete="off"
+                />
               </div>
               <button onClick={InputValue}>Create</button>
             </div>
