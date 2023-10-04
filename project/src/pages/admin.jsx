@@ -107,7 +107,7 @@ const admin = () => {
 
   const Check = (e) => {
     const dom = e.target;
-    console.log(dom);
+
     const domName = e.target.className.split(" ");
     const user = document.getElementById("user");
     const content = document.getElementById("content");

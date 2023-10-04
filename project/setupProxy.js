@@ -7,4 +7,11 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
+  app.use(
+    createProxyMiddleware("/loginCheck", {
+      target: "http://localhost:8080",
+      changeOrigin: true,
+    })
+  );
 };

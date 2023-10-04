@@ -7,9 +7,7 @@ import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
 import axios from "axios";
 const Home = () => {
-  const [userState, SetUserState] = useState([]);
-
-  console.log(userState);
+  // const [userState, SetUserState] = useState([]);
   useEffect(() => {
     const user = axios
       .get("http://localhost:8080/loginCheck")
@@ -17,7 +15,7 @@ const Home = () => {
         console.log(result);
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
       });
   });
   return (

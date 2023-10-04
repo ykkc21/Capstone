@@ -23,15 +23,9 @@ app.use(
   })
 );
 
-app.get("/loginCheck", (req, res) => {
-  console.log("로그인 체크:", req.session);
-  res.send("OK");
-});
-
 app.post("/loginData", (req, res) => {
   const email = req.body.user_id;
   const pw = req.body.user_pw;
-  console.log(email, pw);
 
   if (email && pw) {
     db.query(
@@ -42,14 +36,18 @@ app.post("/loginData", (req, res) => {
         }
         req.session.user = row[0];
         req.session.save(() => {
-          res.redirect("http://localhost:3000");
+          location.href = "localhost:8080";
         });
-        console.log(req.session);
       }
     );
   } else {
     console.log("둘 중 하나가 값이 없다.");
   }
+});
+
+app.get("/loginCheck", (req, res) => {
+  const user = { name: "Test", address: "test1" };
+  res.json(user);
 });
 
 app.post("/joinData", (req, res) => {
