@@ -39,6 +39,72 @@ const admin = () => {
     },
   ];
 
+  const BulletinList = [
+    {
+      Name: "Bulletin1",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Bulletin2",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Bulletin3",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Bulletin4",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Bulletin5",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+  ];
+
+  const ContentList = [
+    {
+      Name: "Content1",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Content2",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Content3",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Content4",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+    {
+      Name: "Content5",
+      Address: "테스트 중입니다.",
+      Phone: "010-1234-5678",
+      Email: "test@test.com",
+    },
+  ];
+
   const Check = (e) => {
     const dom = e.target;
     console.log(dom);
@@ -103,13 +169,35 @@ const admin = () => {
               })}
             </div>
             <div id="content" className={`${style.ContentList} ${style.List}`}>
-              <h1>Content</h1>
+              {ContentList.map((items, index) => {
+                return (
+                  <ItemList
+                    key={index}
+                    idx={index}
+                    name={items.Name}
+                    address={items.Address}
+                    phone={items.Phone}
+                    email={items.Email}
+                  />
+                );
+              })}
             </div>
             <div
               id="bulletin"
               className={`${style.BulletinList} ${style.List}`}
             >
-              <h1>Bulletin</h1>
+              {BulletinList.map((items, index) => {
+                return (
+                  <ItemList
+                    key={index}
+                    idx={index}
+                    name={items.Name}
+                    address={items.Address}
+                    phone={items.Phone}
+                    email={items.Email}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

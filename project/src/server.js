@@ -31,6 +31,7 @@ app.get("/loginCheck", (req, res) => {
 app.post("/loginData", (req, res) => {
   const email = req.body.user_id;
   const pw = req.body.user_pw;
+  console.log(email, pw);
 
   if (email && pw) {
     db.query(
@@ -39,10 +40,11 @@ app.post("/loginData", (req, res) => {
         if (err) {
           console.error(err);
         }
-        req.session.user = row[0].name;
+        req.session.user = row[0];
         req.session.save(() => {
           res.redirect("http://localhost:3000");
         });
+        console.log(req.session);
       }
     );
   } else {
