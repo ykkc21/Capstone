@@ -18,7 +18,7 @@ const Login = () => {
           pw: pw.value,
         })
         .then((res) => {
-          console.log(res);
+          console.log("전송된 데이터:", res);
         })
         .catch((err) => {
           console.error(err);
@@ -35,7 +35,11 @@ const Login = () => {
               <Link to={"/"}>LOGO</Link>
             </h1>
             <p className={style.login_text}>Login</p>
-            <form action="http://localhost:8080/loginData" method="POST">
+            <div
+              className={style.loginBox}
+              action="http://localhost:8080/loginData"
+              method="POST"
+            >
               <input
                 type="text"
                 id="email"
@@ -50,12 +54,14 @@ const Login = () => {
                 placeholder="Password"
                 name="user_pw"
               />
-              <input
-                type="submit"
+              <button
                 value="Sign up"
                 className={style.login_input_submit}
-              />
-            </form>
+                onClick={LoginCheck}
+              >
+                Sign up
+              </button>
+            </div>
             <Link to={"/join"} className={style.join_text}>
               저장된 회원정보가 없나요?
             </Link>

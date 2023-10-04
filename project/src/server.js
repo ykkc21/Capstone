@@ -24,8 +24,8 @@ app.use(
 );
 
 app.post("/loginData", (req, res) => {
-  const email = req.body.user_id;
-  const pw = req.body.user_pw;
+  const email = req.body.email;
+  const pw = req.body.pw;
 
   if (email && pw) {
     db.query(
@@ -35,9 +35,8 @@ app.post("/loginData", (req, res) => {
           console.error(err);
         }
         req.session.user = row[0];
-        req.session.save(() => {
-          location.href = "localhost:8080";
-        });
+        req.session.save();
+        res.send("OK");
       }
     );
   } else {
