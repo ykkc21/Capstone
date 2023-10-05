@@ -22,7 +22,7 @@ const Login = () => {
             alert("계정을 다시한번 확인 해주세요");
             setEmail("");
             setPw("");
-          } else if (result.data.msg == "OK") {
+          } else if (result.data == "OK") {
             console.log(result.data);
             alert("계정을 찾았습니다.");
             setEmail("");
