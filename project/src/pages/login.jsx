@@ -12,7 +12,7 @@ const Login = () => {
       alert("이메일과 비밀번호를 작성해 주세요.");
     } else {
       axios
-        .post("http://localhost:8080/loginData", {
+        .post("/loginData", {
           email,
           pw,
         })
