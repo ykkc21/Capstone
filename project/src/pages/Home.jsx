@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     // http://localhost:8080/api
     const user = axios
-      .get("/api")
+      .get("/loginCheck")
       .then((result) => {
         console.log(result);
       })

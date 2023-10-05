@@ -11,7 +11,7 @@ module.exports = function (app) {
   );
 
   app.use(
-    "/api/session",
+    "/loginCheck",
     createProxyMiddleware({
       target: "http://localhost:8080", // Express 서버 주소
       changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
