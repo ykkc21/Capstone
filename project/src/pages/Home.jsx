@@ -8,13 +8,14 @@ import Footer from "../components/footer";
 import axios from "axios";
 const Home = () => {
   useEffect(() => {
+    // http://localhost:8080/api
     const user = axios
-      .get("http://localhost:8080/loginCheck")
+      .get("/api")
       .then((result) => {
         console.log(result);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   });
   return (
