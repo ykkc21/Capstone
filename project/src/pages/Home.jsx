@@ -13,10 +13,17 @@ const Home = () => {
     const user = axios
       .get("/loginCheck")
       .then((result) => {
-        const newData = session.concat(result.data.user);
-        const set = new Set();
-        set.add(newData);
-        setSesstion(set);
+        if (result.data.msg === "NO") {
+          const newData = session.concat({ msg: "NO" });
+          const set = new Set();
+          set.add(newData);
+          setSesstion(set);
+        } else {
+          const newData = session.concat(result.data.user);
+          const set = new Set();
+          set.add(newData);
+          setSesstion(set);
+        }
       })
       .catch((err) => {
         console.error(err);

@@ -1,20 +1,31 @@
 import { Fragment, React } from "react";
 import { Link } from "react-router-dom";
 import style from "../styles/Header.module.css";
+import axios from "axios";
 
 const Header = ({ userData }) => {
+  console.log(userData);
   // console.log("Header로 넘어온 prosp", userData);
   const userState = Array.from(userData);
   const states = userState.map((item, idx) => {
-    return {
-      idx: item[idx].idx,
-      name: item[idx].name,
-      states: item[idx].state,
-    };
+    if (item[idx].msg === "NO") {
+      return "No";
+    } else {
+      return {
+        idx: item[idx].idx,
+        name: item[idx].name,
+        states: item[idx].state,
+      };
+    }
   });
 
+  const SesstionDistroy = async () => {
+    const distroy = await axios.get("/logout");
+    if (distroy.data === "logout") alert("로그아웃 하였습니다.");
+  };
+
   const ChangeBtn = (value) => {
-    // console.log("ChangeBtn", value);
+    console.log("ChangeBtn", value);
 
     if (value.some((item) => item.states === "Admin")) {
       return (
@@ -22,9 +33,9 @@ const Header = ({ userData }) => {
           <Link to={"/admin"} className={style.Hedaer_Login_btn}>
             Admin Page
           </Link>
-          <Link to={"/logout"} className={style.Hedaer_Login_btn}>
+          <button onClick={SesstionDistroy} className={style.Hedaer_Login_btn}>
             Logout
-          </Link>
+          </button>
         </Fragment>
       );
     } else if (value.some((item) => item.states === "User")) {

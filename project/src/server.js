@@ -84,7 +84,10 @@ app.get("/loginCheck", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.send("logout");
+  req.session.destroy(() => {
+    res.send("logout");
+    res.redirect("http://localhost:3000");
+  });
 });
 
 app.post("/joinData", (req, res) => {
