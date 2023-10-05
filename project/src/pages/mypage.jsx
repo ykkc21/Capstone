@@ -1,5 +1,11 @@
-import React from "react";
+import { React, Fragment } from "react";
 
-const mypage = () => {};
+const MyPage = () => {
+  return (
+    <Fragment>
+      <h1>MyPage</h1>
+    </Fragment>
+  );
+};
 
-export default mypage;
+export default MyPage;

@@ -22,8 +22,6 @@ const Home = () => {
         console.error(err);
       });
   });
-
-  console.log(session);
   return (
     <Fragment>
       <Hedaer userData={session} />

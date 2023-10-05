@@ -83,6 +83,10 @@ app.get("/loginCheck", (req, res) => {
   }
 });
 
+app.get("/logout", (req, res) => {
+  res.send("logout");
+});
+
 app.post("/joinData", (req, res) => {
   const { name, nickname, bd, email, pw } = req.body;
   db.query(

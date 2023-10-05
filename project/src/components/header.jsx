@@ -1,21 +1,47 @@
-import { React } from "react";
+import { Fragment, React } from "react";
 import { Link } from "react-router-dom";
 import style from "../styles/Header.module.css";
 
 const Header = ({ userData }) => {
   // console.log("Header로 넘어온 prosp", userData);
   const userState = Array.from(userData);
-  // console.log("array Change", userState);
+  const states = userState.map((item, idx) => {
+    return {
+      idx: item[idx].idx,
+      name: item[idx].name,
+      states: item[idx].state,
+    };
+  });
 
   const ChangeBtn = (value) => {
-    if (value == "Admin") {
-      <Link to={"/admin"} className={style.Hedaer_Login_btn}>
-        Admin Page
-      </Link>;
+    // console.log("ChangeBtn", value);
+
+    if (value.some((item) => item.states === "Admin")) {
+      return (
+        <Fragment>
+          <Link to={"/admin"} className={style.Hedaer_Login_btn}>
+            Admin Page
+          </Link>
+          <Link to={"/logout"} className={style.Hedaer_Login_btn}>
+            Logout
+          </Link>
+        </Fragment>
+      );
+    } else if (value.some((item) => item.states === "User")) {
+      <Fragment>
+        <Link to={"/mypage"} className={style.Hedaer_Login_btn}>
+          MyPage
+        </Link>
+        <Link to={"/Logout"} className={style.Hedaer_Login_btn}>
+          Logout
+        </Link>
+      </Fragment>;
     } else {
-      <Link to={"/login"} className={style.Hedaer_Login_btn}>
-        Sing in
-      </Link>;
+      return (
+        <Link to={"/login"} className={style.Hedaer_Login_btn}>
+          Sing in
+        </Link>
+      );
     }
   };
 
@@ -44,7 +70,7 @@ const Header = ({ userData }) => {
             </Link>
           </li>
         </ul>
-        <div className={style.Hedaer_Login}>{ChangeBtn()}</div>
+        <div className={style.Hedaer_Login}>{ChangeBtn(states)}</div>
       </div>
     </header>
   );
