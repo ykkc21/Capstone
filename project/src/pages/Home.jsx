@@ -7,20 +7,26 @@ import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
 import axios from "axios";
 const Home = () => {
+  const [session, setSesstion] = useState([]);
+
   useEffect(() => {
-    // http://localhost:8080/api
     const user = axios
       .get("/loginCheck")
       .then((result) => {
-        console.log(result);
+        const newData = session.concat(result.data.user);
+        const set = new Set();
+        set.add(newData);
+        setSesstion(set);
       })
       .catch((err) => {
         console.error(err);
       });
   });
+
+  console.log(session);
   return (
     <Fragment>
-      <Hedaer />
+      <Hedaer userData={session} />
       <View />
       <About />
       <SubAbout />
