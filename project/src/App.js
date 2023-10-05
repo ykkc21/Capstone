@@ -5,14 +5,39 @@ import Join from "./pages/join";
 import TraveList from "./pages/TraveList";
 import Admin from "./pages/admin";
 import Mypage from "./pages/mypage";
-import React, { useEffect, Fragment } from "react";
+import { React, useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
 function App() {
+  const [session, setSesstion] = useState([]);
+
+  useEffect(() => {
+    // const user = axios
+    //   .get("/loginCheck")
+    //   .then((result) => {
+    //     if (result.data.msg === "NO") {
+    //       const newData = session.concat({ msg: "NO" });
+    //       const set = new Set();
+    //       set.add(newData);
+    //       setSesstion(set);
+    //     } else {
+    //       const newData = session.concat(result.data.user);
+    //       const set = new Set();
+    //       set.add(newData);
+    //       setSesstion(set);
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    console.log(123);
+  });
+
   return (
     <BrowserRouter>
       <Fragment>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home userData={session} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/join" element={<Join />} />
           <Route path="/traveList" element={<TraveList />} />

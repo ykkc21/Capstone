@@ -1,6 +1,6 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/Login.module.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {

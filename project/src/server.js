@@ -86,7 +86,6 @@ app.get("/loginCheck", (req, res) => {
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {
     res.send("logout");
-    res.redirect("http://localhost:3000");
   });
 });
 
