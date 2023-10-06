@@ -1,10 +1,11 @@
-import { React, Fragment } from "react";
+import { React, Fragment, useState } from "react";
 import Header from "../components/header";
 import style from "../styles/Admin.module.css";
 import ItemList from "../constants/ItemList";
 import Button from "../constants/button";
 
-const admin = () => {
+const Admin = ({ userData }) => {
+  const [selectedItem, setSelectedItem] = useState("User");
   const items = ["User", "Content", "Bulletin"];
   const UserList = [
     {
@@ -134,7 +135,7 @@ const admin = () => {
   };
   return (
     <Fragment>
-      <Header />
+      <Header userData={userData} />
       <div className={style.AdminContainer}>
         <h1>Home</h1>
         <div className={style.ControllBox}>
@@ -206,4 +207,4 @@ const admin = () => {
   );
 };
 
-export default admin;
+export default Admin;

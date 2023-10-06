@@ -12,25 +12,24 @@ function App() {
   const [session, setSesstion] = useState([]);
 
   useEffect(() => {
-    // const user = axios
-    //   .get("/loginCheck")
-    //   .then((result) => {
-    //     if (result.data.msg === "NO") {
-    //       const newData = session.concat({ msg: "NO" });
-    //       const set = new Set();
-    //       set.add(newData);
-    //       setSesstion(set);
-    //     } else {
-    //       const newData = session.concat(result.data.user);
-    //       const set = new Set();
-    //       set.add(newData);
-    //       setSesstion(set);
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
-    console.log(123);
+    const user = axios
+      .get("/loginCheck")
+      .then((result) => {
+        if (result.data.msg === "NO") {
+          const newData = session.concat({ msg: "NO" });
+          const set = new Set();
+          set.add(newData);
+          setSesstion(set);
+        } else {
+          const newData = session.concat(result.data.user);
+          const set = new Set();
+          set.add(newData);
+          setSesstion(set);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   });
 
   return (
@@ -41,7 +40,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/join" element={<Join />} />
           <Route path="/traveList" element={<TraveList />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<Admin userData={session} />} />
           <Route path="/mypage" element={<Mypage />} />
         </Routes>
       </Fragment>
