@@ -18,6 +18,11 @@
   text-align: left;
 }
 
+.AdminContainer > .AddContent {
+  width: 140px;
+  height: 40px;
+}
+
 .ControllBox {
   width: 100%;
   height: 780px;

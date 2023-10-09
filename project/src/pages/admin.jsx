@@ -40,6 +40,10 @@ const Admin = ({ userData }) => {
     },
   ];
 
+  const AddContentBox = () => {
+    console.log(123);
+  };
+
   const Check = (e) => {
     const dom = e.target;
 
@@ -71,6 +75,9 @@ const Admin = ({ userData }) => {
     <Fragment>
       <Header userData={userData} />
       <div className={style.AdminContainer}>
+        <button onClick={AddContentBox} className={style.AddContent}>
+          Add Content
+        </button>
         <h1>Home</h1>
         <div className={style.ControllBox}>
           <div className={style.btnbox}>
