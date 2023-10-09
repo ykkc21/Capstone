@@ -10,6 +10,10 @@ const AddContent = () => {
               <div className={style.titlebox}>
                 <h1>Upload Content</h1>
               </div>
+              <div className={style.ImageBox}>
+                <div className={style.UploadImage}></div>
+              </div>
+              <div className={style.OptionBox}></div>
             </div>
           </div>
         </div>
