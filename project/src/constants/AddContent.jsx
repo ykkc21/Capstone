@@ -11,7 +11,7 @@ const AddContent = () => {
                 <h1>Upload Content</h1>
               </div>
               <div className={style.ImageBox}>
-                <div className={style.UploadImage}></div>
+                <h1>Upload Image</h1>
               </div>
               <div className={style.OptionBox}></div>
             </div>

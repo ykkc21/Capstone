@@ -53,6 +53,14 @@
   height: 520px;
   float: left;
   background-color: black;
+  padding: 100px 20px;
+}
+.Main > .AddContentBox > .ImageBox > h1 {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  line-height: 320px;
+  border: 1px dashed #fff;
 }
 .Main > .AddContentBox > .OptionBox {
   width: 50%;
