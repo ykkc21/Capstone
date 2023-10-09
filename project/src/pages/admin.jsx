@@ -40,72 +40,6 @@ const Admin = ({ userData }) => {
     },
   ];
 
-  const BulletinList = [
-    {
-      Name: "Bulletin1",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Bulletin2",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Bulletin3",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Bulletin4",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Bulletin5",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-  ];
-
-  const ContentList = [
-    {
-      Name: "Content1",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Content2",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Content3",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Content4",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "Content5",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-  ];
-
   const Check = (e) => {
     const dom = e.target;
 
@@ -148,13 +82,15 @@ const Admin = ({ userData }) => {
           <div className={style.MainListBox}>
             <div id="user" className={`${style.UserList} ${style.List}`}>
               <table border={1}>
-                <tr>
-                  <th>idx</th>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  <th>Emaile</th>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th>idx</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Emaile</th>
+                  </tr>
+                </tbody>
               </table>
               {UserList.map((items, index) => {
                 return (
@@ -169,37 +105,14 @@ const Admin = ({ userData }) => {
                 );
               })}
             </div>
-            <div id="content" className={`${style.ContentList} ${style.List}`}>
-              {ContentList.map((items, index) => {
-                return (
-                  <ItemList
-                    key={index}
-                    idx={index}
-                    name={items.Name}
-                    address={items.Address}
-                    phone={items.Phone}
-                    email={items.Email}
-                  />
-                );
-              })}
-            </div>
+            <div
+              id="content"
+              className={`${style.ContentList} ${style.List}`}
+            ></div>
             <div
               id="bulletin"
               className={`${style.BulletinList} ${style.List}`}
-            >
-              {BulletinList.map((items, index) => {
-                return (
-                  <ItemList
-                    key={index}
-                    idx={index}
-                    name={items.Name}
-                    address={items.Address}
-                    phone={items.Phone}
-                    email={items.Email}
-                  />
-                );
-              })}
-            </div>
+            ></div>
           </div>
         </div>
       </div>

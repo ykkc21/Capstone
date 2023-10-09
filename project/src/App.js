@@ -41,7 +41,7 @@ function App() {
           <Route path="/join" element={<Join />} />
           <Route path="/traveList" element={<TraveList />} />
           <Route path="/admin" element={<Admin userData={session} />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage" element={<Mypage userData={session} />} />
         </Routes>
       </Fragment>
     </BrowserRouter>
