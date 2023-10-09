@@ -3,7 +3,17 @@ import style from "../styles/AddContent.module.css";
 const AddContent = () => {
   return (
     <Fragment>
-      <div className={style}></div>
+      <div className={style.wrap}>
+        <div className={style.container}>
+          <div className={style.Main}>
+            <div className={style.AddContentBox}>
+              <div className={style.titlebox}>
+                <h1>Upload Content</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };
