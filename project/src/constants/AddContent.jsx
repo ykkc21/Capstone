@@ -13,7 +13,32 @@ const AddContent = () => {
               <div className={style.ImageBox}>
                 <h1>Upload Image</h1>
               </div>
-              <div className={style.OptionBox}></div>
+              <div className={style.OptionBox}>
+                <div className={style.OptionInput}>
+                  <label>Title</label>
+                  <br />
+                  <br />
+                  <input type="text" name="title" id="title" />
+                </div>
+                <div className={style.OptionInput}>
+                  <label>Information</label>
+                  <br />
+                  <br />
+                  <input type="text" name="info" id="info" />
+                </div>
+                <div className={style.OptionInput}>
+                  <label>Location</label>
+                  <br />
+                  <br />
+                  <input type="text" name="info" id="info" />
+                </div>
+                <div className={style.OptionInput}>
+                  <label>Youtube</label>
+                  <br />
+                  <br />
+                  <input type="text" name="info" id="info" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

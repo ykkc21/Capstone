@@ -24,8 +24,8 @@
 }
 
 .Main > .AddContentBox {
-  width: 980px;
-  height: 600px;
+  width: 1200px;
+  height: 650px;
   background-color: red;
   position: absolute;
   top: 50%;
@@ -49,8 +49,8 @@
   text-align: left;
 }
 .Main > .AddContentBox > .ImageBox {
-  width: 50%;
-  height: 520px;
+  width: 40%;
+  height: 570px;
   float: left;
   background-color: black;
   padding: 100px 20px;
@@ -59,14 +59,33 @@
   width: 100%;
   height: 100%;
   color: #fff;
-  line-height: 320px;
+  line-height: 350px;
   border: 1px dashed #fff;
 }
 .Main > .AddContentBox > .OptionBox {
-  width: 50%;
-  height: 520px;
+  width: 60%;
+  height: 570px;
   float: left;
   background-color: blue;
+  padding: 30px 60px;
+}
+
+.Main > .AddContentBox > .OptionBox > .OptionInput {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 30px;
+}
+.Main > .AddContentBox > .OptionBox > .OptionInput > label {
+  display: block;
+  float: left;
+  font-weight: bold;
+  font-size: 25px;
+}
+.Main > .AddContentBox > .OptionBox > .OptionInput > input {
+  width: 80%;
+  height: 50px;
+  float: left;
+  border-radius: 20px;
 }
 .Main > .AddContentBox > .UploadImage {
 }
