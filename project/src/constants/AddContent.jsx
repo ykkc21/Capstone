@@ -1,8 +1,10 @@
-import { React, Fragment } from "react";
+import { React, Fragment, useState } from "react";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 const AddContent = () => {
+  const [imgname, setImageName] = useState("");
+
   const DragOverHandler = (e) => {
     e.preventDefault();
     console.log(e);
@@ -10,9 +12,9 @@ const AddContent = () => {
 
   const DropHandler = (e) => {
     e.preventDefault();
-
-    const files = e.dataTransfer;
-    console.log(files);
+    const files = e.dataTransfer.files[0];
+    setImageName(files.name);
+    console.log(imgname);
   };
 
   return (
