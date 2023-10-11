@@ -1,4 +1,5 @@
 import { React, Fragment, useState } from "react";
+import DropImage from "./DropImage";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,6 @@ const AddContent = () => {
   const [location, setLocation] = useState("");
   const [youtubeId, setYoutubeId] = useState("");
   const [array, setArray] = useState([]);
-  const [backgroundImage, setBackgroundImage] = useState("");
 
   const DragOverHandler = (e) => {
     e.preventDefault();
@@ -20,17 +20,6 @@ const AddContent = () => {
     e.preventDefault();
     const files = e.dataTransfer.files[0];
     const fileName = files.name;
-    ChangeBackGround(fileName);
-  };
-
-  const ChangeBackGround = (name) => {
-    console.log(name);
-    const imageURL = `url(../assets/img/${name})`;
-    setBackgroundImage(imageURL);
-    // dom.style.backgroundImage = `url(../assets/img/${name})`;
-    // dom.style.backgroundPosition = "center";
-    // dom.style.backgroundRepeat = "no-repeat";
-    // dom.style.backgroundSize = "cover";
   };
 
   const getYoutubeId = (e) => {
@@ -74,16 +63,7 @@ const AddContent = () => {
                   <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                 </label>
               </div>
-              <div
-                onDragOver={DragOverHandler}
-                onDrop={DropHandler}
-                className={style.ImageBox}
-                id="ImageBox"
-                style={{ backgroundImage }}
-              >
-                <h1>Upload Image</h1>
-                <div className={style.back}></div>
-              </div>
+              <DropImage />
               <div className={style.OptionBox}>
                 <div className={style.OptionInput}>
                   <label>Title</label>
