@@ -1,12 +1,12 @@
 import { React, Fragment } from "react";
 import style from "../styles/DropImage.module.css";
 
-const DropImage = () => {
+const DropImage = ({ DropEvent, DrageMove }) => {
   return (
     <Fragment>
       <div
-        // onDragOver={DragOverHandler}
-        // onDrop={DropHandler}
+        onDragOver={DrageMove}
+        onDrop={DropEvent}
         className={style.ImageBox}
         id="ImageBox"
       >
