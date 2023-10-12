@@ -8,7 +8,7 @@
 
 .ImageBox {
   width: 40%;
-  height: 570px;
+  height: 630px;
   float: left;
   padding: 100px 20px;
   position: relative;
@@ -26,7 +26,9 @@
   width: 100%;
   height: 100%;
   color: #fff;
-  line-height: 350px;
+  line-height: 410px;
+  font-size: 45px;
+  font-weight: bolder;
   border: 2px dashed #fff;
   border-radius: 10px;
 }

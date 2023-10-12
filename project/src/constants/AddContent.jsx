@@ -20,7 +20,7 @@ const AddContent = () => {
     e.preventDefault();
     const files = e.dataTransfer.files[0];
     const fileName = files.name;
-    console.log(imgname, "=", fileName);
+    setImageName(fileName);
   };
 
   const getYoutubeId = (e) => {
@@ -64,7 +64,11 @@ const AddContent = () => {
                   <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                 </label>
               </div>
-              <DropImage DropEvent={DropHandler} DrageMove={DragOverHandler} />
+              <DropImage
+                background={imgname}
+                DropEvent={DropHandler}
+                DrageMove={DragOverHandler}
+              />
               <div className={style.OptionBox}>
                 <div className={style.OptionInput}>
                   <label>Title</label>
@@ -148,6 +152,7 @@ const AddContent = () => {
                     })}
                   </div>
                 </div>
+                <button className={style.UploadBtn}>Upload</button>
               </div>
             </div>
           </div>
