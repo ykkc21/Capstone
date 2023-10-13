@@ -111,6 +111,8 @@ app.post("/joinData", (req, res) => {
   db.end();
 });
 
+app.post("/AddContent", (req, res) => {});
+
 //세션 테스트 용
 // app.get("/set-session", (req, res) => {
 // req.session.save(() => {

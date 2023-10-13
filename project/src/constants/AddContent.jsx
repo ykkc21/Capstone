@@ -25,6 +25,7 @@ const AddContent = () => {
 
   const getYoutubeId = (e) => {
     const IdListbox = document.getElementById("IdList");
+    const BtnUpload = document.getElementById("UploadBtn");
     if (e.code === "Enter") {
       const newArray = [...array, youtubeId];
       const FilterArray = [...new Set(newArray)];
@@ -37,11 +38,15 @@ const AddContent = () => {
       IdListbox.style.opacity = 1;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = 10;
+
+      BtnUpload.style.top = "95%";
+      BtnUpload.style.transition = "0.5s";
     }
   };
 
   const deleteData = (idx) => {
     const IdListbox = document.getElementById("IdList");
+    const BtnUpload = document.getElementById("UploadBtn");
     const updateArray = array.filter((_, index) => index !== idx);
     setArray(updateArray);
     if (array.length === 1) {
@@ -49,8 +54,24 @@ const AddContent = () => {
       IdListbox.style.opacity = 0;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = -1;
+
+      BtnUpload.style.top = "88%";
+      BtnUpload.style.transition = "0.5s";
     }
   };
+
+  console.log(
+    "이미지 이름:",
+    imgname,
+    "제목:",
+    title,
+    "정보:",
+    information,
+    "장소:",
+    location,
+    "유튜브 아이디:",
+    array
+  );
 
   return (
     <Fragment>
@@ -152,7 +173,9 @@ const AddContent = () => {
                     })}
                   </div>
                 </div>
-                <button className={style.UploadBtn}>Upload</button>
+                <button id="UploadBtn" className={style.UploadBtn}>
+                  Upload
+                </button>
               </div>
             </div>
           </div>

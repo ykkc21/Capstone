@@ -69,6 +69,7 @@
   float: left;
   /* background-color: blue; */
   padding: 30px 80px;
+  position: relative;
 }
 
 .Main > .AddContentBox > .OptionBox > .OptionInput {
@@ -130,8 +131,12 @@
 }
 
 .UploadBtn {
-  width: 120px;
+  width: 420px;
   height: 40px;
   border: none;
   border-radius: 20px;
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
