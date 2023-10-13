@@ -1,10 +1,10 @@
 import { React, Fragment, useState } from "react";
 import Header from "../components/header";
-import style from "../styles/Admin.module.css";
-import ItemList from "../constants/ItemList";
-import Button from "../constants/button";
+import AddContent from "../constants/AddContent";
+import AdminControll from "../constants/AdminControll";
 
 const Admin = ({ userData }) => {
+  const [showContent, setShowContent] = useState(false);
   const [selectedItem, setSelectedItem] = useState("User");
   const items = ["User", "Content", "Bulletin"];
   const UserList = [
@@ -41,10 +41,14 @@ const Admin = ({ userData }) => {
   ];
 
   const AddContentBox = () => {
-    console.log(123);
+    setShowContent(true);
   };
 
-  const Check = (e) => {
+  const CloseContentBox = () => {
+    setShowContent(false);
+  };
+
+  const ShowIdBox = (e) => {
     const dom = e.target;
 
     const domName = e.target.className.split(" ");
@@ -74,55 +78,12 @@ const Admin = ({ userData }) => {
   return (
     <Fragment>
       <Header userData={userData} />
-      <div className={style.AdminContainer}>
-        <button onClick={AddContentBox} className={style.AddContent}>
-          Add Content
-        </button>
-        <h1>Home</h1>
-        <div className={style.ControllBox}>
-          <div className={style.btnbox}>
-            {items.map((item, index) => {
-              return <Button key={index} name={item} ClickFun={Check} />;
-            })}
-          </div>
-
-          <div className={style.MainListBox}>
-            <div id="user" className={`${style.UserList} ${style.List}`}>
-              <table border={1}>
-                <tbody>
-                  <tr>
-                    <th>idx</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Emaile</th>
-                  </tr>
-                </tbody>
-              </table>
-              {UserList.map((items, index) => {
-                return (
-                  <ItemList
-                    key={index}
-                    idx={index}
-                    name={items.Name}
-                    address={items.Address}
-                    phone={items.Phone}
-                    email={items.Email}
-                  />
-                );
-              })}
-            </div>
-            <div
-              id="content"
-              className={`${style.ContentList} ${style.List}`}
-            ></div>
-            <div
-              id="bulletin"
-              className={`${style.BulletinList} ${style.List}`}
-            ></div>
-          </div>
-        </div>
-      </div>
+      <AdminControll
+        BtnList={items}
+        ShowContent={AddContentBox}
+        UserList={UserList}
+        ShowIdBox={ShowIdBox}
+      />
     </Fragment>
   );
 };

@@ -43,27 +43,27 @@ app.use(
   })
 );
 
-app.get("/youtubeVideo", (req, res) => {
-  const Key = "AIzaSyCNtEdLHv9dbJZ3xrN1jBthV7BjYKqhlT0";
-  const Text = "핫소스";
+// app.get("/youtubeVideo", (req, res) => {
+//   const Key = "AIzaSyCNtEdLHv9dbJZ3xrN1jBthV7BjYKqhlT0";
+//   const Text = "핫소스";
 
-  axios
-    .get("https://www.googleapis.com/youtube/v3/search", {
-      params: {
-        key: Key,
-        q: Text,
-        part: "snippet",
-        maxResults: 10,
-        type: "video",
-      },
-    })
-    .then((response) => {
-      // 결과 처리
-    })
-    .catch((error) => {
-      console.error("Error fetching YouTube data:", error);
-    });
-});
+//   axios
+//     .get("https://www.googleapis.com/youtube/v3/search", {
+//       params: {
+//         key: Key,
+//         q: Text,
+//         part: "snippet",
+//         maxResults: 10,
+//         type: "video",
+//       },
+//     })
+//     .then((response) => {
+//       // 결과 처리
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching YouTube data:", error);
+//     });
+// });
 
 app.post("/loginData", (req, res) => {
   const email = req.body.email;
