@@ -27,7 +27,7 @@ const AdminControll = ({ BtnList, UserList, ShowContent, ShowIdBox }) => {
                     <th>Name</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Emaile</th>
+                    <th>Email</th>
                   </tr>
                 </tbody>
               </table>
@@ -44,14 +44,15 @@ const AdminControll = ({ BtnList, UserList, ShowContent, ShowIdBox }) => {
                 );
               })}
             </div>
-            <div
-              id="content"
-              className={`${style.ContentList} ${style.List}`}
-            ></div>
+            <div id="content" className={`${style.ContentList} ${style.List}`}>
+              <h1>Content List</h1>
+            </div>
             <div
               id="bulletin"
               className={`${style.BulletinList} ${style.List}`}
-            ></div>
+            >
+              <h1>bulletin List</h1>
+            </div>
           </div>
         </div>
       </div>
