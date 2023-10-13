@@ -3,6 +3,8 @@ import DropImage from "./DropImage";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+
 const AddContent = () => {
   const [imgname, setImageName] = useState("");
   const [title, setTitle] = useState("");
@@ -60,18 +62,45 @@ const AddContent = () => {
     }
   };
 
-  console.log(
-    "이미지 이름:",
-    imgname,
-    "제목:",
-    title,
-    "정보:",
-    information,
-    "장소:",
-    location,
-    "유튜브 아이디:",
-    array
-  );
+  const ClickUpload = () => {
+    if (
+      imgname == "" ||
+      title == "" ||
+      information == "" ||
+      location == "" ||
+      array.length == 0
+    ) {
+      alert("데이터를 정확하게 작성해주세요!");
+    } else {
+      const uploadData = axios
+        .post("http://localhost:8080/AddContent", {
+          imgname,
+          title,
+          information,
+          location,
+          array,
+        })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  };
+
+  // console.log(
+  //   "이미지 이름:",
+  //   imgname,
+  //   "제목:",
+  //   title,
+  //   "정보:",
+  //   information,
+  //   "장소:",
+  //   location,
+  //   "유튜브 아이디:",
+  //   array
+  // );
 
   return (
     <Fragment>
@@ -173,7 +202,11 @@ const AddContent = () => {
                     })}
                   </div>
                 </div>
-                <button id="UploadBtn" className={style.UploadBtn}>
+                <button
+                  id="UploadBtn"
+                  className={style.UploadBtn}
+                  onClick={ClickUpload}
+                >
                   Upload
                 </button>
               </div>

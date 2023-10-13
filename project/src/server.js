@@ -6,6 +6,7 @@ const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const db = require("./connection/db.js");
 const { json } = require("body-parser");
+const axios = require("axios");
 
 // const cookieSession = require("cookie-session"); // 쿠키세션 잘 저장하고 잘 가져오는지 확인
 
@@ -111,7 +112,12 @@ app.post("/joinData", (req, res) => {
   db.end();
 });
 
-app.post("/AddContent", (req, res) => {});
+app.post("/AddContent", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  res.json({ msg: "OK", msg1: "콘텐츠를 추가하였습니다." });
+});
 
 //세션 테스트 용
 // app.get("/set-session", (req, res) => {
