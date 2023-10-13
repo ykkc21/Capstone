@@ -31,4 +31,12 @@ module.exports = function (app) {
       changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
     })
   );
+
+  app.use(
+    "/youtubeVideo",
+    createProxyMiddleware({
+      target: "http://localhost:8080",
+      changeOrigin: true,
+    })
+  );
 };

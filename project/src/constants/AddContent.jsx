@@ -81,7 +81,8 @@ const AddContent = () => {
           array,
         })
         .then((result) => {
-          console.log(result);
+          if (result.data.msg == "OK") {
+          }
         })
         .catch((err) => {
           console.error(err);
