@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const AddContent = () => {
+const AddContent = ({ CloseBox }) => {
   const [imgname, setImageName] = useState("");
   const [title, setTitle] = useState("");
   const [information, setInformation] = useState("");
@@ -90,18 +90,18 @@ const AddContent = () => {
     }
   };
 
-  // console.log(
-  //   "이미지 이름:",
-  //   imgname,
-  //   "제목:",
-  //   title,
-  //   "정보:",
-  //   information,
-  //   "장소:",
-  //   location,
-  //   "유튜브 아이디:",
-  //   array
-  // );
+  console.log(
+    "이미지 이름:",
+    imgname,
+    "제목:",
+    title,
+    "정보:",
+    information,
+    "장소:",
+    location,
+    "유튜브 아이디:",
+    array
+  );
 
   return (
     <Fragment>
@@ -111,7 +111,7 @@ const AddContent = () => {
             <div className={style.AddContentBox}>
               <div className={style.titlebox}>
                 <h1>Upload Content</h1>
-                <label>
+                <label onClick={CloseBox}>
                   <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
                 </label>
               </div>

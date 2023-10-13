@@ -48,6 +48,8 @@ const Admin = ({ userData }) => {
     setShowContent(false);
   };
 
+  console.log(selectedItem);
+
   const ShowIdBox = (e) => {
     const dom = e.target;
 
@@ -78,12 +80,16 @@ const Admin = ({ userData }) => {
   return (
     <Fragment>
       <Header userData={userData} />
-      <AdminControll
-        BtnList={items}
-        ShowContent={AddContentBox}
-        UserList={UserList}
-        ShowIdBox={ShowIdBox}
-      />
+      {showContent == true ? (
+        <AddContent CloseBox={CloseContentBox} />
+      ) : (
+        <AdminControll
+          BtnList={items}
+          ShowContent={AddContentBox}
+          UserList={UserList}
+          ShowIdBox={ShowIdBox}
+        />
+      )}
     </Fragment>
   );
 };
