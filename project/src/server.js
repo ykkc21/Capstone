@@ -4,10 +4,9 @@ const cors = require("cors");
 const server = require("http").createServer(app);
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
-const db = require("./connection/db.js");
-const { json } = require("body-parser");
-const youtubeInfo = require("youtube-info"); // 유튜브 정보 가져오기
+const db = require("./connection/db.js"); // 데이터베이스
 const axios = require("axios");
+const fileSystem = require("fs"); // 파일 시스템
 
 app.use(
   cors({
@@ -127,29 +126,9 @@ app.post("/joinData", (req, res) => {
 });
 
 app.post("/AddContent", (req, res) => {
-  const data = req.body;
-  console.log(data);
-
+  const { imgname, title, information, location, array } = req.body;
   res.json({ msg: "OK", msg1: "콘텐츠를 추가하였습니다." });
 });
-
-//세션 테스트 용
-// app.get("/set-session", (req, res) => {
-// req.session.save(() => {
-//   const data = [{ name: "text", address: "zlzlzlzlzl" }];
-//   req.session.username = data;
-//   console.log(req.session);
-//   res.send("Session set");
-// });
-// req.session.destroy(() => {
-//   console.log("세션 파기");
-// });
-// });
-
-// app.get("/get-session", (req, res) => {
-//   const username = req.session.username;
-//   res.send(`Username: ${JSON.stringify(username)}`);
-// });
 
 // 서버가 잘 동작하는지 확인
 server.listen(8080, () => {

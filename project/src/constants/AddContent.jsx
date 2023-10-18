@@ -21,6 +21,14 @@ const AddContent = ({ CloseBox }) => {
   const DropHandler = (e) => {
     e.preventDefault();
     const files = e.dataTransfer.files[0];
+    if (files) {
+      const read = new FileReader();
+      read.onload = (e) => {
+        const binaryData = e.target.result;
+        console.log("파일 로드 ======>", binaryData);
+      };
+    }
+
     const fileName = files.name;
     setImageName(fileName);
   };
