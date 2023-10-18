@@ -6,17 +6,9 @@ const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const db = require("./connection/db.js");
 const { json } = require("body-parser");
+const youtubeInfo = require("youtube-info"); // 유튜브 정보 가져오기
 const axios = require("axios");
 
-// const cookieSession = require("cookie-session"); // 쿠키세션 잘 저장하고 잘 가져오는지 확인
-
-//CORS 사용
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000", // 허용할 도메인
-//     credentials: true,
-//   })
-// );
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -43,27 +35,27 @@ app.use(
   })
 );
 
-// app.get("/youtubeVideo", (req, res) => {
-//   const Key = "AIzaSyCNtEdLHv9dbJZ3xrN1jBthV7BjYKqhlT0";
-//   const Text = "핫소스";
+app.get("/youtubeVideo", (req, res) => {
+  const videoID = "YFfQ7uubllc"; // 원하는 비디오 ID로 변경하세요
+  const apiKey = "AIzaSyA9g3a5wSf2ql7IAYqiTZ6wjFXi34S9LSo"; // 본인의 YouTube Data API 키로 변경하세요
 
-//   axios
-//     .get("https://www.googleapis.com/youtube/v3/search", {
-//       params: {
-//         key: Key,
-//         q: Text,
-//         part: "snippet",
-//         maxResults: 10,
-//         type: "video",
-//       },
-//     })
-//     .then((response) => {
-//       // 결과 처리
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching YouTube data:", error);
-//     });
-// });
+  axios
+    .get(
+      `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=${apiKey}&part=snippet,statistics`
+    )
+    .then((response) => {
+      const videoInfo = response.data.items[0];
+      console.log(videoInfo);
+      console.log("Video Title:", videoInfo.snippet.title);
+      console.log("Author:", videoInfo.snippet.channelTitle);
+      console.log("View Count:", videoInfo.statistics.viewCount);
+      console.log("Published Date:", videoInfo.snippet.publishedAt);
+    })
+    .catch((error) => {
+      console.error("Error fetching YouTube data:", error);
+      res.status(500).send("Failed to fetch YouTube data.");
+    });
+});
 
 app.post("/loginData", (req, res) => {
   const email = req.body.email;
