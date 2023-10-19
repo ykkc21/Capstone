@@ -5,15 +5,15 @@ import AdminControll from "../constants/AdminControll";
 import axios from "axios";
 
 const Admin = ({ userData }) => {
-  const instance = axios.create({
-    timeout: 10000,
-  });
+  const [showContent, setShowContent] = useState(false);
+  const items = ["User", "Content", "Bulletin"];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // 순차적으로 실행되도록 async/await을 사용
-        const usersResponse = await instance.get("/users");
-        const contentsResponse = await instance.get("/contents");
+        const usersResponse = await axios.get("/users");
+        const contentsResponse = await axios.get("/contents");
 
         const usersData = usersResponse.data;
         const contentsData = contentsResponse.data;
@@ -27,10 +27,6 @@ const Admin = ({ userData }) => {
 
     fetchData();
   }, []);
-
-  const [showContent, setShowContent] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("User");
-  const items = ["User", "Content", "Bulletin"];
   const UserList = [
     {
       Name: "User1",

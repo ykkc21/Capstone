@@ -5,13 +5,8 @@
   list-style: none;
   box-sizing: border-box;
 }
-
-body {
-  position: relative;
-}
-
-.warp {
-  width: 100%;
+.SideMenuBar {
+  width: 150px;
   height: 100vh;
-  padding-top: 125px;
+  background-color: blue;
 }
