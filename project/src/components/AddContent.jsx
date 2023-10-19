@@ -1,5 +1,5 @@
 import { React, Fragment, useState } from "react";
-import DropImage from "./DropImage";
+import DropImage from "../components/DropImage";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";

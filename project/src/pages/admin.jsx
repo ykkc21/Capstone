@@ -1,6 +1,6 @@
 import { React, Fragment, useState } from "react";
 import Header from "../components/header";
-import AddContent from "../constants/AddContent";
+import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
 
 const Admin = ({ userData }) => {
