@@ -2,12 +2,9 @@ import { React, Fragment, useEffect } from "react";
 import style from "../styles/Admin.module.css";
 import Button from "../constants/button";
 import ItemList from "../constants/ItemList";
+import axios from "axios";
 
 const AdminControll = ({ BtnList, UserList, ShowContent, ShowIdBox }) => {
-  useEffect(() => {
-    const userData;
-  });
-
   return (
     <Fragment>
       <div className={style.AdminContainer}>

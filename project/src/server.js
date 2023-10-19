@@ -34,28 +34,7 @@ app.use(
   })
 );
 
-app.get("/youtubeVideo", (req, res) => {
-  const videoID = "YFfQ7uubllc"; // 원하는 비디오 ID로 변경하세요
-  const apiKey = "AIzaSyA9g3a5wSf2ql7IAYqiTZ6wjFXi34S9LSo"; // 본인의 YouTube Data API 키로 변경하세요
-
-  axios
-    .get(
-      `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=${apiKey}&part=snippet,statistics`
-    )
-    .then((response) => {
-      const videoInfo = response.data.items[0];
-      console.log(videoInfo);
-      console.log("Video Title:", videoInfo.snippet.title);
-      console.log("Author:", videoInfo.snippet.channelTitle);
-      console.log("View Count:", videoInfo.statistics.viewCount);
-      console.log("Published Date:", videoInfo.snippet.publishedAt);
-    })
-    .catch((error) => {
-      console.error("Error fetching YouTube data:", error);
-      res.status(500).send("Failed to fetch YouTube data.");
-    });
-});
-
+// 회원정보 관련 서비스
 app.post("/loginData", (req, res) => {
   const email = req.body.email;
   const pw = req.body.pw;
@@ -125,6 +104,30 @@ app.post("/joinData", (req, res) => {
   db.end();
 });
 
+// DB에 저장된 youtubeId 가져오기
+app.get("/youtubeVideo", (req, res) => {
+  const videoID = "YFfQ7uubllc"; // 원하는 비디오 ID로 변경하세요
+  const apiKey = "AIzaSyA9g3a5wSf2ql7IAYqiTZ6wjFXi34S9LSo"; // 본인의 YouTube Data API 키로 변경하세요
+
+  axios
+    .get(
+      `https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=${apiKey}&part=snippet,statistics`
+    )
+    .then((response) => {
+      const videoInfo = response.data.items[0];
+      console.log(videoInfo);
+      console.log("Video Title:", videoInfo.snippet.title);
+      console.log("Author:", videoInfo.snippet.channelTitle);
+      console.log("View Count:", videoInfo.statistics.viewCount);
+      console.log("Published Date:", videoInfo.snippet.publishedAt);
+    })
+    .catch((error) => {
+      console.error("Error fetching YouTube data:", error);
+      res.status(500).send("Failed to fetch YouTube data.");
+    });
+});
+
+// 관리자 콘텐츠 생성
 app.post("/AddContent", (req, res) => {
   const { title, information, location, array, lens, lensname } = req.body;
   const lensData = JSON.stringify(lens);
@@ -144,6 +147,16 @@ app.post("/AddContent", (req, res) => {
       console.error("DB를 종료하는데 오류가 발생했습니다.", err);
     }
   });
+});
+
+//get 유저정보
+app.get("/users", (req, res) => {
+  res.send("get 유저정보");
+});
+
+// get 콘텐츠정보
+app.get("/contents", (req, res) => {
+  res.send("get 콘텐츠정보 ");
 });
 
 // 서버가 잘 동작하는지 확인

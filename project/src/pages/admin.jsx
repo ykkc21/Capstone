@@ -1,9 +1,31 @@
-import { React, Fragment, useState } from "react";
+import { React, Fragment, useState, useEffect } from "react";
 import Header from "../components/header";
 import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
+import axios from "axios";
 
 const Admin = ({ userData }) => {
+  useEffect(() => {
+    // let userData = async () => {
+    //   try {
+    //     const users = await axios.get("/users");
+    //     console.log(users);
+    //   } catch (err) {
+    //     console.error("유저정보 가저오는데 에러가 발생했습니다.", err);
+    //   }
+    // };
+
+    (async () => {
+      try {
+        const users = await axios.get("/users");
+        const contentData = await axios.get("/contents");
+      } catch (err) {
+        console.error("데이터를 가저오는데 에러가 발생했습니다.", err);
+      }
+    })();
+    // let contentData;
+  });
+
   const [showContent, setShowContent] = useState(false);
   const [selectedItem, setSelectedItem] = useState("User");
   const items = ["User", "Content", "Bulletin"];
@@ -57,8 +79,6 @@ const Admin = ({ userData }) => {
     const user = document.getElementById("user");
     const content = document.getElementById("content");
     const bulletin = document.getElementById("bulletin");
-
-    console.log(user, content, bulletin);
 
     if (domName[1] == "User") {
       console.log("User 입니다.");
