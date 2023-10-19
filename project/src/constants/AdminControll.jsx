@@ -8,7 +8,7 @@ const AdminControll = ({ BtnList, UserList, ShowContent, ShowIdBox }) => {
   return (
     <Fragment>
       <div className={style.warp}>
-        <SideMenuBar />
+        <SideMenuBar BtnTitle={BtnList} />
       </div>
     </Fragment>
   );

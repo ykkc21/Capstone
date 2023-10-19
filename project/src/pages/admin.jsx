@@ -3,10 +3,18 @@ import Header from "../components/header";
 import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Admin = ({ userData }) => {
   const [showContent, setShowContent] = useState(false);
-  const items = ["User", "Content", "Bulletin"];
+  const menu = [
+    { title: "User", icon: <FontAwesomeIcon icon={faUser} /> },
+    { title: "Content", icon: <FontAwesomeIcon icon={faGlobe} /> },
+    { title: "Bulletin", icon: <FontAwesomeIcon icon={faComment} /> },
+  ];
+
+  // ["User", "Content", "Bulletin"]
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,7 +110,7 @@ const Admin = ({ userData }) => {
         <AddContent CloseBox={CloseContentBox} />
       ) : (
         <AdminControll
-          BtnList={items}
+          BtnList={menu}
           ShowContent={AddContentBox}
           UserList={UserList}
           ShowIdBox={ShowIdBox}
