@@ -48,7 +48,7 @@ const Admin = ({ userData }) => {
     setShowContent(false);
   };
 
-  console.log(selectedItem);
+  // console.log(selectedItem);
 
   const ShowIdBox = (e) => {
     const dom = e.target;

@@ -4,7 +4,7 @@ import style from "../styles/Header.module.css";
 import axios from "axios";
 
 const Header = ({ userData }) => {
-  console.log("Header로 넘어온 prosp", userData);
+  // console.log("Header로 넘어온 prosp", userData);
   const userState = Array.from(userData);
   const states = userState.map((item, idx) => {
     if (item[idx].msg === "NO") {
@@ -27,10 +27,10 @@ const Header = ({ userData }) => {
     }
   };
   const ChangeBtn = (value, logouthandler) => {
-    value.some((item) => {
-      console.log("some 값", item.states);
-    });
-    console.log("ChangeBtn", value);
+    // value.some((item) => {
+    //   console.log("some 값", item.states);
+    // });
+    // console.log("ChangeBtn", value);
     if (value.some((item) => item.states == "Admin")) {
       return (
         <Fragment>

@@ -9,7 +9,7 @@ const DropImage = ({ DropEvent, DrageMove, background }) => {
     backgroundSize: "150% 100%",
   };
 
-  console.log(ChangeImage);
+  // console.log(ChangeImage);
 
   return (
     <Fragment>

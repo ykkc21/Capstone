@@ -15,18 +15,21 @@ const AddContent = ({ CloseBox }) => {
 
   const DragOverHandler = (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
   };
 
   const DropHandler = (e) => {
     e.preventDefault();
     const files = e.dataTransfer.files[0];
     if (files) {
-      const read = new FileReader();
-      read.onload = (e) => {
-        const binaryData = e.target.result;
-        console.log("파일 로드 ======>", binaryData);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const Databuffer = e.target.result;
+        console.log(Databuffer);
       };
+
+      reader.readAsArrayBuffer(files);
+      console.log(reader);
     }
 
     const fileName = files.name;
