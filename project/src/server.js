@@ -151,23 +151,39 @@ app.post("/AddContent", (req, res) => {
 
 //get 유저정보
 app.get("/users", (req, res) => {
-  db.query("SELECT * FROM user", (err, row, fields) => {
+  db.query("SELECT * FROM user", (err, rows, fields) => {
     if (err) {
       console.error(err);
       res.json({ msg: "NoData" });
+    } else {
+      res.json({ msg: "OK", users: rows });
     }
-    res.json({ msg: "OK", users: row });
-  });
-  db.end((err) => {
-    if (err) {
-      console.error("DB를 종료하는데 에러가 발생했습니다.", err);
-    }
+
+    db.end((err) => {
+      if (err) {
+        console.error("DB를 종료하는데 에러가 발생했습니다.", err);
+      }
+    });
   });
 });
 
 // get 콘텐츠정보
 app.get("/contents", (req, res) => {
-  res.send("get 콘텐츠정보 ");
+  db.query("SELECT * FROM content", (err, rows, fields) => {
+    if (err) {
+      console.error(err);
+      res.json({ msg: "NoData" });
+    } else {
+      console.log(rows);
+      // res.json({ msg: "OK", contents: rows });
+    }
+
+    db.end((err) => {
+      if (err) {
+        console.error("DB를 종료하는데 에러가 발생했습니다.", err);
+      }
+    });
+  });
 });
 
 // 서버가 잘 동작하는지 확인

@@ -15,14 +15,14 @@ const Admin = ({ userData }) => {
         console.error("서버에서 user 데이터 못받고 있음", err);
       });
 
-    // const contents = axios
-    //   .get("/contents")
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.error("서버에서 content 데이터 못받고 있음", err);
-    //   });
+    const contents = axios
+      .get("/contents")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error("서버에서 content 데이터 못받고 있음", err);
+      });
   });
 
   const [showContent, setShowContent] = useState(false);
