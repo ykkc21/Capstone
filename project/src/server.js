@@ -151,7 +151,18 @@ app.post("/AddContent", (req, res) => {
 
 //get 유저정보
 app.get("/users", (req, res) => {
-  res.send("get 유저정보");
+  db.query("SELECT * FROM user", (err, row, fields) => {
+    if (err) {
+      console.error(err);
+      res.json({ msg: "NoData" });
+    }
+    res.json({ msg: "OK", users: row });
+  });
+  db.end((err) => {
+    if (err) {
+      console.error("DB를 종료하는데 에러가 발생했습니다.", err);
+    }
+  });
 });
 
 // get 콘텐츠정보

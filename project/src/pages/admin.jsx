@@ -6,24 +6,23 @@ import axios from "axios";
 
 const Admin = ({ userData }) => {
   useEffect(() => {
-    // let userData = async () => {
-    //   try {
-    //     const users = await axios.get("/users");
-    //     console.log(users);
-    //   } catch (err) {
-    //     console.error("유저정보 가저오는데 에러가 발생했습니다.", err);
-    //   }
-    // };
+    const users = axios
+      .get("/users")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error("서버에서 user 데이터 못받고 있음", err);
+      });
 
-    (async () => {
-      try {
-        const users = await axios.get("/users");
-        const contentData = await axios.get("/contents");
-      } catch (err) {
-        console.error("데이터를 가저오는데 에러가 발생했습니다.", err);
-      }
-    })();
-    // let contentData;
+    // const contents = axios
+    //   .get("/contents")
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.error("서버에서 content 데이터 못받고 있음", err);
+    //   });
   });
 
   const [showContent, setShowContent] = useState(false);
