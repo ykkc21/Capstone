@@ -7,8 +7,21 @@
 }
 
 .Plate {
-  width: 100%;
+  width: 90%;
   height: 100vh;
   float: left;
   background-color: red;
+  position: relative;
+}
+
+.Plate > .board {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+#user {
+  display: block;
 }

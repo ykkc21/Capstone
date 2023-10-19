@@ -5,7 +5,15 @@ const ListPlate = () => {
   return (
     <Fragment>
       <div className={style.Plate}>
-        <div></div>
+        <div id="user" className={style.board}>
+          <h1>user</h1>
+        </div>
+        <div id="content" className={style.board}>
+          <h1>content</h1>
+        </div>
+        <div id="bulletin" className={style.board}>
+          <h1>bulletin</h1>
+        </div>
       </div>
     </Fragment>
   );

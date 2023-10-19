@@ -1,4 +1,5 @@
 import { React, Fragment, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
@@ -19,8 +20,7 @@ const Admin = ({ userData }) => {
       icon: <FontAwesomeIcon id="BulletinIcon" icon={faComment} />,
     },
   ];
-
-  // ["User", "Content", "Bulletin"]
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +39,21 @@ const Admin = ({ userData }) => {
       }
     };
 
-    fetchData();
-  }, []);
+    const state = Array.from(userData);
+    state.forEach((item, idx) => {
+      if (item[idx].state == "User") {
+        alert("일반회원은 사용 불가합니다.");
+        navigate("/");
+      } else {
+        fetchData();
+      }
+
+      if (item[idx].msg == "NO") {
+        alert("회원가입을 하지 않았습니다.");
+        navigate("/");
+      }
+    });
+  });
   const UserList = [
     {
       Name: "User1",
