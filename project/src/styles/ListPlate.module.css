@@ -1,14 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
   list-style: none;
+  text-decoration: none;
   box-sizing: border-box;
 }
-.SideMenuBar {
-  width: 10%;
+
+.Plate {
+  width: 100%;
   height: 100vh;
-  padding-top: 20px;
-  background-color: blue;
   float: left;
+  background-color: red;
 }

@@ -5,7 +5,9 @@ const Button = ({ name, icon, ClickClass }) => {
     <Fragment>
       <div onClick={ClickClass} className={`${style.button} ${name}`}>
         {icon}
-        <p>{name}</p>
+        <p onClick={ClickClass} className={`${style.p} ${name}`}>
+          {name}
+        </p>
       </div>
     </Fragment>
   );
