@@ -5,25 +5,28 @@ import AdminControll from "../constants/AdminControll";
 import axios from "axios";
 
 const Admin = ({ userData }) => {
-  useEffect(() => {
-    const users = axios
-      .get("/users")
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error("서버에서 user 데이터 못받고 있음", err);
-      });
-
-    const contents = axios
-      .get("/contents")
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error("서버에서 content 데이터 못받고 있음", err);
-      });
+  const instance = axios.create({
+    timeout: 10000,
   });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 순차적으로 실행되도록 async/await을 사용
+        const usersResponse = await instance.get("/users");
+        const contentsResponse = await instance.get("/contents");
+
+        const usersData = usersResponse.data;
+        const contentsData = contentsResponse.data;
+
+        console.log("유저 데이터:", usersData);
+        console.log("콘텐츠 데이터:", contentsData);
+      } catch (error) {
+        console.error("데이터 요청 중 오류 발생:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [showContent, setShowContent] = useState(false);
   const [selectedItem, setSelectedItem] = useState("User");

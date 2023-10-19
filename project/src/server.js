@@ -101,7 +101,6 @@ app.post("/joinData", (req, res) => {
       res.send(result);
     }
   );
-  db.end();
 });
 
 // DB에 저장된 youtubeId 가져오기
@@ -141,12 +140,6 @@ app.post("/AddContent", (req, res) => {
     }
     res.json({ msg: "OK", text: "DB저장 완료" });
   });
-
-  db.end((err) => {
-    if (err) {
-      console.error("DB를 종료하는데 오류가 발생했습니다.", err);
-    }
-  });
 });
 
 //get 유저정보
@@ -158,12 +151,6 @@ app.get("/users", (req, res) => {
     } else {
       res.json({ msg: "OK", users: rows });
     }
-
-    db.end((err) => {
-      if (err) {
-        console.error("DB를 종료하는데 에러가 발생했습니다.", err);
-      }
-    });
   });
 });
 
@@ -174,15 +161,8 @@ app.get("/contents", (req, res) => {
       console.error(err);
       res.json({ msg: "NoData" });
     } else {
-      console.log(rows);
-      // res.json({ msg: "OK", contents: rows });
+      res.json({ msg: "OK", contents: rows });
     }
-
-    db.end((err) => {
-      if (err) {
-        console.error("DB를 종료하는데 에러가 발생했습니다.", err);
-      }
-    });
   });
 });
 
