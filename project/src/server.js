@@ -6,7 +6,6 @@ const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const db = require("./connection/db.js"); // 데이터베이스
 const axios = require("axios");
-const fileSystem = require("fs"); // 파일 시스템
 
 app.use(
   cors({

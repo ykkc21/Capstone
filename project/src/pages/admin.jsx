@@ -9,9 +9,15 @@ import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
 const Admin = ({ userData }) => {
   const [showContent, setShowContent] = useState(false);
   const menu = [
-    { title: "User", icon: <FontAwesomeIcon icon={faUser} /> },
-    { title: "Content", icon: <FontAwesomeIcon icon={faGlobe} /> },
-    { title: "Bulletin", icon: <FontAwesomeIcon icon={faComment} /> },
+    { title: "User", icon: <FontAwesomeIcon id="UserIcon" icon={faUser} /> },
+    {
+      title: "Content",
+      icon: <FontAwesomeIcon id="ContentIcon" icon={faGlobe} />,
+    },
+    {
+      title: "Bulletin",
+      icon: <FontAwesomeIcon id="BulletinIcon" icon={faComment} />,
+    },
   ];
 
   // ["User", "Content", "Bulletin"]
@@ -79,29 +85,29 @@ const Admin = ({ userData }) => {
   // console.log(selectedItem);
 
   const ShowIdBox = (e) => {
-    const dom = e.target;
-
     const domName = e.target.className.split(" ");
     const user = document.getElementById("user");
     const content = document.getElementById("content");
     const bulletin = document.getElementById("bulletin");
 
-    if (domName[1] == "User") {
-      console.log("User 입니다.");
-      user.style.display = "block";
-      content.style.display = "none";
-      bulletin.style.display = "none";
-    } else if (domName[1] == "Content") {
-      console.log("Content 입니다.");
-      user.style.display = "none";
-      content.style.display = "block";
-      bulletin.style.display = "none";
-    } else if (domName[1] == "Bulletin") {
-      console.log("Bulletin 입니다.");
-      user.style.display = "none";
-      content.style.display = "none";
-      bulletin.style.display = "block";
-    }
+    console.log(domName);
+
+    // if (domName[1] == "User") {
+    //   console.log("User 입니다.");
+    //   user.style.display = "block";
+    //   content.style.display = "none";
+    //   bulletin.style.display = "none";
+    // } else if (domName[1] == "Content") {
+    //   console.log("Content 입니다.");
+    //   user.style.display = "none";
+    //   content.style.display = "block";
+    //   bulletin.style.display = "none";
+    // } else if (domName[1] == "Bulletin") {
+    //   console.log("Bulletin 입니다.");
+    //   user.style.display = "none";
+    //   content.style.display = "none";
+    //   bulletin.style.display = "block";
+    // }
   };
   return (
     <Fragment>

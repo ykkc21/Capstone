@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 import style from "../styles/button.module.css";
-const Button = ({ name, icon }) => {
-  console.log(icon);
+const Button = ({ name, icon, ClickClass }) => {
   return (
     <Fragment>
-      <div className={`${style.button} ${name}`}>
+      <div onClick={ClickClass} className={`${style.button} ${name}`}>
         {icon}
-        {name}
+        <p>{name}</p>
       </div>
     </Fragment>
   );
