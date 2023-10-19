@@ -17,9 +17,9 @@ app.use(
 );
 
 // 데이터를 json형식으로 파싱하겠다.
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 //파싱하는 옵션지정 (false는 기본으로 내장된 querystring으로 받아온다.)
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false, limit: "50mb" }));
 
 app.use(
   session({
@@ -126,8 +126,24 @@ app.post("/joinData", (req, res) => {
 });
 
 app.post("/AddContent", (req, res) => {
-  const { imgname, title, information, location, array } = req.body;
-  res.json({ msg: "OK", msg1: "콘텐츠를 추가하였습니다." });
+  const { title, information, location, array, lens, lensname } = req.body;
+  const lensData = JSON.stringify(lens);
+  const YouTubeId = JSON.stringify(array);
+  const sql = `INSERT INTO content(c_title,c_information,c_location,c_youtubeId,c_lens, c_lensname)
+  VALUES('${title}','${information}','${location}','${YouTubeId}','${lensData}','${lensname}')`;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.json({ msg: "No", text: "DB저장 실패" });
+    }
+    res.json({ msg: "OK", text: "DB저장 완료" });
+  });
+
+  db.end((err) => {
+    if (err) {
+      console.error("DB를 종료하는데 오류가 발생했습니다.", err);
+    }
+  });
 });
 
 // 서버가 잘 동작하는지 확인

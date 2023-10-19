@@ -6,7 +6,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const AddContent = ({ CloseBox }) => {
-  const [imgname, setImageName] = useState("");
+  const [lensname, setLensName] = useState("");
+  const [lens, setLens] = useState(null);
   const [title, setTitle] = useState("");
   const [information, setInformation] = useState("");
   const [location, setLocation] = useState("");
@@ -25,16 +26,16 @@ const AddContent = ({ CloseBox }) => {
       const reader = new FileReader();
       reader.onload = (e) => {
         const Databuffer = e.target.result;
-        console.log(Databuffer);
+        const uint8Array = new Uint8Array(Databuffer);
+        setLens(uint8Array);
       };
-
       reader.readAsArrayBuffer(files);
-      console.log(reader);
     }
-
-    const fileName = files.name;
-    setImageName(fileName);
+    const filename = files.name;
+    setLensName(filename);
   };
+
+  console.log(lens);
 
   const getYoutubeId = (e) => {
     const IdListbox = document.getElementById("IdList");
@@ -75,24 +76,28 @@ const AddContent = ({ CloseBox }) => {
 
   const ClickUpload = () => {
     if (
-      imgname == "" ||
+      lensname == "" ||
       title == "" ||
       information == "" ||
       location == "" ||
-      array.length == 0
+      array.length == 0 ||
+      lens == ""
     ) {
       alert("데이터를 정확하게 작성해주세요!");
     } else {
       const uploadData = axios
         .post("http://localhost:8080/AddContent", {
-          imgname,
           title,
           information,
           location,
           array,
+          lens,
+          lensname,
         })
         .then((result) => {
           if (result.data.msg == "OK") {
+            alert("데이터 전송이 완료되었습니다.");
+            CloseBox();
           }
         })
         .catch((err) => {
@@ -103,7 +108,7 @@ const AddContent = ({ CloseBox }) => {
 
   console.log(
     "이미지 이름:",
-    imgname,
+    lensname,
     "제목:",
     title,
     "정보:",
@@ -111,7 +116,9 @@ const AddContent = ({ CloseBox }) => {
     "장소:",
     location,
     "유튜브 아이디:",
-    array
+    array,
+    "이미지 버퍼",
+    lens
   );
 
   return (
@@ -127,7 +134,7 @@ const AddContent = ({ CloseBox }) => {
                 </label>
               </div>
               <DropImage
-                background={imgname}
+                background={lensname}
                 DropEvent={DropHandler}
                 DrageMove={DragOverHandler}
               />
