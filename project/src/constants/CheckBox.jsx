@@ -6,11 +6,11 @@ const CheckBox = () => {
     <Fragment>
       <div className={style.CheckBox}>
         <label htmlFor="user">U:</label>
-        <input type="checkbox" name="user" id="c_user" />
+        <input type="radio" name="user" id="c_user" />
         <label htmlFor="content">C:</label>
-        <input type="checkbox" name="content" id="c_user" />
+        <input type="radio" name="content" id="c_user" />
         <label htmlFor="bulletin">B:</label>
-        <input type="checkbox" name="bulletin" id="c_user" />
+        <input type="radio" name="bulletin" id="c_user" />
       </div>
     </Fragment>
   );
