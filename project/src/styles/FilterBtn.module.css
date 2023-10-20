@@ -1,0 +1,17 @@
+.Filter {
+  width: 10%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 93%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.SearchBarBox > .Filter > svg {
+  margin-right: 10px;
+}
