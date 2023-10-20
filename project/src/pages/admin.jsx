@@ -103,24 +103,22 @@ const Admin = ({ userData }) => {
     const content = document.getElementById("content");
     const bulletin = document.getElementById("bulletin");
 
-    console.log(domName);
-
-    // if (domName[1] == "User") {
-    //   console.log("User 입니다.");
-    //   user.style.display = "block";
-    //   content.style.display = "none";
-    //   bulletin.style.display = "none";
-    // } else if (domName[1] == "Content") {
-    //   console.log("Content 입니다.");
-    //   user.style.display = "none";
-    //   content.style.display = "block";
-    //   bulletin.style.display = "none";
-    // } else if (domName[1] == "Bulletin") {
-    //   console.log("Bulletin 입니다.");
-    //   user.style.display = "none";
-    //   content.style.display = "none";
-    //   bulletin.style.display = "block";
-    // }
+    if (domName[1] == "User") {
+      console.log("User 입니다.");
+      user.style.display = "block";
+      content.style.display = "none";
+      bulletin.style.display = "none";
+    } else if (domName[1] == "Content") {
+      console.log("Content 입니다.");
+      user.style.display = "none";
+      content.style.display = "block";
+      bulletin.style.display = "none";
+    } else if (domName[1] == "Bulletin") {
+      console.log("Bulletin 입니다.");
+      user.style.display = "none";
+      content.style.display = "none";
+      bulletin.style.display = "block";
+    }
   };
   return (
     <Fragment>
