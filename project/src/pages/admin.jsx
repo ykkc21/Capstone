@@ -23,69 +23,50 @@ const Admin = ({ userData }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // 순차적으로 실행되도록 async/await을 사용
-        const usersResponse = await axios.get("/users");
-        const contentsResponse = await axios.get("/contents");
-
-        const usersData = usersResponse.data;
-        const contentsData = contentsResponse.data;
-
-        console.log("유저 데이터:", usersData);
-        console.log("콘텐츠 데이터:", contentsData);
-      } catch (error) {
-        console.error("데이터 요청 중 오류 발생:", error);
-      }
-    };
-
     const state = Array.from(userData);
     state.forEach((item, idx) => {
       if (item[idx].state == "User") {
         alert("일반회원은 사용 불가합니다.");
         navigate("/");
-      } else {
-        fetchData();
       }
-
       if (item[idx].msg == "NO") {
-        alert("회원가입을 하지 않았습니다.");
+        alert("로그인을 하지 않았습니다.");
         navigate("/");
       }
     });
   });
-  const UserList = [
-    {
-      Name: "User1",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "User2",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "User3",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "User4",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-    {
-      Name: "User5",
-      Address: "테스트 중입니다.",
-      Phone: "010-1234-5678",
-      Email: "test@test.com",
-    },
-  ];
+  // const UserList = [
+  //   {
+  //     Name: "User1",
+  //     Address: "테스트 중입니다.",
+  //     Phone: "010-1234-5678",
+  //     Email: "test@test.com",
+  //   },
+  //   {
+  //     Name: "User2",
+  //     Address: "테스트 중입니다.",
+  //     Phone: "010-1234-5678",
+  //     Email: "test@test.com",
+  //   },
+  //   {
+  //     Name: "User3",
+  //     Address: "테스트 중입니다.",
+  //     Phone: "010-1234-5678",
+  //     Email: "test@test.com",
+  //   },
+  //   {
+  //     Name: "User4",
+  //     Address: "테스트 중입니다.",
+  //     Phone: "010-1234-5678",
+  //     Email: "test@test.com",
+  //   },
+  //   {
+  //     Name: "User5",
+  //     Address: "테스트 중입니다.",
+  //     Phone: "010-1234-5678",
+  //     Email: "test@test.com",
+  //   },
+  // ];
 
   const AddContentBox = () => {
     setShowContent(true);
@@ -129,7 +110,6 @@ const Admin = ({ userData }) => {
         <AdminControll
           BtnList={menu}
           ShowContent={AddContentBox}
-          UserList={UserList}
           ShowIdBox={ShowIdBox}
         />
       )}
