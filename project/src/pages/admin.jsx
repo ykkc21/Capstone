@@ -35,38 +35,6 @@ const Admin = ({ userData }) => {
       }
     });
   });
-  // const UserList = [
-  //   {
-  //     Name: "User1",
-  //     Address: "테스트 중입니다.",
-  //     Phone: "010-1234-5678",
-  //     Email: "test@test.com",
-  //   },
-  //   {
-  //     Name: "User2",
-  //     Address: "테스트 중입니다.",
-  //     Phone: "010-1234-5678",
-  //     Email: "test@test.com",
-  //   },
-  //   {
-  //     Name: "User3",
-  //     Address: "테스트 중입니다.",
-  //     Phone: "010-1234-5678",
-  //     Email: "test@test.com",
-  //   },
-  //   {
-  //     Name: "User4",
-  //     Address: "테스트 중입니다.",
-  //     Phone: "010-1234-5678",
-  //     Email: "test@test.com",
-  //   },
-  //   {
-  //     Name: "User5",
-  //     Address: "테스트 중입니다.",
-  //     Phone: "010-1234-5678",
-  //     Email: "test@test.com",
-  //   },
-  // ];
 
   const AddContentBox = () => {
     setShowContent(true);
@@ -109,7 +77,8 @@ const Admin = ({ userData }) => {
       ) : (
         <AdminControll
           BtnList={menu}
-          ShowContent={AddContentBox}
+          AddContentBox={AddContentBox}
+          CloseContentBox={CloseContentBox}
           ShowIdBox={ShowIdBox}
         />
       )}

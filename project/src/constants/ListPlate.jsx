@@ -4,7 +4,7 @@ import style from "../styles/ListPlate.module.css";
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
 
-const ListPlate = ({ title }) => {
+const ListPlate = ({ title, ShowContent, CloseContent }) => {
   const navigate = useNavigate();
   const [UsearchValue, setUsearchValue] = useState("");
   const [CsearchValue, setCsearchValue] = useState("");
@@ -52,12 +52,16 @@ const ListPlate = ({ title }) => {
         {title.map((item, idx) => {
           return (
             <div key={idx} id={item.title} className={style.board}>
-              <h1>{item.title}</h1>
               <SearchBar
                 ChangeText={ChangeText}
                 nickname={`${item.title}_bar`}
                 title={item.title}
+                ShowContent={ShowContent}
+                CloseContent={CloseContent}
               />
+              {item.title == "User" ? <div>User</div> : null}
+              {item.title == "Content" ? <div>Content</div> : null}
+              {item.title == "Bulletin" ? <div>Bulletin</div> : null}
             </div>
           );
         })}
