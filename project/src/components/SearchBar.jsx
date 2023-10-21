@@ -1,7 +1,5 @@
 import { React, Fragment, useState, useEffect } from "react";
 import style from "../styles/SearchBar.module.css";
-import FilterBtn from "../constants/FilterBtn";
-import CheckBox from "../constants/CheckBox";
 const SearchBar = () => {
   const [showfilter, setShowFilter] = useState(false);
   const ShowCheckBox = () => {
@@ -17,12 +15,6 @@ const SearchBar = () => {
           id="search"
           autoComplete="off"
         />
-
-        {showfilter == false ? (
-          <FilterBtn ShowCheckBox={ShowCheckBox} />
-        ) : (
-          <CheckBox />
-        )}
       </div>
     </Fragment>
   );
