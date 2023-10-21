@@ -2,6 +2,7 @@ import { React, Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "../styles/ListPlate.module.css";
 import SearchBar from "../components/SearchBar";
+import ItemList from "../constants/ItemList";
 import axios from "axios";
 
 const ListPlate = ({ title, ShowContent, CloseContent }) => {
@@ -59,8 +60,33 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                 ShowContent={ShowContent}
                 CloseContent={CloseContent}
               />
-              {item.title == "User" ? <div>User</div> : null}
-              {item.title == "Content" ? <div>Content</div> : null}
+              {item.title == "User" ? (
+                <div className={style.ItemBox}>
+                  {u_array.map((item, index) => {
+                    if (item.state == "User") {
+                      return (
+                        <ItemList
+                          key={index}
+                          id={item.idx}
+                          name={item.name}
+                          nickname={item.nickname}
+                          email={item.email}
+                          bd={item.bd}
+                          state={item.state}
+                        />
+                      );
+                    }
+                  })}
+                </div>
+              ) : null}
+              {item.title == "Content" ? (
+                <div className={style.ItemBox}>
+                  {c_array.map((item, idx) => {
+                    console.log(item);
+                    return <div key={idx}></div>;
+                  })}
+                </div>
+              ) : null}
               {item.title == "Bulletin" ? <div>Bulletin</div> : null}
             </div>
           );

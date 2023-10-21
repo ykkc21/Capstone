@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
 
@@ -43,8 +42,6 @@ const Admin = ({ userData }) => {
   const CloseContentBox = () => {
     setShowContent(false);
   };
-
-  // console.log(selectedItem);
 
   const ShowIdBox = (e) => {
     const domName = e.target.className.split(" ");

@@ -7,10 +7,6 @@ const SearchBar = ({
   ShowContent,
   CloseContent,
 }) => {
-  if (title == "Content") {
-    console.log("이 부분은 Content 부분입니다.");
-  }
-
   return (
     <Fragment>
       {title == "Content" ? (

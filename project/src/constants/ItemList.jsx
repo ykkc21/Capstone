@@ -7,13 +7,18 @@ const ItemList = (props) => {
       <div className={style.itemlist}>
         <table>
           <tbody>
-            <tr>
-              <th>{props.idx}</th>
-              <th>{props.name}</th>
-              <th>{props.address}</th>
-              <th>{props.phone}</th>
-              <th>{props.email}</th>
-            </tr>
+            {props.state == "User" ? (
+              <tr>
+                <td>{props.idx}</td>
+                <td>{props.name}</td>
+                <td>{props.email}</td>
+                <td>{props.bd}</td>
+                <td>{props.state}</td>
+                <td>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ) : null}
           </tbody>
         </table>
       </div>
