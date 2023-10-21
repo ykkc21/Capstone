@@ -99,9 +99,9 @@ const Admin = ({ userData }) => {
 
   const ShowIdBox = (e) => {
     const domName = e.target.className.split(" ");
-    const user = document.getElementById("user");
-    const content = document.getElementById("content");
-    const bulletin = document.getElementById("bulletin");
+    const user = document.getElementById("User");
+    const content = document.getElementById("Content");
+    const bulletin = document.getElementById("Bulletin");
 
     if (domName[1] == "User") {
       console.log("User 입니다.");
