@@ -2,7 +2,7 @@ import style from "../src/styles/App.module.css";
 import Home from "./pages/Home";
 import Login from "./pages/login";
 import Join from "./pages/join";
-import TraveList from "./pages/TraveList";
+import TravelList from "./pages/TravelList";
 import Admin from "./pages/admin";
 import Mypage from "./pages/mypage";
 import { React, useEffect, useState, Fragment } from "react";
@@ -39,7 +39,10 @@ function App() {
           <Route path="/" element={<Home userData={session} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/join" element={<Join />} />
-          <Route path="/traveList" element={<TraveList />} />
+          <Route
+            path="/traveList"
+            element={<TravelList userData={session} />}
+          />
           <Route path="/admin" element={<Admin userData={session} />} />
           <Route path="/mypage" element={<Mypage userData={session} />} />
         </Routes>
