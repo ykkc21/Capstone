@@ -1,7 +1,13 @@
 import { React, Fragment } from "react";
 import style from "../styles/TravelMap.module.css";
-
+import WorldMap from "../assets/img/world2.png";
 const TravelMap = () => {
-  return <Fragment></Fragment>;
+  return (
+    <Fragment>
+      <div className={style.MainMap}>
+        <img src={WorldMap} alt="worldmap" />
+      </div>
+    </Fragment>
+  );
 };
 export default TravelMap;

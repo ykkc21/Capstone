@@ -1,6 +1,115 @@
 .SideBarWarp {
-  width: 20%;
-  height: 100vh;
+  width: 25%;
+  height: 100%;
   float: left;
+  position: relative;
   background-color: red;
+  float: left;
+}
+
+.SideBarWarp > h1 {
+  font-size: 25px;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.SideBarWarp > .NorthAmerica {
+  width: 280px;
+  height: 280px;
+  border-radius: 100%;
+  background-color: #ffb673;
+  position: absolute;
+  top: 35%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+.SideBarWarp > .NorthAmerica > h1 {
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 30px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.SideBarWarp > .NorthAmerica > h2 {
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 70px;
+  top: 58%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.SideBarWarp > .Asia {
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: #83c3ff;
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.SideBarWarp > .Asia > h1 {
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 35px;
+  top: 35%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+.SideBarWarp > .Asia > h2 {
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 70px;
+  top: 58%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+}
+
+.SideBarWarp > .Europe {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  background-color: #9972ec;
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.SideBarWarp > .Europe > h1 {
+  font-size: 25px;
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 35px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.SideBarWarp > .Europe > h2 {
+  font-size: 25px;
+  text-align: center;
+  position: absolute;
+  color: #fff;
+  text-shadow: 3px 2px 3px #000;
+  font-size: 60px;
+  top: 65%;
+  left: 70%;
+  transform: translate(-50%, -50%);
 }

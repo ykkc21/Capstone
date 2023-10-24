@@ -36,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "pm2 start ./src/server.js"
+    "start-server": "nodemon ./src/server.js"
   },
   "eslintConfig": {
     "extends": [

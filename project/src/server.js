@@ -114,6 +114,7 @@ app.get("/youtubeVideo", (req, res) => {
     .then((response) => {
       const videoInfo = response.data.items[0];
       console.log(videoInfo);
+
       console.log("Video Title:", videoInfo.snippet.title);
       console.log("Author:", videoInfo.snippet.channelTitle);
       console.log("View Count:", videoInfo.statistics.viewCount);
