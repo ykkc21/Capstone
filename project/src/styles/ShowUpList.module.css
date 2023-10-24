@@ -1,0 +1,19 @@
+.SHowUpMain {
+  position: absolute;
+  bottom: -8%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  width: 100%;
+  height: 100px;
+  background-color: #dedede;
+  float: left;
+}
+
+.iconUp {
+  color: #fff;
+  font-size: 40px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

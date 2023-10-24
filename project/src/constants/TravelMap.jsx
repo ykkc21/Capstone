@@ -7,8 +7,8 @@ const TravelMap = () => {
     <Fragment>
       <div className={style.MainMap}>
         <img src={WorldMap} alt="worldmap" />
+        <ShowUpList />
       </div>
-      <ShowUpList />
     </Fragment>
   );
 };
