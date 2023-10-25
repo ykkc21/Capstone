@@ -16,7 +16,6 @@ const AddContent = ({ CloseBox }) => {
 
   const DragOverHandler = (e) => {
     e.preventDefault();
-    // console.log(e);
   };
 
   const DropHandler = (e) => {
@@ -138,6 +137,16 @@ const AddContent = ({ CloseBox }) => {
                 DropEvent={DropHandler}
                 DrageMove={DragOverHandler}
               />
+              <div className={style.OptionInput}>
+                <label>Classification</label>
+                <br />
+                <br />
+                <select>
+                  <option value="North America">North America</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Europe">Europe</option>
+                </select>
+              </div>
               <div className={style.OptionBox}>
                 <div className={style.OptionInput}>
                   <label>Title</label>
