@@ -1,13 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
 .SideMenuBar {
   width: 10%;
-  height: 100vh;
+  height: 100%;
   padding-top: 20px;
   background-color: blue;
   float: left;
