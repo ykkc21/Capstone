@@ -121,7 +121,42 @@ const AddContent = ({ CloseBox }) => {
   return (
     <Fragment>
       <div className={style.wrap}>
-        <div className={style.InputBox}></div>
+        <div className={style.Main}>
+          <div className={style.InputBox}>
+            <div className={style.titlebox}>
+              <h2>Content Upload</h2>
+            </div>
+            <div className={style.InfoBox}>
+              <div className={style.SideBar}>
+                <ul>
+                  <li>분류</li>
+                  <li>제목</li>
+                  <li>상세정보</li>
+                  <li>위치</li>
+                  <li>YoutubeId</li>
+                  <li>이미지 및 영상</li>
+                </ul>
+              </div>
+              <select name="Classification" id="Classification">
+                <option value="NorthAmerica">북아메리카</option>
+                <option value="Asia">아시아</option>
+                <option value="Europe">유럽</option>
+              </select>
+              <input type="text" name="title" id="title" />
+              <input type="text" name="information" id="information" />
+              <input type="text" name="location" id="location" />
+              <input type="text" name="YoutubeId" id="YoutubeId" />
+              <input type="file" name="Image" id="Image" />
+              <button
+                id="UploadBtn"
+                className={style.UploadBtn}
+                onClick={ClickUpload}
+              >
+                Upload
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
