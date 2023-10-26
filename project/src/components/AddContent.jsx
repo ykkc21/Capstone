@@ -30,7 +30,7 @@ const AddContent = ({ CloseBox }) => {
 
       setYoutubeId("");
 
-      IdListbox.style.top = "70%";
+      IdListbox.style.top = "68%";
       IdListbox.style.opacity = 1;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = 10;
@@ -43,7 +43,7 @@ const AddContent = ({ CloseBox }) => {
     const updateArray = array.filter((_, index) => index !== idx);
     setArray(updateArray);
     if (array.length === 1) {
-      IdListbox.style.top = "60%";
+      IdListbox.style.top = "58%";
       IdListbox.style.opacity = 0;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = -1;
@@ -111,6 +111,7 @@ const AddContent = ({ CloseBox }) => {
                 name="Classification"
                 id="Classification"
               >
+                <option value="No">선택해주세요.</option>
                 <option value="NorthAmerica">북아메리카</option>
                 <option value="Asia">아시아</option>
                 <option value="Europe">유럽</option>
