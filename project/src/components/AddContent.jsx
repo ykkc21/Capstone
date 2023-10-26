@@ -3,40 +3,25 @@ import DropImage from "../components/DropImage";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 
 const AddContent = ({ CloseBox }) => {
-  const [lensname, setLensName] = useState("");
-  const [lens, setLens] = useState(null);
-  const [title, setTitle] = useState("");
-  const [information, setInformation] = useState("");
-  const [location, setLocation] = useState("");
-  const [youtubeId, setYoutubeId] = useState("");
-  const [array, setArray] = useState([]);
+  const [lensname, setLensName] = useState(""); // 이미지 & 영상 이름
+  const [lens, setLens] = useState(null); // 이미지 & 영상 바이러니 값
+  const [Classification, setClassification] = useState(""); // 분류 이름
+  const [title, setTitle] = useState(""); // 제목 이름
+  const [information, setInformation] = useState(""); // 상세정보 내용
+  const [location, setLocation] = useState(""); // 위치 내용
+  const [youtubeId, setYoutubeId] = useState(""); // 유튭아이디 내용
+  const [array, setArray] = useState([]); // 유튭아이디 내용
 
-  // const DragOverHandler = (e) => {
-  //   e.preventDefault();
-  // };
-
-  // const DropHandler = (e) => {
-  //   e.preventDefault();
-  //   const files = e.dataTransfer.files[0];
-  //   if (files) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       const Databuffer = e.target.result;
-  //       const uint8Array = new Uint8Array(Databuffer);
-  //       setLens(uint8Array);
-  //     };
-  //     reader.readAsArrayBuffer(files);
-  //   }
-  //   const filename = files.name;
-  //   setLensName(filename);
-  // };
+  console.log(`분류: ${Classification}, 제목:${title}, 
+상세내용:${information}, 위치:${location}, 유튭아이디:${array}`);
 
   const getYoutubeId = (e) => {
     const IdListbox = document.getElementById("IdList");
-    const BtnUpload = document.getElementById("UploadBtn");
+    // const BtnUpload = document.getElementById("UploadBtn");
     if (e.code === "Enter") {
       const newArray = [...array, youtubeId];
       const FilterArray = [...new Set(newArray)];
@@ -45,29 +30,23 @@ const AddContent = ({ CloseBox }) => {
 
       setYoutubeId("");
 
-      IdListbox.style.top = "150%";
+      IdListbox.style.top = "70%";
       IdListbox.style.opacity = 1;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = 10;
-
-      BtnUpload.style.top = "95%";
-      BtnUpload.style.transition = "0.5s";
     }
   };
 
   const deleteData = (idx) => {
     const IdListbox = document.getElementById("IdList");
-    const BtnUpload = document.getElementById("UploadBtn");
+    // const BtnUpload = document.getElementById("UploadBtn");
     const updateArray = array.filter((_, index) => index !== idx);
     setArray(updateArray);
     if (array.length === 1) {
-      IdListbox.style.top = "68%";
+      IdListbox.style.top = "60%";
       IdListbox.style.opacity = 0;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = -1;
-
-      BtnUpload.style.top = "88%";
-      BtnUpload.style.transition = "0.5s";
     }
   };
 
@@ -103,21 +82,6 @@ const AddContent = ({ CloseBox }) => {
     }
   };
 
-  console.log(
-    "이미지 이름:",
-    lensname,
-    "제목:",
-    title,
-    "정보:",
-    information,
-    "장소:",
-    location,
-    "유튜브 아이디:",
-    array,
-    "이미지 버퍼",
-    lens
-  );
-
   return (
     <Fragment>
       <div className={style.wrap}>
@@ -125,6 +89,9 @@ const AddContent = ({ CloseBox }) => {
           <div className={style.InputBox}>
             <div className={style.titlebox}>
               <h2>Content Upload</h2>
+              <label onClick={CloseBox}>
+                <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+              </label>
             </div>
             <div className={style.InfoBox}>
               <div className={style.SideBar}>
@@ -137,15 +104,80 @@ const AddContent = ({ CloseBox }) => {
                   <li>이미지 및 영상</li>
                 </ul>
               </div>
-              <select name="Classification" id="Classification">
+              <select
+                onChange={(e) => {
+                  setClassification(e.target.value);
+                }}
+                name="Classification"
+                id="Classification"
+              >
                 <option value="NorthAmerica">북아메리카</option>
                 <option value="Asia">아시아</option>
                 <option value="Europe">유럽</option>
               </select>
-              <input type="text" name="title" id="title" />
-              <input type="text" name="information" id="information" />
-              <input type="text" name="location" id="location" />
-              <input type="text" name="YoutubeId" id="YoutubeId" />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                name="title"
+                id="title"
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setInformation(e.target.value);
+                }}
+                name="information"
+                id="information"
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setLocation(e.target.value);
+                }}
+                name="location"
+                id="location"
+              />
+              <input
+                type="text"
+                value={youtubeId}
+                onChange={(e) => {
+                  if (e.target.value.length > 12) {
+                    alert("12자리보다 크면 안됩니다.");
+                  } else {
+                    if (e.target.value == "") {
+                      alert("빈값이 있으면 안됩니다.");
+                    } else {
+                      setYoutubeId(e.target.value);
+                    }
+                  }
+                }}
+                onKeyUp={getYoutubeId}
+                name="YoutubeId"
+                id="YoutubeId"
+              />
+              <div id="IdList" className={style.Idlist}>
+                {array.map((item, idx) => {
+                  return (
+                    <div key={idx} idx={idx} className={style.Idlist_item}>
+                      <FontAwesomeIcon
+                        className={style.youtubeIcon}
+                        icon={faYoutube}
+                      />
+                      {item}
+                      <div
+                        id="deleteBtn"
+                        onClick={() => deleteData(idx)}
+                        idx={idx}
+                        className={style.delete}
+                      >
+                        <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
               <input type="file" name="Image" id="Image" />
               <button
                 id="UploadBtn"
