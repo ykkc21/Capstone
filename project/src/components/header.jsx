@@ -56,7 +56,7 @@ const Header = ({ userData }) => {
     } else {
       return (
         <Link to={"/login"} className={style.Hedaer_Login_btn}>
-          Sing in
+          Sign In
         </Link>
       );
     }

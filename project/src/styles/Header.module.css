@@ -8,7 +8,7 @@
 
 .Header {
   width: 100%;
-  height: 125px;
+  height: 100px;
   position: fixed;
   background-color: #fff;
   display: block;
@@ -28,7 +28,7 @@
   height: 100%;
   float: left;
   text-align: center;
-  line-height: 125px;
+  line-height: 100px;
 }
 .Header_Logo_a {
   color: #000;
@@ -50,7 +50,7 @@
   display: inline-block;
   text-align: center;
   font-size: 30px;
-  padding: 47px 30px 43px 30px;
+  padding: 30px 30px;
 }
 .Header_li_a {
   color: #000;
