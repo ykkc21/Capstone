@@ -1,4 +1,6 @@
 import { React, Fragment } from "react";
-
-const Animater = () => {};
+import style from "../styles/Animater.module.css";
+const Animater = () => {
+  return <Fragment></Fragment>;
+};
 export default Animater;
