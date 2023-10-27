@@ -40,7 +40,7 @@
 }
 
 .Header_ul {
-  width: 40%;
+  width: 50%;
   height: 100%;
   float: left;
   text-align: center;
@@ -58,7 +58,7 @@
 }
 
 .Hedaer_Login {
-  width: 30%;
+  width: 20%;
   height: 100%;
   float: left;
   position: relative;
@@ -66,7 +66,7 @@
 .Hedaer_Login_btn {
   display: block;
   border: none;
-  width: 120px;
+  width: 100px;
   height: 40px;
   background-color: #fff;
   color: #4181c9;

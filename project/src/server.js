@@ -128,11 +128,12 @@ app.get("/youtubeVideo", (req, res) => {
 
 // 관리자 콘텐츠 생성
 app.post("/AddContent", (req, res) => {
-  const { title, information, location, array, lens, lensname } = req.body;
+  const { classinfo, title, information, location, array, lens, lensname } =
+    req.body;
   const lensData = JSON.stringify(lens);
   const YouTubeId = JSON.stringify(array);
-  const sql = `INSERT INTO content(c_title,c_information,c_location,c_youtubeId,c_lens, c_lensname)
-  VALUES('${title}','${information}','${location}','${YouTubeId}','${lensData}','${lensname}')`;
+  const sql = `INSERT INTO content(c_classinfo, c_title,c_information,c_location,c_youtubeId,c_lens, c_lensname)
+  VALUES('${classinfo}','${title}','${information}','${location}','${YouTubeId}','${lensData}','${lensname}')`;
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);

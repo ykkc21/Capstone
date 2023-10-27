@@ -1,23 +1,28 @@
 import { React, Fragment, useState } from "react";
-import DropImage from "../components/DropImage";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXmark,
+  faFile,
+  faCloudArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 
 const AddContent = ({ CloseBox }) => {
   const [lensname, setLensName] = useState(""); // 이미지 & 영상 이름
   const [lens, setLens] = useState(null); // 이미지 & 영상 바이러니 값
-  const [Classification, setClassification] = useState(""); // 분류 이름
+  const [classinfo, setClassInfo] = useState(""); // 분류 이름
   const [title, setTitle] = useState(""); // 제목 이름
   const [information, setInformation] = useState(""); // 상세정보 내용
   const [location, setLocation] = useState(""); // 위치 내용
   const [youtubeId, setYoutubeId] = useState(""); // 유튭아이디 내용
   const [array, setArray] = useState([]); // 유튭아이디 내용
 
-  console.log(`분류: ${Classification}, 제목:${title}, 
-상세내용:${information}, 위치:${location}, 유튭아이디:${array}`);
+  console.log(`분류: ${classinfo}, 제목:${title}, 
+상세내용:${information}, 위치:${location}, 유튭아이디:${array}, 파일이름: ${lensname}, 파일비이너리데이터:${JSON.stringify(
+    lens
+  )} `);
 
   const getYoutubeId = (e) => {
     const IdListbox = document.getElementById("IdList");
@@ -30,7 +35,7 @@ const AddContent = ({ CloseBox }) => {
 
       setYoutubeId("");
 
-      IdListbox.style.top = "68%";
+      IdListbox.style.top = "65%";
       IdListbox.style.opacity = 1;
       IdListbox.style.transition = "0.5s";
       IdListbox.style.zIndex = 10;
@@ -53,6 +58,7 @@ const AddContent = ({ CloseBox }) => {
   const ClickUpload = () => {
     if (
       lensname == "" ||
+      classinfo == "" ||
       title == "" ||
       information == "" ||
       location == "" ||
@@ -63,6 +69,7 @@ const AddContent = ({ CloseBox }) => {
     } else {
       const uploadData = axios
         .post("http://localhost:8080/AddContent", {
+          classinfo,
           title,
           information,
           location,
@@ -80,6 +87,27 @@ const AddContent = ({ CloseBox }) => {
           console.error(err);
         });
     }
+  };
+
+  const ChangeFile = (target) => {
+    if (target.files.length > 0) {
+      const FileName = target.files[0].name;
+      const selectedFile = target.files[0];
+      setLensName(FileName);
+
+      const fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const binaryData = e.target.result;
+        const uint8Array = new Uint8Array(binaryData);
+        setLens(uint8Array);
+      };
+      fileReader.readAsArrayBuffer(selectedFile);
+    }
+  };
+
+  const FileStart = () => {
+    const dom = document.getElementById("InputFile");
+    dom.click();
   };
 
   return (
@@ -106,7 +134,7 @@ const AddContent = ({ CloseBox }) => {
               </div>
               <select
                 onChange={(e) => {
-                  setClassification(e.target.value);
+                  setClassInfo(e.target.value);
                 }}
                 name="Classification"
                 id="Classification"
@@ -179,7 +207,23 @@ const AddContent = ({ CloseBox }) => {
                   );
                 })}
               </div>
-              <input type="file" name="Image" id="Image" />
+              <div onClick={FileStart} className={style.Files}>
+                <div className={style.Circle}>
+                  <FontAwesomeIcon
+                    className={style.CircleIcon}
+                    icon={faCloudArrowUp}
+                  />
+                </div>
+                <button className={style.Btn}>Upload</button>
+              </div>
+              <input
+                onChange={(e) => {
+                  ChangeFile(e.target);
+                }}
+                id="InputFile"
+                type="file"
+                name="Image"
+              />
               <button
                 id="UploadBtn"
                 className={style.UploadBtn}
