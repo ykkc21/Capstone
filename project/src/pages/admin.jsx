@@ -9,6 +9,7 @@ import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
 const Admin = ({ userData }) => {
   const [showContent, setShowContent] = useState(false);
   const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedText, setSelectedText] = useState(null);
   const menu = [
     { title: "User", icon: <FontAwesomeIcon id="UserIcon" icon={faUser} /> },
     {
@@ -50,12 +51,17 @@ const Admin = ({ userData }) => {
     const content = document.getElementById("Content");
     const bulletin = document.getElementById("Bulletin");
 
-    if (selectedButton) {
+    if (selectedButton && selectedText) {
       selectedButton.style.backgroundColor = "initial";
+      selectedText.style.color = "initial";
+      e.target.style.transition = "0.5s";
     }
 
-    e.target.style.backgroundColor = "antiquewhite";
+    e.target.style.backgroundColor = "#7650e0";
+    e.target.style.color = "#fff";
+    e.target.style.transition = "0.5s";
     setSelectedButton(e.target);
+    setSelectedText(e.target);
 
     if (domName[1] == "User") {
       console.log("User 입니다.");
@@ -73,6 +79,14 @@ const Admin = ({ userData }) => {
       content.style.display = "none";
       bulletin.style.display = "block";
     }
+
+    setTimeout(() => {
+      e.target.style.backgroundColor = "initial";
+      e.target.style.color = "initial";
+      e.target.style.transition = "0.5s";
+      setSelectedButton(null); // null 또는 초기화된 값으로 설정
+      setSelectedText(null); // null 또는 초기화된 값으로 설정
+    }, 3000);
   };
   return (
     <Fragment>

@@ -24,7 +24,7 @@ const ItemList = (props) => {
   return (
     <Fragment>
       <div className={style.itemlist}>
-        <table>
+        {/* <table>
           <tbody>
             {props.state == "User" ? (
               <tr>
@@ -44,7 +44,7 @@ const ItemList = (props) => {
               </tr>
             ) : null}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </Fragment>
   );
