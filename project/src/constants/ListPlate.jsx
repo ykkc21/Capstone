@@ -64,6 +64,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
               {item.title == "Content" ? (
                 <div className={style.ItemBox}>
                   {c_array.map((item, idx) => {
+                    console.log(item);
                     return <div key={idx}></div>;
                   })}
                 </div>

@@ -6,7 +6,6 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
   const UserDelete = (user) => {
-    console.log(user);
     const test = axios
       .post("http://localhost:8080/userDelete", {
         userid: user,
