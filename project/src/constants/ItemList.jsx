@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
-  console.log(props);
+  // console.log(props);
   const UserDelete = (user) => {
     console.log(user);
     const test = axios
@@ -33,8 +33,18 @@ const ItemList = (props) => {
         <div className={style.InfoBox}>
           <h2>{props.name.toUpperCase()}</h2>
           <h5>{props.email.toUpperCase()}</h5>
+          <h6>{props.bd}</h6>
+          <h6>{props.state}</h6>
         </div>
-        <div className={style.DeleteBox}></div>
+        <div className={style.DeleteBox}>
+          <button
+            onClick={(e) => {
+              UserDelete(props.id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
         {/* <table>
           <tbody>
             {props.state == "User" ? (

@@ -55,6 +55,9 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                     if (item.state == "User") {
                       return (
                         <ItemList
+                          onMouseover={(e) => {
+                            console.log(e.target);
+                          }}
                           key={index}
                           id={item.idx}
                           name={item.name}
