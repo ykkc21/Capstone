@@ -32,15 +32,8 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
     fetchData();
   }, []);
 
-  const ChangeText = (value, target) => {
-    const nickname = target.getAttribute("nickname");
-    if (nickname == "User_bar") {
-      console.log("User_bar");
-    } else if (nickname == "Content_bar") {
-      console.log("Content_bar");
-    } else if (nickname == "Bulletin_bar") {
-      console.log("Bulletin_bar");
-    }
+  const Test = () => {
+    console.log(123);
   };
 
   return (
@@ -55,9 +48,6 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                     if (item.state == "User") {
                       return (
                         <ItemList
-                          onMouseover={(e) => {
-                            console.log(e.target);
-                          }}
                           key={index}
                           id={item.idx}
                           name={item.name}

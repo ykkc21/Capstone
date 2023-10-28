@@ -1,11 +1,20 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import style from "../styles/ItemList.module.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
-  // console.log(props);
+  const MouseOverHandle = (e) => {
+    e.style.transform = "scale(1.1)";
+    e.style.transition = "0.5s";
+  };
+
+  const MouseLeaveHandle = (e) => {
+    e.style.transform = "scale(1)";
+    e.style.transition = "0.5s";
+  };
+
   const UserDelete = (user) => {
     console.log(user);
     const test = axios
@@ -26,7 +35,16 @@ const ItemList = (props) => {
 
   return (
     <Fragment>
-      <div className={style.itemlist}>
+      <div
+        onMouseOver={(e) => {
+          MouseOverHandle(e.target);
+        }}
+        onMouseLeave={(e) => {
+          MouseLeaveHandle(e.target);
+        }}
+        className={style.itemlist}
+        id="List"
+      >
         <div className={style.IconBox}>
           <FontAwesomeIcon icon={faCircleUser} />
         </div>
@@ -45,27 +63,6 @@ const ItemList = (props) => {
             Delete
           </button>
         </div>
-        {/* <table>
-          <tbody>
-            {props.state == "User" ? (
-              <tr>
-                <td>{props.name}</td>
-                <td>{props.email}</td>
-                <td>{props.bd}</td>
-                <td>{props.state}</td>
-                <td>
-                  <button
-                    onClick={(e) => {
-                      UserDelete(props.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ) : null}
-          </tbody>
-        </table> */}
       </div>
     </Fragment>
   );
