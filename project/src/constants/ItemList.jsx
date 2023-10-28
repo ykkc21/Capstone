@@ -5,16 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
-  const MouseOverHandle = (e) => {
-    e.style.transform = "scale(1.1)";
-    e.style.transition = "0.5s";
-  };
-
-  const MouseLeaveHandle = (e) => {
-    e.style.transform = "scale(1)";
-    e.style.transition = "0.5s";
-  };
-
   const UserDelete = (user) => {
     console.log(user);
     const test = axios
@@ -35,16 +25,7 @@ const ItemList = (props) => {
 
   return (
     <Fragment>
-      <div
-        onMouseOver={(e) => {
-          MouseOverHandle(e.target);
-        }}
-        onMouseLeave={(e) => {
-          MouseLeaveHandle(e.target);
-        }}
-        className={style.itemlist}
-        id="List"
-      >
+      <div className={style.itemlist} id="List">
         <div className={style.IconBox}>
           <FontAwesomeIcon icon={faCircleUser} />
         </div>

@@ -6,6 +6,11 @@
   margin-bottom: 30px;
   padding: 20px;
   box-shadow: 1px 3px 10px #dddddd;
+  transition: 0.5s;
+}
+
+.itemlist:hover {
+  transform: scale(1.1);
 }
 
 .itemlist > .IconBox {
