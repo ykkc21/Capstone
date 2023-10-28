@@ -34,7 +34,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 50px;
-  color: #fff;
+  animation: UpDownMove 0.8s infinite;
 }
 
 .BackGround > h2 {
@@ -46,5 +46,21 @@
   transform: translate(-50%, -50%);
 }
 
+#airplane {
+  border: 1px solid #000;
+}
+
 @keyframes UpDownMove {
+  0% {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

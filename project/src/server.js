@@ -102,6 +102,21 @@ app.post("/joinData", (req, res) => {
   );
 });
 
+app.post("/userDelete", (req, res) => {
+  const { userid } = req.body;
+  console.log(userid);
+  const sql = `DELETE FROM user WHERE idx=${userid}`;
+  console.log(sql);
+  db.query(sql, (err, result, fields) => {
+    if (err) {
+      console.error(`삭제 중 오류발생: ${err}`);
+    }
+    if (result) {
+      res.json({ msg: "Delete_User" });
+    }
+  });
+});
+
 // DB에 저장된 youtubeId 가져오기
 app.get("/youtubeVideo", (req, res) => {
   const videoID = "YFfQ7uubllc"; // 원하는 비디오 ID로 변경하세요
