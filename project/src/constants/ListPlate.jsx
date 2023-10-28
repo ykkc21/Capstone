@@ -7,9 +7,9 @@ import axios from "axios";
 
 const ListPlate = ({ title, ShowContent, CloseContent }) => {
   const navigate = useNavigate();
-  const [UsearchValue, setUsearchValue] = useState("");
-  const [CsearchValue, setCsearchValue] = useState("");
-  const [BsearchValue, setBsearchValue] = useState("");
+  // const [UsearchValue, setUsearchValue] = useState("");
+  // const [CsearchValue, setCsearchValue] = useState("");
+  // const [BsearchValue, setBsearchValue] = useState("");
 
   const [u_array, setU_Array] = useState([]);
   const [c_array, setC_Array] = useState([]);
@@ -53,13 +53,13 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         {title.map((item, idx) => {
           return (
             <div key={idx} id={item.title} className={style.board}>
-              <SearchBar
+              {/* <SearchBar
                 ChangeText={ChangeText}
                 nickname={`${item.title}_bar`}
                 title={item.title}
                 ShowContent={ShowContent}
                 CloseContent={CloseContent}
-              />
+              /> */}
               {item.title == "User" ? (
                 <div className={style.ItemBox}>
                   {u_array.map((item, index) => {

@@ -8,6 +8,7 @@ import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Admin = ({ userData }) => {
   const [showContent, setShowContent] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
   const menu = [
     { title: "User", icon: <FontAwesomeIcon id="UserIcon" icon={faUser} /> },
     {
@@ -48,6 +49,13 @@ const Admin = ({ userData }) => {
     const user = document.getElementById("User");
     const content = document.getElementById("Content");
     const bulletin = document.getElementById("Bulletin");
+
+    if (selectedButton) {
+      selectedButton.style.backgroundColor = "initial";
+    }
+
+    e.target.style.backgroundColor = "antiquewhite";
+    setSelectedButton(e.target);
 
     if (domName[1] == "User") {
       console.log("User 입니다.");
