@@ -6,7 +6,8 @@
   margin-bottom: 30px;
   padding: 20px;
   box-shadow: 1px 3px 10px #dddddd;
-  transition: 0.8s;
+  transition: 0.4s;
+  background-color: #fff;
 }
 
 .itemlist:hover {
@@ -74,12 +75,8 @@
   transform: translate(-50%, -50%);
 }
 
-/* .itemlist > table {
-  width: 100%;
-  height: 100%;
-  border-collapse: collapse;
+@media (max-width: 1440px) {
+  .itemlist {
+    background-color: red;
+  }
 }
-.itemlist > table > th {
-  width: 50%;
-  height: 100%;
-} */

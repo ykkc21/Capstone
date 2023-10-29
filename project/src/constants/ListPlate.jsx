@@ -2,6 +2,7 @@ import { React, Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "../styles/ListPlate.module.css";
 import ItemList from "../constants/ItemList";
+import ContentCard from "./ContentCard";
 import axios from "axios";
 
 const ListPlate = ({ title, ShowContent, CloseContent }) => {
@@ -65,7 +66,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                 <div className={style.ItemBox}>
                   {c_array.map((item, idx) => {
                     console.log(item);
-                    return <div key={idx}></div>;
+                    return <ContentCard key={idx} />;
                   })}
                 </div>
               ) : null}
