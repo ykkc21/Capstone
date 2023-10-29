@@ -66,7 +66,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                 <div className={style.ItemBox}>
                   {c_array.map((item, idx) => {
                     console.log(item);
-                    return <ContentCard key={idx} />;
+                    return <ContentCard listData={item} key={idx} />;
                   })}
                 </div>
               ) : null}
