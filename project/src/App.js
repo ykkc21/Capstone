@@ -5,7 +5,6 @@ import Join from "./pages/join";
 import TravelList from "./pages/TravelList";
 import Admin from "./pages/admin";
 import Mypage from "./pages/mypage";
-import Test from "./constants/Test";
 import { React, useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -48,7 +47,6 @@ function App() {
           />
           <Route path="/admin" element={<Admin userData={session} />} />
           <Route path="/mypage" element={<Mypage userData={session} />} />
-          <Route path="/test" element={<Test />} />
         </Routes>
       </Fragment>
     </BrowserRouter>
