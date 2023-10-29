@@ -117,6 +117,28 @@ app.post("/userDelete", (req, res) => {
   });
 });
 
+// 관리자 콘텐츠 생성
+app.post("/AddContent", (req, res) => {
+  const { classinfo, title, information, location, array, lens, lensname } =
+    req.body;
+  const lensData = JSON.stringify(lens);
+  const YouTubeId = JSON.stringify(array);
+  const sql = `INSERT INTO content(c_classinfo, c_title,c_information,c_location,c_youtubeId,c_lens, c_lensname)
+  VALUES('${classinfo}','${title}','${information}','${location}','${YouTubeId}','${lensData}','${lensname}')`;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.json({ msg: "No", text: "DB저장 실패" });
+    }
+    res.json({ msg: "OK", text: "DB저장 완료" });
+  });
+});
+
+app.post("/DeleteContent", (req, res) => {
+  const { ContentId } = req.body;
+  console.log(ContentId);
+});
+
 // DB에 저장된 youtubeId 가져오기
 app.get("/youtubeVideo", (req, res) => {
   const videoID = "YFfQ7uubllc"; // 원하는 비디오 ID로 변경하세요
@@ -139,23 +161,6 @@ app.get("/youtubeVideo", (req, res) => {
       console.error("Error fetching YouTube data:", error);
       res.status(500).send("Failed to fetch YouTube data.");
     });
-});
-
-// 관리자 콘텐츠 생성
-app.post("/AddContent", (req, res) => {
-  const { classinfo, title, information, location, array, lens, lensname } =
-    req.body;
-  const lensData = JSON.stringify(lens);
-  const YouTubeId = JSON.stringify(array);
-  const sql = `INSERT INTO content(c_classinfo, c_title,c_information,c_location,c_youtubeId,c_lens, c_lensname)
-  VALUES('${classinfo}','${title}','${information}','${location}','${YouTubeId}','${lensData}','${lensname}')`;
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error(err);
-      res.json({ msg: "No", text: "DB저장 실패" });
-    }
-    res.json({ msg: "OK", text: "DB저장 완료" });
-  });
 });
 
 //get 유저정보

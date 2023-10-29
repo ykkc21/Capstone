@@ -18,24 +18,38 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         // 순차적으로 실행되도록 async/await을 사용
         const usersResponse = await axios.get("/users");
         const contentsResponse = await axios.get("/contents");
-
         const usersData = usersResponse.data;
         const contentsData = contentsResponse.data;
-        // console.log("유저 데이터:", usersData);
-        // console.log("콘텐츠 데이터:", contentsData);
-        setU_Array(usersData.users);
-        setC_Array(contentsData.contents);
+        // setU_Array(usersData.users);
+        // setC_Array(contentsData.contents);
       } catch (error) {
         console.error("데이터 요청 중 오류 발생:", error);
       }
     };
-
     fetchData();
+    // const UsersData = () => {
+    //   const Userdata = axios
+    //     .get("/users")
+    //     .then((res) => {
+    //       console.log(`유저 값:`, res);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    // };
+    // const ContentsData = () => {
+    //   const Contentdata = axios
+    //     .get("/contents")
+    //     .then((res) => {
+    //       console.log(`컨텐츠 값: `, res);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    // };
+    // UsersData();
+    // ContentsData();
   }, []);
-
-  const Test = () => {
-    console.log(123);
-  };
 
   return (
     <Fragment>

@@ -79,14 +79,6 @@ const Admin = ({ userData }) => {
       content.style.display = "none";
       bulletin.style.display = "block";
     }
-
-    // setTimeout(() => {
-    //   e.target.style.backgroundColor = "initial";
-    //   e.target.style.color = "initial";
-    //   e.target.style.transition = "0.5s";
-    //   setSelectedButton(null); // null 또는 초기화된 값으로 설정
-    //   setSelectedText(null); // null 또는 초기화된 값으로 설정
-    // }, 3000);
   };
   return (
     <Fragment>
