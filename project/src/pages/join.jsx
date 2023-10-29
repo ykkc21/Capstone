@@ -10,36 +10,52 @@ const Join = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
 
-  const InputValue = () => {
+  const InputValue = async () => {
     console.log(name, nickname, bd, email, pw);
     if (name == "" || nickname == "" || bd == "" || email == "" || pw == "") {
       alert("빈값이 있습니다. 다 채워주세요!");
     } else {
-      const sendUserData = axios
-        .post("http://localhost:9000/joinData", {
-          name,
-          nickname,
-          bd,
-          email,
-          pw,
-        })
-        .then(function (response) {
-          console.log(response);
-          if (response.statusText == "OK") {
-            setName("");
-            setNickName("");
-            setBd("");
-            setEmail("");
-            setPw("");
-            // DB에 데이터 전송이 성공하면 로그인 페이지로 이동
-            alert("회원가입이 완료 되었습니다.");
-            // eslint-disable-next-line no-restricted-globals
-            location.href = "/login";
+      try {
+        const SendUserData = await axios.post(
+          "http://localhost:9000/user/joinData",
+          {
+            name,
+            nickname,
+            bd,
+            email,
+            pw,
           }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+        );
+
+        console.log(SendUserData.data);
+      } catch (err) {
+        console.error(err);
+      }
+      // const sendUserData = await axios
+      //   .post("http://localhost:9000/user/joinData", {
+      //     name,
+      //     nickname,
+      //     bd,
+      //     email,
+      //     pw,
+      //   })
+      //   .then(function (response) {
+      //     console.log(response);
+      //     if (response.statusText == "OK") {
+      //       setName("");
+      //       setNickName("");
+      //       setBd("");
+      //       setEmail("");
+      //       setPw("");
+      //       // DB에 데이터 전송이 성공하면 로그인 페이지로 이동
+      //       alert("회원가입이 완료 되었습니다.");
+      //       // eslint-disable-next-line no-restricted-globals
+      //       location.href = "/login";
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.error(err);
+      //   });
     }
   };
   return (

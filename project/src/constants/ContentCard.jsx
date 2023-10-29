@@ -9,6 +9,7 @@ const ContentCard = ({ listData }) => {
   };
 
   const DeleteContent = async (target) => {
+    console.log(123);
     try {
       const DeleteContent = await axios.post(
         "http://localhost:9000/DeleteContent",
