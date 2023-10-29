@@ -18,9 +18,6 @@ const AdminControll = ({
           ShowContent={AddContentBox}
           CloseContent={CloseContentBox}
         />
-        {/* <div className={style.MainPlate}>
-
-        </div> */}
       </div>
     </Fragment>
   );

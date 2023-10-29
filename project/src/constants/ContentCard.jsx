@@ -28,9 +28,11 @@ const ContentCard = ({ listData }) => {
         {imageSrc && (
           <img src={TestImage} alt="img" className={style.MainImage} />
         )}
-        <h3>{listData.c_title}</h3>
-        <h3>{listData.c_classinfo}</h3>
-        <h3>{listData.c_information}</h3>
+        <div className={style.TitleBox}>
+          <h3 className={style.Title}>{listData.c_title}</h3>
+          <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>
+        </div>
+        <h3 className={style.Info}>{listData.c_information}</h3>
         <div className={style.BtnBox}>
           <button className={`${style.UploadBtn} ${style.btn}`}>Upload</button>
           <button className={`${style.DeleteBtn} ${style.btn}`}>Delete</button>

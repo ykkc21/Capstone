@@ -64,6 +64,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
               ) : null}
               {item.title == "Content" ? (
                 <div className={style.ItemBox}>
+                  <button onClick={ShowContent}>Add Content</button>
                   {c_array.map((item, idx) => {
                     console.log(item);
                     return <ContentCard listData={item} key={idx} />;

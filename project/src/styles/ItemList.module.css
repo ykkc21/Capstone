@@ -77,6 +77,6 @@
 
 @media (max-width: 1440px) {
   .itemlist {
-    background-color: red;
+    margin-left: 100px;
   }
 }
