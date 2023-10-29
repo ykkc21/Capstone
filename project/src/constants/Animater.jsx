@@ -4,14 +4,6 @@ import airplane from "../assets/img/airplane.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 const Animater = () => {
-  const [name, setName] = useState("");
-  const Test = () => {
-    setName("showainmater");
-    // const dom = document.getElementById("airplane");
-    // const a = dom.classList.add("showainmater");
-    // console.log(a);
-  };
-  console.log(name);
   return (
     <Fragment>
       <div className={style.BackGround}>
@@ -19,7 +11,7 @@ const Animater = () => {
           <img id="airplane" src={airplane} alt="img" />
         </div>
         <h2>Getting Started with Travel</h2>
-        <div onClick={Test} className={style.IconBox}>
+        <div className={style.IconBox}>
           <FontAwesomeIcon
             id="first"
             className={style.arrow}

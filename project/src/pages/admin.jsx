@@ -1,4 +1,4 @@
-import { React, Fragment, useState, useEffect } from "react";
+import { React, Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import AddContent from "../components/AddContent";
@@ -23,18 +23,16 @@ const Admin = ({ userData }) => {
   ];
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const state = Array.from(userData);
-    state.forEach((item, idx) => {
-      if (item[idx].state == "User") {
-        alert("일반회원은 사용 불가합니다.");
-        navigate("/");
-      }
-      if (item[idx].msg == "NO") {
-        alert("로그인을 하지 않았습니다.");
-        navigate("/");
-      }
-    });
+  const state = Array.from(userData);
+  state.forEach((item, idx) => {
+    if (item[idx].state == "User") {
+      alert("일반회원은 사용 불가합니다.");
+      navigate("/");
+    }
+    if (item[idx].msg == "NO") {
+      alert("로그인을 하지 않았습니다.");
+      navigate("/");
+    }
   });
 
   const AddContentBox = () => {

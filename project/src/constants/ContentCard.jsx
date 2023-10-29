@@ -1,4 +1,4 @@
-import { React, Fragment, useEffect, useState } from "react";
+import { React, Fragment, useState } from "react";
 import style from "../styles/ContentCard.module.css";
 import TestImage from "../assets/img/sky1.jpg";
 

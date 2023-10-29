@@ -1,4 +1,4 @@
-import { React, Fragment, useEffect } from "react";
+import { React, Fragment } from "react";
 import style from "../styles/AdminControl.module.css";
 import SideMenuBar from "../constants/SideMenuBar";
 import ListPlate from "./ListPlate";

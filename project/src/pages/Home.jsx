@@ -5,7 +5,6 @@ import View from "../constants/Main_View";
 import About from "../constants/About";
 import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
-import axios from "axios";
 const Home = ({ userData }) => {
   return (
     <Fragment>

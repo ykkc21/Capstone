@@ -20,35 +20,16 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         const contentsResponse = await axios.get("/contents");
         const usersData = usersResponse.data;
         const contentsData = contentsResponse.data;
-        // setU_Array(usersData.users);
-        // setC_Array(contentsData.contents);
+
+        console.log(usersData);
+        console.log(contentsData);
+        setU_Array(usersData.users);
+        setC_Array(contentsData.contents);
       } catch (error) {
         console.error("데이터 요청 중 오류 발생:", error);
       }
     };
     fetchData();
-    // const UsersData = () => {
-    //   const Userdata = axios
-    //     .get("/users")
-    //     .then((res) => {
-    //       console.log(`유저 값:`, res);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
-    // };
-    // const ContentsData = () => {
-    //   const Contentdata = axios
-    //     .get("/contents")
-    //     .then((res) => {
-    //       console.log(`컨텐츠 값: `, res);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
-    // };
-    // UsersData();
-    // ContentsData();
   }, []);
 
   return (
