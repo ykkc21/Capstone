@@ -12,24 +12,25 @@ function App() {
   const [session, setSesstion] = useState([]);
 
   useEffect(() => {
-    const user = axios
-      .get("/loginCheck")
-      .then((result) => {
-        if (result.data.msg === "NO") {
+    const SesstionState = async () => {
+      try {
+        const user = await axios.get("/loginCheck");
+        if (user.data.msg === "NO") {
           const newData = session.concat({ msg: "NO" });
           const set = new Set();
           set.add(newData);
           setSesstion(set);
         } else {
-          const newData = session.concat(result.data.user);
+          const newData = session.concat(user.data.user);
           const set = new Set();
           set.add(newData);
           setSesstion(set);
         }
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error(err);
-      });
+      }
+    };
+    SesstionState();
   }, []);
 
   console.log(session);

@@ -1,6 +1,6 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/Join.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Join = () => {
@@ -9,6 +9,7 @@ const Join = () => {
   const [bd, setBd] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const navigate = useNavigate();
 
   const InputValue = async () => {
     console.log(name, nickname, bd, email, pw);
@@ -17,7 +18,7 @@ const Join = () => {
     } else {
       try {
         const SendUserData = await axios.post(
-          "http://localhost:9000/user/joinData",
+          "http://localhost:9000/User/joinData",
           {
             name,
             nickname,
@@ -26,36 +27,18 @@ const Join = () => {
             pw,
           }
         );
-
-        console.log(SendUserData.data);
+        if (SendUserData.data.msg === "OK") {
+          setName("");
+          setNickName("");
+          setBd("");
+          setEmail("");
+          setPw("");
+          alert("회원가입이 완료되었습니다.");
+          navigate("/login");
+        }
       } catch (err) {
         console.error(err);
       }
-      // const sendUserData = await axios
-      //   .post("http://localhost:9000/user/joinData", {
-      //     name,
-      //     nickname,
-      //     bd,
-      //     email,
-      //     pw,
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //     if (response.statusText == "OK") {
-      //       setName("");
-      //       setNickName("");
-      //       setBd("");
-      //       setEmail("");
-      //       setPw("");
-      //       // DB에 데이터 전송이 성공하면 로그인 페이지로 이동
-      //       alert("회원가입이 완료 되었습니다.");
-      //       // eslint-disable-next-line no-restricted-globals
-      //       location.href = "/login";
-      //     }
-      //   })
-      //   .catch((err) => {
-      //     console.error(err);
-      //   });
     }
   };
   return (

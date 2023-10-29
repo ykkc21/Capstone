@@ -1,31 +1,125 @@
 const express = require("express");
 const router = express.Router();
+const session = require("express-session");
+const fileStore = require("session-file-store")(session);
 const db = require("../connection/db");
 
-// user.use("/", (req, res, next) => {
-//   next();
+router.use(express.json());
+
+// 세션 정의
+router.use(
+  session({
+    httpOnly: true,
+    secret: "ASDFGHJKL!@#", // 암호화에 대한 속성
+    resave: false,
+    saveUninitialized: true,
+    store: new fileStore(),
+    cookie: {
+      secure: false, // HTTPS를 사용하지 않는 경우 false로 설정
+    },
+  })
+);
+
+// // 로그인 상시 체크
+// router.get("/loginCheck", (req, res) => {
+//   console.log(req.session.user_data);
+//   if (req.session.user_data) {
+//     // 세션에 user_data가 있을 때
+//     const user = req.session.user_data;
+//     res.json({ msg: "OK", user });
+//   } else {
+//     // 세션에 user_data가 없을 때
+//     res.json({ msg: "NO" });
+//   }
 // });
 
+router.get("/", (req, res) => {
+  res.send("get UserData");
+});
+
+// 회원가입 처리
 router.post("/joinData", (req, res) => {
   const { name, nickname, bd, email, pw } = req.body;
   console.log(name, nickname, bd, email, pw);
-  //   db.query(
-  //     "INSERT INTO user(name,nickname,email,pw,bd,state) VALUES('" +
-  //       name +
-  //       "','" +
-  //       nickname +
-  //       "','" +
-  //       email +
-  //       "','" +
-  //       pw +
-  //       "','" +
-  //       bd +
-  //       "','User')",
-  //     (err, result) => {
-  //       if (err) console.error(err);
-  //       res.send(result);
-  //     }
-  //   );
+  db.query(
+    "INSERT INTO user(name,nickname,email,pw,bd,state) VALUES('" +
+      name +
+      "','" +
+      nickname +
+      "','" +
+      email +
+      "','" +
+      pw +
+      "','" +
+      bd +
+      "','User')",
+    (err, result) => {
+      if (err) console.error(err);
+      res.json({ msg: "OK" });
+    }
+  );
+});
+
+// 로그인 서비스
+router.post("/loginData", (req, res) => {
+  const email = req.body.email;
+  const pw = req.body.pw;
+  console.log(email, pw);
+
+  if (email && pw) {
+    db.query(
+      `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
+      (err, row, fields) => {
+        if (err) console.error(err);
+        if (row.length === 0) {
+          res.send("No_User");
+        } else {
+          req.session.save(() => {
+            const data = {
+              idx: row[0].idx,
+              name: row[0].name,
+              state: row[0].state,
+            };
+
+            req.session.user_data = data;
+            console.log("===========> 저장한 세션값", req.session);
+            res.send("OK");
+          });
+        }
+      }
+    );
+  } else {
+    res.send("알맞는 계정이 없습니다.");
+  }
+});
+
+router.get("/loginCheck", (req, res) => {
+  const user = req.session.user_data;
+  console.log("지금 로그인 세션 상태 ====>", user);
+  if (user) {
+    res.json({ msg: "OK", user });
+  } else {
+    res.json({ msg: "NO" });
+  }
+});
+
+//로그아웃 (세선 삭제)
+router.get("/logout", (req, res) => {
+  if (req.session) {
+    // 세션을 삭제합니다.
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("세션 삭제 중 오류 발생:", err);
+        res.status(500).send("세션 삭제 오류");
+      } else {
+        console.log("로그아웃 성공");
+        res.send("logout");
+      }
+    });
+  } else {
+    console.error("세션을 찾을 수 없음");
+    res.status(400).send("세션 없음");
+  }
 });
 
 module.exports = router;

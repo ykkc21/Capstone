@@ -20,6 +20,7 @@ const Header = ({ userData }) => {
 
   const SesstionDistroy = async () => {
     const distroy = await axios.get("/logout");
+    console.log(distroy.data);
     if (distroy.data === "logout") {
       alert("로그아웃 하였습니다.");
       // eslint-disable-next-line no-restricted-globals

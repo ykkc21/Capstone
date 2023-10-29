@@ -7,33 +7,35 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
 
-  const LoginCheck = () => {
+  const LoginCheck = async () => {
     if (email == "" || pw == "") {
       alert("이메일과 비밀번호를 작성해 주세요.");
     } else {
-      axios
-        .post("/loginData", {
-          email,
-          pw,
-        })
-        .then((result) => {
-          console.log(result);
-          if (result.data == "No_User") {
-            alert("계정을 다시한번 확인 해주세요");
-            setEmail("");
-            setPw("");
-          } else if (result.data == "OK") {
-            console.log(result.data);
-            alert("계정을 찾았습니다.");
-            setEmail("");
-            setPw("");
-            // eslint-disable-next-line no-restricted-globals
-            location.href = "/";
+      try {
+        const LoginUser = await axios.post(
+          "http://localhost:9000/User/loginData",
+          {
+            email,
+            pw,
           }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+        );
+
+        console.log(LoginUser.data);
+        if (LoginUser.data == "No_User") {
+          alert("계정을 다시한번 확인 해주세요");
+          setEmail("");
+          setPw("");
+        } else if (LoginUser.data == "OK") {
+          console.log(LoginUser.data);
+          alert("계정을 찾았습니다.");
+          setEmail("");
+          setPw("");
+          // eslint-disable-next-line no-restricted-globals
+          location.href = "/";
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
   return (
@@ -46,11 +48,7 @@ const Login = () => {
               <Link to={"/"}>LOGO</Link>
             </h1>
             <p className={style.login_text}>Login</p>
-            <div
-              className={style.loginBox}
-              action="http://localhost:9000/loginData"
-              method="POST"
-            >
+            <div className={style.loginBox}>
               <input
                 type="text"
                 id="email"
