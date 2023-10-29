@@ -68,7 +68,7 @@ const AddContent = ({ CloseBox }) => {
       alert("데이터를 정확하게 작성해주세요!");
     } else {
       const uploadData = axios
-        .post("http://localhost:8080/AddContent", {
+        .post("http://localhost:9000/AddContent", {
           classinfo,
           title,
           information,

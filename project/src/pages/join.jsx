@@ -16,7 +16,7 @@ const Join = () => {
       alert("빈값이 있습니다. 다 채워주세요!");
     } else {
       const sendUserData = axios
-        .post("http://localhost:8080/joinData", {
+        .post("http://localhost:9000/joinData", {
           name,
           nickname,
           bd,

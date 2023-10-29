@@ -197,6 +197,6 @@ app.get("/contents", (req, res) => {
 });
 
 // 서버가 잘 동작하는지 확인
-server.listen(8080, () => {
-  console.log("server is running on 8080");
+server.listen(9000, () => {
+  console.log("server is running on 9000");
 });

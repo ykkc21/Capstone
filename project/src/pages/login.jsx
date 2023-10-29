@@ -48,7 +48,7 @@ const Login = () => {
             <p className={style.login_text}>Login</p>
             <div
               className={style.loginBox}
-              action="http://localhost:8080/loginData"
+              action="http://localhost:9000/loginData"
               method="POST"
             >
               <input
