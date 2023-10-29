@@ -20,11 +20,13 @@ function App() {
           const set = new Set();
           set.add(newData);
           setSesstion(set);
+          console.log("세션 못가져옴");
         } else {
           const newData = session.concat(user.data.user);
           const set = new Set();
           set.add(newData);
           setSesstion(set);
+          console.log("세션 가져옴");
         }
       } catch (err) {
         console.error(err);
@@ -32,8 +34,6 @@ function App() {
     };
     SesstionState();
   }, []);
-
-  console.log(session);
 
   return (
     <BrowserRouter>

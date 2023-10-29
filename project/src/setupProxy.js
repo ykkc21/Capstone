@@ -1,14 +1,6 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app) {
-  app.use(
-    "/loginData",
-    createProxyMiddleware({
-      target: "http://localhost:9000/User", // Express 서버 주소
-      changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
-    })
-  );
-
   // 로그인 세션유지
   app.use(
     "/loginCheck",
@@ -17,13 +9,14 @@ module.exports = function (app) {
       changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
     })
   );
-  app.use(
-    "/logout",
-    createProxyMiddleware({
-      target: "http://localhost:9000/User", // Express 서버 주소
-      changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
-    })
-  );
+
+  // app.use(
+  //   "/logout",
+  //   createProxyMiddleware({
+  //     target: "http://localhost:9000/User", // Express 서버 주소
+  //     changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
+  //   })
+  // );
 
   // app.use(
   //   "/youtubeVideo",

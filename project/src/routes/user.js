@@ -3,8 +3,17 @@ const router = express.Router();
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 const db = require("../connection/db");
+const cors = require("cors");
 
 router.use(express.json());
+
+router.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 // 세션 정의
 router.use(
@@ -19,19 +28,6 @@ router.use(
     },
   })
 );
-
-// // 로그인 상시 체크
-// router.get("/loginCheck", (req, res) => {
-//   console.log(req.session.user_data);
-//   if (req.session.user_data) {
-//     // 세션에 user_data가 있을 때
-//     const user = req.session.user_data;
-//     res.json({ msg: "OK", user });
-//   } else {
-//     // 세션에 user_data가 없을 때
-//     res.json({ msg: "NO" });
-//   }
-// });
 
 router.get("/", (req, res) => {
   res.send("get UserData");
@@ -61,20 +57,29 @@ router.post("/joinData", (req, res) => {
 });
 
 // 로그인 서비스
+// 로그인 서비스
 router.post("/loginData", (req, res) => {
   const email = req.body.email;
   const pw = req.body.pw;
-  console.log(email, pw);
 
   if (email && pw) {
     db.query(
       `SELECT * FROM user where email = "${email}" and pw="${pw}"`,
       (err, row, fields) => {
-        if (err) console.error(err);
+        if (err) {
+          console.error(err);
+          res.send("Error");
+          return;
+        }
+
         if (row.length === 0) {
           res.send("No_User");
         } else {
-          req.session.save(() => {
+          // 세션 초기화
+          req.session.save((err) => {
+            if (err) {
+              console.error(err);
+            }
             const data = {
               idx: row[0].idx,
               name: row[0].name,
@@ -82,7 +87,7 @@ router.post("/loginData", (req, res) => {
             };
 
             req.session.user_data = data;
-            console.log("===========> 저장한 세션값", req.session);
+            console.log("===========> 저장한 세션값", req.session.user_data);
             res.send("OK");
           });
         }
@@ -93,18 +98,31 @@ router.post("/loginData", (req, res) => {
   }
 });
 
+// router.get("/loginCheck", (req, res) => {
+//   const user = req.session.user_data;
+//   console.log("지금 로그인 세션 상태 ====>", user);
+//   if (user) {
+//     res.json({ msg: "OK", user });
+//   } else {
+//     res.json({ msg: "NO" });
+//   }
+// });
+
+// 로그인 상시 체크
 router.get("/loginCheck", (req, res) => {
-  const user = req.session.user_data;
-  console.log("지금 로그인 세션 상태 ====>", user);
-  if (user) {
+  console.log(req.session.user_data);
+  if (req.session.user_data) {
+    // 세션에 user_data가 있을 때
+    const user = req.session.user_data;
     res.json({ msg: "OK", user });
   } else {
+    // 세션에 user_data가 없을 때
     res.json({ msg: "NO" });
   }
 });
 
 //로그아웃 (세선 삭제)
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session) {
     // 세션을 삭제합니다.
     req.session.destroy((err) => {
