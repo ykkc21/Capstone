@@ -5,21 +5,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
-  const UserDelete = (user) => {
-    const test = axios
-      .post("http://localhost:8080/userDelete", {
+  const UserDelete = async (user) => {
+    try {
+      const DeleteUser = await axios.post("http://localhost:8080/DeleteUser", {
         userid: user,
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data.msg === "Delete_User") {
-          alert("계정을 삭제했습니다.");
-          window.location.reload();
-        }
-      })
-      .catch((err) => {
-        console.error(err);
       });
+
+      if (DeleteUser.data.msg === "Delete_User") {
+        alert("계정을 삭제했습니다.");
+        window.location.reload();
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

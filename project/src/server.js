@@ -102,7 +102,7 @@ app.post("/joinData", (req, res) => {
   );
 });
 
-app.post("/userDelete", (req, res) => {
+app.post("/DeleteUser", (req, res) => {
   const { userid } = req.body;
   console.log(userid);
   const sql = `DELETE FROM user WHERE idx=${userid}`;
@@ -137,6 +137,15 @@ app.post("/AddContent", (req, res) => {
 app.post("/DeleteContent", (req, res) => {
   const { ContentId } = req.body;
   console.log(ContentId);
+  const sql = `DELETE FROM content WHERE idx=${ContentId}`;
+  db.query(sql, (err, result, fields) => {
+    if (err) {
+      console.error(`삭제 중 오류발생: ${err}`);
+    }
+    if (result) {
+      res.json({ msg: "Delete_Content" });
+    }
+  });
 });
 
 // DB에 저장된 youtubeId 가져오기

@@ -1,13 +1,28 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/ContentCard.module.css";
 import TestImage from "../assets/img/sky1.jpg";
+import axios from "axios";
 
 const ContentCard = ({ listData }) => {
   const UpdateContent = (target) => {
     console.log("Update", target);
   };
-  const DeleteContent = (target) => {
-    console.log("Delete", target);
+
+  const DeleteContent = async (target) => {
+    try {
+      const DeleteContent = await axios.post(
+        "http://localhost:8080/DeleteContent",
+        {
+          ContentId: target,
+        }
+      );
+      if (DeleteContent.data.msg === "Delete_Content") {
+        alert("컨텐츠 삭제 했습니다.");
+        window.location.reload();
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -23,13 +38,17 @@ const ContentCard = ({ listData }) => {
         </div>
         <div className={style.BtnBox}>
           <button
-            onClick={UpdateContent(listData.c_idx)}
+            onClick={(e) => {
+              UpdateContent(listData.c_idx);
+            }}
             className={`${style.UploadBtn} ${style.btn}`}
           >
             Upload
           </button>
           <button
-            onClick={DeleteContent(listData.c_idx)}
+            onClick={(e) => {
+              DeleteContent(listData.c_idx);
+            }}
             className={`${style.DeleteBtn} ${style.btn}`}
           >
             Delete

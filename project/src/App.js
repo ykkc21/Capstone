@@ -32,6 +32,8 @@ function App() {
       });
   }, []);
 
+  console.log(session);
+
   return (
     <BrowserRouter>
       <Fragment>
