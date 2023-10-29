@@ -57,7 +57,6 @@ router.post("/joinData", (req, res) => {
 });
 
 // 로그인 서비스
-// 로그인 서비스
 router.post("/loginData", (req, res) => {
   const email = req.body.email;
   const pw = req.body.pw;
@@ -75,21 +74,14 @@ router.post("/loginData", (req, res) => {
         if (row.length === 0) {
           res.send("No_User");
         } else {
-          // 세션 초기화
-          req.session.save((err) => {
-            if (err) {
-              console.error(err);
-            }
-            const data = {
-              idx: row[0].idx,
-              name: row[0].name,
-              state: row[0].state,
-            };
-
-            req.session.user_data = data;
-            console.log("===========> 저장한 세션값", req.session.user_data);
-            res.send("OK");
-          });
+          const data = {
+            idx: row[0].idx,
+            name: row[0].name,
+            state: row[0].state,
+          };
+          req.session.user_data = data;
+          console.log("===========> 저장한 세션값", req.session.user_data);
+          res.send("OK");
         }
       }
     );
