@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const SesstionState = async () => {
       try {
-        const user = await axios.get("/loginCheck");
+        const user = await axios.get("/loginCheck", { withCredentials: true });
         if (user.data.msg === "NO") {
           const newData = session.concat({ msg: "NO" });
           const set = new Set();

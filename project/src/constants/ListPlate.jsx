@@ -16,8 +16,8 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
     const fetchData = async () => {
       try {
         // 순차적으로 실행되도록 async/await을 사용
-        const usersResponse = await axios.get("/users");
-        const contentsResponse = await axios.get("/contents");
+        const usersResponse = await axios.get("/Users");
+        const contentsResponse = await axios.get("/Contents");
         const usersData = usersResponse.data;
         const contentsData = contentsResponse.data;
 
@@ -29,7 +29,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         console.error("데이터 요청 중 오류 발생:", error);
       }
     };
-    fetchData();
+    // fetchData();
   }, []);
 
   return (

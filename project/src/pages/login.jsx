@@ -17,7 +17,8 @@ const Login = () => {
           {
             email,
             pw,
-          }
+          },
+          { withCredentials: true }
         );
 
         console.log(LoginUser.data);

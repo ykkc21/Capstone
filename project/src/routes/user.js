@@ -5,8 +5,6 @@ const fileStore = require("session-file-store")(session);
 const db = require("../connection/db");
 const cors = require("cors");
 
-router.use(express.json());
-
 router.use(
   cors({
     origin: "http://localhost:3000",
@@ -14,24 +12,21 @@ router.use(
     credentials: true,
   })
 );
+router.use(express.json());
 
-// 세션 정의
-router.use(
-  session({
-    httpOnly: true,
-    secret: "ASDFGHJKL!@#", // 암호화에 대한 속성
-    resave: false,
-    saveUninitialized: true,
-    store: new fileStore(),
-    cookie: {
-      secure: false, // HTTPS를 사용하지 않는 경우 false로 설정
-    },
-  })
-);
-
-router.get("/", (req, res) => {
-  res.send("get UserData");
-});
+// // 세션 정의
+// router.use(
+//   session({
+//     secret: "secret", // 암호화에 대한 속성
+//     resave: false,
+//     saveUninitialized: false,
+//     store: new fileStore(),
+//     cookie: {
+//       secure: false, // HTTPS를 사용하지 않는 경우 false로 설정
+//       maxAge: 1000 * 60 * 60 * 24,
+//     },
+//   })
+// );
 
 // 회원가입 처리
 router.post("/joinData", (req, res) => {
@@ -74,14 +69,16 @@ router.post("/loginData", (req, res) => {
         if (row.length === 0) {
           res.send("No_User");
         } else {
-          const data = {
-            idx: row[0].idx,
-            name: row[0].name,
-            state: row[0].state,
-          };
-          req.session.user_data = data;
-          console.log("===========> 저장한 세션값", req.session.user_data);
-          res.send("OK");
+          req.session.save((err) => {
+            const data = {
+              idx: row[0].idx,
+              name: row[0].name,
+              state: row[0].state,
+            };
+            req.session.user_data = data;
+            console.log("===========> 저장한 세션값", req.session.user_data);
+            res.send("OK");
+          });
         }
       }
     );
@@ -90,19 +87,9 @@ router.post("/loginData", (req, res) => {
   }
 });
 
-// router.get("/loginCheck", (req, res) => {
-//   const user = req.session.user_data;
-//   console.log("지금 로그인 세션 상태 ====>", user);
-//   if (user) {
-//     res.json({ msg: "OK", user });
-//   } else {
-//     res.json({ msg: "NO" });
-//   }
-// });
-
 // 로그인 상시 체크
 router.get("/loginCheck", (req, res) => {
-  console.log(req.session.user_data);
+  console.log("로그인 상시체크", req.session.user_data);
   if (req.session.user_data) {
     // 세션에 user_data가 있을 때
     const user = req.session.user_data;

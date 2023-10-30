@@ -10,36 +10,36 @@ module.exports = function (app) {
     })
   );
 
-  // app.use(
-  //   "/logout",
-  //   createProxyMiddleware({
-  //     target: "http://localhost:9000/User", // Express 서버 주소
-  //     changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
-  //   })
-  // );
+  app.use(
+    "/logout",
+    createProxyMiddleware({
+      target: "http://localhost:9000/User", // Express 서버 주소
+      changeOrigin: true, // 필요한 경우 서버의 원본을 변경합니다.
+    })
+  );
 
-  // app.use(
-  //   "/youtubeVideo",
-  //   createProxyMiddleware({
-  //     target: "http://localhost:9000",
-  //     changeOrigin: true,
-  //   })
-  // );
+  app.use(
+    "/youtubeVideo",
+    createProxyMiddleware({
+      target: "http://localhost:9000",
+      changeOrigin: true,
+    })
+  );
 
-  // //관리자 페이지 유저정보
-  // app.use(
-  //   "/users",
-  //   createProxyMiddleware({
-  //     target: "http://localhost:9000",
-  //     changeOrigin: true,
-  //   })
-  // );
-  // //관리자 페이지 콘텐츠정보
-  // app.use(
-  //   "/contents",
-  //   createProxyMiddleware({
-  //     target: "http://localhost:9000",
-  //     changeOrigin: true,
-  //   })
-  // );
+  //관리자 페이지 유저정보
+  app.use(
+    "/User",
+    createProxyMiddleware({
+      target: "http://localhost:9000",
+      changeOrigin: true,
+    })
+  );
+  //관리자 페이지 콘텐츠정보
+  app.use(
+    "/Content",
+    createProxyMiddleware({
+      target: "http://localhost:9000",
+      changeOrigin: true,
+    })
+  );
 };
