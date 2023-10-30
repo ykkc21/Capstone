@@ -28,17 +28,17 @@ module.exports = function (app) {
 
   //관리자 페이지 유저정보
   app.use(
-    "/User",
+    "/Users",
     createProxyMiddleware({
-      target: "http://localhost:9000",
+      target: "http://localhost:9000/User",
       changeOrigin: true,
     })
   );
   //관리자 페이지 콘텐츠정보
   app.use(
-    "/Content",
+    "/Contents",
     createProxyMiddleware({
-      target: "http://localhost:9000",
+      target: "http://localhost:9000/Content",
       changeOrigin: true,
     })
   );

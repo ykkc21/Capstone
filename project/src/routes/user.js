@@ -28,6 +28,18 @@ router.use(
   })
 );
 
+//get 유저정보
+router.get("/Users", (req, res) => {
+  db.query("SELECT * FROM user", (err, rows, fields) => {
+    if (err) {
+      console.error(err);
+      res.json({ msg: "NoData" });
+    } else {
+      res.json({ msg: "OK", users: rows });
+    }
+  });
+});
+
 // 회원가입 처리
 router.post("/joinData", (req, res) => {
   const { name, nickname, bd, email, pw } = req.body;
@@ -117,6 +129,21 @@ router.get("/logout", (req, res) => {
     console.error("세션을 찾을 수 없음");
     res.status(400).send("세션 없음");
   }
+});
+
+router.post("/DeleteUser", (req, res) => {
+  const { userid } = req.body;
+  console.log(userid);
+  const sql = `DELETE FROM user WHERE idx=${userid}`;
+  console.log(sql);
+  db.query(sql, (err, result, fields) => {
+    if (err) {
+      console.error(`삭제 중 오류발생: ${err}`);
+    }
+    if (result) {
+      res.json({ msg: "Delete_User" });
+    }
+  });
 });
 
 module.exports = router;

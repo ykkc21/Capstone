@@ -55,7 +55,7 @@ const AddContent = ({ CloseBox }) => {
     }
   };
 
-  const ClickUpload = () => {
+  const ClickUpload = async () => {
     if (
       lensname == "" ||
       classinfo == "" ||
@@ -67,8 +67,9 @@ const AddContent = ({ CloseBox }) => {
     ) {
       alert("데이터를 정확하게 작성해주세요!");
     } else {
-      const uploadData = axios
-        .post("http://localhost:9000/AddContent", {
+      const uploadData = await axios.post(
+        "http://localhost:9000/Content/AddContent",
+        {
           classinfo,
           title,
           information,
@@ -76,16 +77,18 @@ const AddContent = ({ CloseBox }) => {
           array,
           lens,
           lensname,
-        })
-        .then((result) => {
-          if (result.data.msg == "OK") {
-            alert("데이터 전송이 완료되었습니다.");
-            CloseBox();
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+        }
+      );
+      console.log(uploadData.data);
+      // .then((result) => {
+      //   if (result.data.msg == "OK") {
+      //     alert("데이터 전송이 완료되었습니다.");
+      //     CloseBox();
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.error(err);
+      // });
     }
   };
 

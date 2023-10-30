@@ -29,7 +29,7 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         console.error("데이터 요청 중 오류 발생:", error);
       }
     };
-    // fetchData();
+    fetchData();
   }, []);
 
   return (
