@@ -19,7 +19,9 @@ const Header = ({ userData }) => {
   });
 
   const SesstionDistroy = async () => {
-    const distroy = await axios.post("http://localhost:9000/User/logout");
+    const distroy = await axios.get("http://localhost:9000/User/logout", {
+      withCredentials: true,
+    });
     console.log(distroy.data);
     if (distroy.data === "logout") {
       alert("로그아웃 하였습니다.");

@@ -14,19 +14,19 @@ router.use(
 );
 router.use(express.json());
 
-// // 세션 정의
-// router.use(
-//   session({
-//     secret: "secret", // 암호화에 대한 속성
-//     resave: false,
-//     saveUninitialized: false,
-//     store: new fileStore(),
-//     cookie: {
-//       secure: false, // HTTPS를 사용하지 않는 경우 false로 설정
-//       maxAge: 1000 * 60 * 60 * 24,
-//     },
-//   })
-// );
+// 세션 정의
+router.use(
+  session({
+    secret: "secret", // 암호화에 대한 속성
+    resave: false,
+    saveUninitialized: false,
+    store: new fileStore(),
+    cookie: {
+      secure: false, // HTTPS를 사용하지 않는 경우 false로 설정
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  })
+);
 
 // 회원가입 처리
 router.post("/joinData", (req, res) => {
@@ -101,7 +101,7 @@ router.get("/loginCheck", (req, res) => {
 });
 
 //로그아웃 (세선 삭제)
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session) {
     // 세션을 삭제합니다.
     req.session.destroy((err) => {
