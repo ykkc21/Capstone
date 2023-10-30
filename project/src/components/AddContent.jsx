@@ -1,4 +1,5 @@
 import { React, Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "../styles/AddContent.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,20 +10,18 @@ import {
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 
-const AddContent = ({ CloseBox }) => {
-  const [lensname, setLensName] = useState(""); // 이미지 & 영상 이름
-  const [lens, setLens] = useState(null); // 이미지 & 영상 바이러니 값
+const AddContent = ({ CloseBox, AddContentBox }) => {
+  const [selectFile, setSelectFile] = useState(null); // 이미지 파일 값
   const [classinfo, setClassInfo] = useState(""); // 분류 이름
   const [title, setTitle] = useState(""); // 제목 이름
   const [information, setInformation] = useState(""); // 상세정보 내용
   const [location, setLocation] = useState(""); // 위치 내용
   const [youtubeId, setYoutubeId] = useState(""); // 유튭아이디 내용
   const [array, setArray] = useState([]); // 유튭아이디 내용
+  const navigate = useNavigate();
 
   console.log(`분류: ${classinfo}, 제목:${title}, 
-상세내용:${information}, 위치:${location}, 유튭아이디:${array}, 파일이름: ${lensname}, 파일비이너리데이터:${JSON.stringify(
-    lens
-  )} `);
+상세내용:${information}, 위치:${location}, 유튭아이디:${array}`);
 
   const getYoutubeId = (e) => {
     const IdListbox = document.getElementById("IdList");
@@ -57,45 +56,44 @@ const AddContent = ({ CloseBox }) => {
 
   const ClickUpload = async () => {
     if (
-      lensname == "" ||
-      classinfo == "" ||
-      title == "" ||
-      information == "" ||
-      location == "" ||
-      array.length == 0 ||
-      lens == ""
+      (classinfo == "" ||
+        title == "" ||
+        information == "" ||
+        location == "" ||
+        array.length == 0,
+      selectFile == null)
     ) {
       alert("데이터를 정확하게 작성해주세요!");
     } else {
-      const uploadData = await axios.post(
-        "http://localhost:9000/Content/AddContent",
-        {
-          classinfo,
-          title,
-          information,
-          location,
-          array,
-          lens,
-          lensname,
+      if (selectFile) {
+        const formData = new FormData();
+
+        formData.append("classinfo", classinfo);
+        formData.append("title", title);
+        formData.append("information", information);
+        formData.append("location", location);
+        formData.append("array", JSON.stringify(array));
+        formData.append("file", selectFile); // "file"은 서버에서 받을 파일 필드 이름
+
+        const uploadData = await axios.post(
+          "http://localhost:9000/Content/AddContent",
+          formData,
+          { headers: { "Content-Type": "multipart/form-data" } }
+        );
+
+        if (uploadData.data.msg === "OK") {
+          alert("업로드 완료했습니다.");
+          CloseBox();
+        } else {
+          alert("콘텐츠 업로드 실패");
+          AddContentBox();
         }
-      );
+      }
     }
   };
 
   const ChangeFile = (target) => {
-    console.log(target);
-    // if (target.files.length > 0) {
-    //   const FileName = target.files[0].name;
-    //   const selectedFile = target.files[0];
-    //   setLensName(FileName);
-    //   const fileReader = new FileReader();
-    //   fileReader.onload = (e) => {
-    //     const binaryData = e.target.result;
-    //     const uint8Array = new Uint8Array(binaryData);
-    //     setLens(uint8Array);
-    //   };
-    //   fileReader.readAsArrayBuffer(selectedFile);
-    // }
+    setSelectFile(target.files[0]);
   };
 
   const FileStart = () => {

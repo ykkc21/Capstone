@@ -1,9 +1,9 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/ContentCard.module.css";
-import TestImage from "../assets/img/sky1.jpg";
 import axios from "axios";
 
 const ContentCard = ({ listData }) => {
+  console.log("아이템 리스트: ", listData.c_lens);
   const UpdateContent = (target) => {
     console.log("Update", target);
   };
@@ -29,7 +29,7 @@ const ContentCard = ({ listData }) => {
   return (
     <Fragment>
       <div className={style.Card}>
-        <img src={TestImage} alt="img" className={style.MainImage} />
+        <img src={listData.c_lens} alt="img" className={style.MainImage} />
         <div className={style.TitleBox}>
           <h3 className={style.Title}>{listData.c_title}</h3>
           <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>

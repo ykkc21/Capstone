@@ -82,7 +82,7 @@ const Admin = ({ userData }) => {
     <Fragment>
       <Header userData={userData} />
       {showContent == true ? (
-        <AddContent CloseBox={CloseContentBox} />
+        <AddContent AddContentBox={AddContentBox} CloseBox={CloseContentBox} />
       ) : (
         <AdminControll
           BtnList={menu}
