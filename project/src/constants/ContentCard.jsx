@@ -12,7 +12,7 @@ const ContentCard = ({ listData }) => {
     console.log(123);
     try {
       const DeleteContent = await axios.post(
-        "http://localhost:9000/DeleteContent",
+        "http://localhost:9000/Content/DeleteContent",
         {
           ContentId: target,
         }
