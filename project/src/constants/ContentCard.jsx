@@ -3,12 +3,13 @@ import style from "../styles/ContentCard.module.css";
 import axios from "axios";
 
 const ContentCard = ({ listData }) => {
+  const [ImageSrc, setImageSrc] = useState("");
   useEffect(() => {
-    const card = document.getElementById("CardImage");
-    card.src = listData.c_lens;
-  });
+    setImageSrc(listData.c_lens);
+  }, []);
 
-  console.log("아이템 리스트: ", listData.c_lens);
+  console.log(ImageSrc);
+
   const UpdateContent = (target) => {
     console.log("Update", target);
   };
@@ -34,7 +35,7 @@ const ContentCard = ({ listData }) => {
   return (
     <Fragment>
       <div className={style.Card}>
-        <img id="CardImage" alt="img" className={style.MainImage} />
+        <img src={ImageSrc} alt="img" className={style.MainImage} />
         <div className={style.TitleBox}>
           <h3 className={style.Title}>{listData.c_title}</h3>
           <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>
