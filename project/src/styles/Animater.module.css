@@ -4,7 +4,7 @@
   width: 100%;
   height: 100vh;
   background-image: url("../assets/img/sky1.jpg");
-  background-position: bottom center;
+  background-position: top 60% center;
   position: relative;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* animation: AirplaneMove 3s infinite; */
+  animation: AirplaneMove 2s infinite;
 }
 .BackGround > .airplane > img {
   transform: scale(2);
@@ -36,7 +36,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 50px;
-  animation: UpDownMove 0.8s infinite;
 }
 
 .BackGround > h2 {
@@ -52,7 +51,7 @@
   border: 1px solid #000;
 }
 
-@keyframes UpDownMove {
+/* @keyframes UpDownMove {
   0% {
     position: absolute;
     top: 50%;
@@ -65,19 +64,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-}
+} */
 
-/* @keyframes AirplaneMove {
-  0% {
+@keyframes AirplaneMove {
+  0%,
+  100% {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  100% {
+  50% {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-50%, -20%);
   }
-} */
+}

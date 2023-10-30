@@ -79,33 +79,23 @@ const AddContent = ({ CloseBox }) => {
           lensname,
         }
       );
-      console.log(uploadData.data);
-      // .then((result) => {
-      //   if (result.data.msg == "OK") {
-      //     alert("데이터 전송이 완료되었습니다.");
-      //     CloseBox();
-      //   }
-      // })
-      // .catch((err) => {
-      //   console.error(err);
-      // });
     }
   };
 
   const ChangeFile = (target) => {
-    if (target.files.length > 0) {
-      const FileName = target.files[0].name;
-      const selectedFile = target.files[0];
-      setLensName(FileName);
-
-      const fileReader = new FileReader();
-      fileReader.onload = (e) => {
-        const binaryData = e.target.result;
-        const uint8Array = new Uint8Array(binaryData);
-        setLens(uint8Array);
-      };
-      fileReader.readAsArrayBuffer(selectedFile);
-    }
+    console.log(target);
+    // if (target.files.length > 0) {
+    //   const FileName = target.files[0].name;
+    //   const selectedFile = target.files[0];
+    //   setLensName(FileName);
+    //   const fileReader = new FileReader();
+    //   fileReader.onload = (e) => {
+    //     const binaryData = e.target.result;
+    //     const uint8Array = new Uint8Array(binaryData);
+    //     setLens(uint8Array);
+    //   };
+    //   fileReader.readAsArrayBuffer(selectedFile);
+    // }
   };
 
   const FileStart = () => {
