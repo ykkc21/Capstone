@@ -1,8 +1,13 @@
-import { React, Fragment, useState } from "react";
+import { React, Fragment, useState, useEffect } from "react";
 import style from "../styles/ContentCard.module.css";
 import axios from "axios";
 
 const ContentCard = ({ listData }) => {
+  useEffect(() => {
+    const card = document.getElementById("CardImage");
+    card.src = listData.c_lens;
+  });
+
   console.log("아이템 리스트: ", listData.c_lens);
   const UpdateContent = (target) => {
     console.log("Update", target);
@@ -29,7 +34,7 @@ const ContentCard = ({ listData }) => {
   return (
     <Fragment>
       <div className={style.Card}>
-        <img src={listData.c_lens} alt="img" className={style.MainImage} />
+        <img id="CardImage" alt="img" className={style.MainImage} />
         <div className={style.TitleBox}>
           <h3 className={style.Title}>{listData.c_title}</h3>
           <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>
