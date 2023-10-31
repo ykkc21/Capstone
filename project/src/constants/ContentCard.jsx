@@ -6,7 +6,7 @@ const ContentCard = ({ listData }) => {
   const [ImageSrc, setImageSrc] = useState("");
   useEffect(() => {
     setImageSrc(listData.c_lens);
-  }, []);
+  }, [listData.c_lens]);
 
   console.log(ImageSrc);
 
@@ -35,7 +35,11 @@ const ContentCard = ({ listData }) => {
   return (
     <Fragment>
       <div className={style.Card}>
-        <img src={ImageSrc} alt="img" className={style.MainImage} />
+        {ImageSrc ? (
+          <img src={ImageSrc} alt="img" className={style.MainImage} />
+        ) : (
+          <p>No image available</p>
+        )}
         <div className={style.TitleBox}>
           <h3 className={style.Title}>{listData.c_title}</h3>
           <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>

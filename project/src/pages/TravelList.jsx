@@ -8,34 +8,45 @@ import axios from "axios";
 const TravelList = ({ userData }) => {
   const [animater, setAnimater] = useState(true);
   const [array, setArray] = useState([]);
-  const [ContentInfo, setContentInfo] = useState({
-    NLenght: 0,
-    ALenght: 0,
-    ELenght: 0,
-  });
+  const [NLenght, setNLenght] = useState(0);
+  const [ALenght, setALenght] = useState(0);
+  const [ELenght, setELenght] = useState(0);
 
   useEffect(() => {
     const feachData = async () => {
       const contentsResponse = await axios.get("/Contents");
-      console.log(contentsResponse.data);
       if (contentsResponse.data.msg === "OK") {
         setArray([...array, contentsResponse.data.contents]);
-        setAnimater(false);
+        setTimeout(() => {
+          setAnimater(false);
+        }, 5000);
       }
     };
+
+    const DataLength = () => {
+      const ContentData = array.reduce((acc, curr) => acc.concat(curr), []);
+      console.log(ContentData);
+      const asiaCount = ContentData.filter(
+        (item) => item.c_classinfo === "Asia"
+      ).length;
+      const northAmericaCount = ContentData.filter(
+        (item) => item.c_classinfo === "NorthAmerica"
+      ).length;
+      const europeCount = ContentData.filter(
+        (item) => item.c_classinfo === "Europe"
+      ).length;
+
+      setNLenght((count) => count + northAmericaCount);
+      setALenght((count) => count + asiaCount);
+      setELenght((count) => count + europeCount);
+    };
+
     feachData();
+    DataLength();
   }, []);
 
-  // 불러온 데이터 개수 저장하기
-  (() => {
-    array.forEach((item, idx) => {
-      if (item[idx].c_classinfo === "NorthAmerica") {
-        console.log(item.lenght);
-      } else if (item[idx].c_classinfo === "Asia") {
-      } else if (item[idx].c_classinfo === "Europe") {
-      }
-    });
-  })();
+  console.log(NLenght, ALenght, ELenght);
+
   return (
     <Fragment>
       {animater ? (

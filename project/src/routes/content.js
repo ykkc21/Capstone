@@ -21,7 +21,10 @@ const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // 파일이 저장될 폴더 경로 설정
 
-    cb(null, "/Users/gan-yeonghun/Documents/GitHub/Capstone/upload_Image/");
+    cb(
+      null,
+      "/Users/gan-yeonghun/Documents/GitHub/Capstone/project/public/upload_Image"
+    );
   },
 
   filename: function (req, file, cb) {
@@ -67,8 +70,10 @@ router.post("/DeleteContent", (req, res) => {
 router.post("/AddContent", upload.single("file"), (req, res) => {
   const { classinfo, title, information, location, array, formData } = req.body;
   const imageFile = req.file;
-  const lens = imageFile.destination + imageFile.originalname;
+  const lens = `/upload_Image/${imageFile.originalname}`;
   const YouTubeId = JSON.stringify(array);
+  console.log(lens);
+  // console.log(imageFile.destination, imageFile.originalname);
 
   const sql = `INSERT INTO content(c_classinfo, c_title,c_information,c_location,c_youtubeId,c_lens)
   VALUES('${classinfo}','${title}','${information}','${location}','${YouTubeId}','${lens}')`;
