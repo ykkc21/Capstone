@@ -1,0 +1,80 @@
+body {
+  position: relative;
+}
+.UpdateBox {
+  width: 100%;
+  height: 1000px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 100px;
+}
+
+.UpdateBox > .UpdateForm {
+  width: 600px;
+  height: 800px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.UpdateBox > .UpdateForm > .UpdateTitleBox {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0px 3px 10px #000;
+  z-index: 10;
+}
+
+.UpdateBox > .UpdateForm > .UpdateTitleBox > h2 {
+  float: left;
+  padding: 26px;
+}
+.UpdateBox > .UpdateForm > .UpdateTitleBox > .updateIcon {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.UpdateBox > .UpdateForm > .UpdateInputBox {
+  width: 100%;
+  height: 718px;
+}
+
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataSidebar {
+  width: 23%;
+  height: 100%;
+  background-color: red;
+  float: left;
+}
+
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataSidebar > ul {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataSidebar > ul > li {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px 10px;
+}
+
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems {
+  width: 77%;
+  height: 100%;
+  background-color: blue;
+  float: left;
+}
+
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems > input {
+  width: 400px;
+  height: 40px;
+  border-radius: 20px;
+}

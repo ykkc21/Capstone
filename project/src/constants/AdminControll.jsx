@@ -8,6 +8,7 @@ const AdminControll = ({
   AddContentBox,
   CloseContentBox,
   ShowIdBox,
+  ShowUpdateUI,
 }) => {
   return (
     <Fragment>
@@ -17,6 +18,7 @@ const AdminControll = ({
           title={BtnList}
           ShowContent={AddContentBox}
           CloseContent={CloseContentBox}
+          ShowUpdateUI={ShowUpdateUI}
         />
       </div>
     </Fragment>

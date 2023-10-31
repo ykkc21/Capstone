@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../connection/db");
 const cors = require("cors");
 const multer = require("multer");
+const { Routes } = require("react-router-dom");
 
 router.use(
   cors({
@@ -85,6 +86,21 @@ router.post("/AddContent", upload.single("file"), (req, res) => {
     }
     res.json({ msg: "OK", text: "DB저장 완료" });
   });
+});
+
+router.get("/SelectData", (req, res) => {
+  const id = req.query.ContentId;
+  const sql = `SELECT * FROM content WHERE c_idx=${id}`;
+
+  if (id) {
+    db.query(sql, (err, rows, fields) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("정보를 검색하는데 오류가 발생했습니다.");
+      }
+      res.json({ msg: "OK", content: rows[0] });
+    });
+  }
 });
 
 module.exports = router;

@@ -42,4 +42,13 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
+  //콘텐츠 업데이트 정보가져오기
+  app.use(
+    "/SelectData",
+    createProxyMiddleware({
+      target: "http://localhost:9000/Content",
+      changeOrigin: true,
+    })
+  );
 };

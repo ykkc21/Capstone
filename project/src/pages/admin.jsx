@@ -5,11 +5,15 @@ import AddContent from "../components/AddContent";
 import AdminControll from "../constants/AdminControll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faGlobe, faComment } from "@fortawesome/free-solid-svg-icons";
+import UpdateUI from "../constants/UpdataUI";
 
 const Admin = ({ userData }) => {
   const [showContent, setShowContent] = useState(false);
+  const [updateui, setUpdateUI] = useState(false);
   const [selectedButton, setSelectedButton] = useState(null);
   const [selectedText, setSelectedText] = useState(null);
+  const [contentUpdateId, setContentUpdateId] = useState(Number(0));
+
   const menu = [
     { title: "User", icon: <FontAwesomeIcon id="UserIcon" icon={faUser} /> },
     {
@@ -34,13 +38,22 @@ const Admin = ({ userData }) => {
       navigate("/");
     }
   });
-
+  // 콘텐츠 추가 UI 보여주기
   const AddContentBox = () => {
     setShowContent(true);
   };
-
+  // 콘텐츠 추가 UI 닫기
   const CloseContentBox = () => {
     setShowContent(false);
+  };
+  //콘텐츠 업데이트 UI 보여주기
+  const ShowUpdateUI = (idx) => {
+    setUpdateUI(true);
+    setContentUpdateId(idx);
+  };
+  //콘텐츠 업데이트 UI 닫기
+  const CloseUpdateUI = () => {
+    console.log("업데이트 UI 가리기");
   };
 
   const ShowIdBox = (e) => {
@@ -62,17 +75,14 @@ const Admin = ({ userData }) => {
     setSelectedText(e.target);
 
     if (domName[1] == "User") {
-      console.log("User 입니다.");
       user.style.display = "block";
       content.style.display = "none";
       bulletin.style.display = "none";
     } else if (domName[1] == "Content") {
-      console.log("Content 입니다.");
       user.style.display = "none";
       content.style.display = "block";
       bulletin.style.display = "none";
     } else if (domName[1] == "Bulletin") {
-      console.log("Bulletin 입니다.");
       user.style.display = "none";
       content.style.display = "none";
       bulletin.style.display = "block";
@@ -89,8 +99,12 @@ const Admin = ({ userData }) => {
           AddContentBox={AddContentBox}
           CloseContentBox={CloseContentBox}
           ShowIdBox={ShowIdBox}
+          ShowUpdateUI={ShowUpdateUI}
         />
       )}
+      {updateui == true ? (
+        <UpdateUI ContentId={contentUpdateId} CloseUpdateUI={CloseUpdateUI} />
+      ) : null}
     </Fragment>
   );
 };

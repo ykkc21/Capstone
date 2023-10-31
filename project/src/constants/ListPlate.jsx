@@ -5,7 +5,13 @@ import ItemList from "../constants/ItemList";
 import ContentCard from "./ContentCard";
 import axios from "axios";
 
-const ListPlate = ({ title, ShowContent, CloseContent }) => {
+const ListPlate = ({
+  title,
+  ShowContent,
+  CloseContent,
+  ShowUpdateUI,
+  CloseUpdateUI,
+}) => {
   const navigate = useNavigate();
 
   const [u_array, setU_Array] = useState([]);
@@ -20,9 +26,6 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
         const contentsResponse = await axios.get("/Contents");
         const usersData = usersResponse.data;
         const contentsData = contentsResponse.data;
-
-        console.log(usersData);
-        console.log(contentsData);
         setU_Array(usersData.users);
         setC_Array(contentsData.contents);
       } catch (error) {
@@ -63,8 +66,13 @@ const ListPlate = ({ title, ShowContent, CloseContent }) => {
                     Add Content
                   </button>
                   {c_array.map((item, idx) => {
-                    console.log(item);
-                    return <ContentCard listData={item} key={idx} />;
+                    return (
+                      <ContentCard
+                        ShowUpdateUI={ShowUpdateUI}
+                        listData={item}
+                        key={idx}
+                      />
+                    );
                   })}
                 </div>
               ) : null}

@@ -6,17 +6,23 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const ItemList = (props) => {
   const UserDelete = async (user) => {
-    try {
-      const DeleteUser = await axios.post("http://localhost:9000/DeleteUser", {
-        userid: user,
-      });
+    const DeleteQuestion = window.confirm("계정을 삭제하시겠습니까?");
+    if (DeleteQuestion) {
+      try {
+        const DeleteUser = await axios.post(
+          "http://localhost:9000/DeleteUser",
+          {
+            userid: user,
+          }
+        );
 
-      if (DeleteUser.data.msg === "Delete_User") {
-        alert("계정을 삭제했습니다.");
-        window.location.reload();
+        if (DeleteUser.data.msg === "Delete_User") {
+          alert("계정을 삭제했습니다.");
+          window.location.reload();
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   };
 
