@@ -56,11 +56,12 @@ const AddContent = ({ CloseBox, AddContentBox }) => {
 
   const ClickUpload = async () => {
     if (
-      (classinfo == "" ||
-        title == "" ||
-        information == "" ||
-        location == "" ||
-        array.length == 0,
+      (classinfo === "" ||
+        classinfo === null ||
+        title === "" ||
+        information === "" ||
+        location === "" ||
+        array.length === 0,
       selectFile == null)
     ) {
       alert("데이터를 정확하게 작성해주세요!");

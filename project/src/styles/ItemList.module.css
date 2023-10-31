@@ -77,6 +77,10 @@
 
 @media (max-width: 1440px) {
   .itemlist {
-    margin-left: 100px;
+    margin-left: 120px;
+  }
+  .itemlist:hover {
+    transform: scale(0.9);
+    border: 2px solid #7651e0;
   }
 }

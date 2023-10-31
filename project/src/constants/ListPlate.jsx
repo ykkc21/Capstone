@@ -1,5 +1,6 @@
 import { React, Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import style from "../styles/ListPlate.module.css";
 import ItemList from "../constants/ItemList";
 import ContentCard from "./ContentCard";
@@ -65,12 +66,13 @@ const ListPlate = ({
                   <button className={style.AddContentBtn} onClick={ShowContent}>
                     Add Content
                   </button>
+
                   {c_array.map((item, idx) => {
                     return (
                       <ContentCard
+                        key={idx}
                         ShowUpdateUI={ShowUpdateUI}
                         listData={item}
-                        key={idx}
                       />
                     );
                   })}

@@ -36,7 +36,7 @@ const TravelSideBar = ({ ContentData }) => {
         clearInterval(A_Contnet); // 목표에 도달하면 interval 종료
         console.log("목표에 도달했습니다!");
       }
-    }, 250);
+    }, 120);
 
     const N_Contnet = setInterval(() => {
       if (NCount < NLenght) {
@@ -46,7 +46,7 @@ const TravelSideBar = ({ ContentData }) => {
         clearInterval(N_Contnet); // 목표에 도달하면 interval 종료
         console.log("목표에 도달했습니다!");
       }
-    }, 250);
+    }, 120);
 
     const E_Contnet = setInterval(() => {
       if (ECount < ELenght) {
@@ -56,7 +56,7 @@ const TravelSideBar = ({ ContentData }) => {
         clearInterval(E_Contnet); // 목표에 도달하면 interval 종료
         console.log("목표에 도달했습니다!");
       }
-    }, 250);
+    }, 120);
 
     return () => {
       clearInterval(A_Contnet); // 컴포넌트가 언마운트될 때 interval 정리

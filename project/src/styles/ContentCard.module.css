@@ -3,7 +3,7 @@
   height: 310px;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: 1px 3px 10px #dddddd;
+  box-shadow: 1px 0px 5px #000;
   position: relative;
   transition: 0.5s;
   float: left;
@@ -75,4 +75,14 @@
   background-color: rgb(222, 89, 89);
   position: absolute;
   right: 3%;
+}
+
+@media (max-width: 1440px) {
+  .Card {
+    margin: 8px;
+  }
+
+  .Card:hover {
+    transform: scale(0.9);
+  }
 }
