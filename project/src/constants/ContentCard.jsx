@@ -56,7 +56,7 @@ const ContentCard = ({ ShowUpdateUI, listData }) => {
           </button>
           <button
             onClick={(e) => {
-              ShowUpdateUI(listData.c_idx);
+              DeleteContent(listData.c_idx);
             }}
             className={`${style.DeleteBtn} ${style.btn}`}
           >

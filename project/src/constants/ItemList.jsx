@@ -10,7 +10,7 @@ const ItemList = (props) => {
     if (DeleteQuestion) {
       try {
         const DeleteUser = await axios.post(
-          "http://localhost:9000/DeleteUser",
+          "http://localhost:9000/User/DeleteUser",
           {
             userid: user,
           }
