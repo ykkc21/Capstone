@@ -82,9 +82,9 @@ router.post("/AddContent", upload.single("file"), (req, res) => {
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
-      res.json({ msg: "No", text: "DB저장 실패" });
+      res.json({ msg: "No" });
     }
-    res.json({ msg: "OK", text: "DB저장 완료" });
+    res.json({ msg: "OK" });
   });
 });
 
@@ -101,6 +101,36 @@ router.get("/SelectData", (req, res) => {
       res.json({ msg: "OK", content: rows[0] });
     });
   }
+});
+
+router.post("/UpdateContent", upload.single("file"), (req, res) => {
+  const {
+    contentId,
+    classinfo,
+    title,
+    information,
+    location,
+    array,
+    formData,
+  } = req.body;
+  const imageFile = req.file;
+  const lens = `/upload_Image/${imageFile.originalname}`;
+  const YouTubeId = JSON.stringify(array);
+  console.log(lens);
+
+  const sql = `UPDATE content SET c_classinfo=?, c_title=?, c_information=?, c_location=?, c_youtubeId=?, c_lens=? WHERE c_idx=?`;
+
+  db.query(
+    sql,
+    [classinfo, title, information, location, YouTubeId, lens, contentId],
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        res.json({ msg: "No" });
+      }
+      res.json({ msg: "OK" });
+    }
+  );
 });
 
 module.exports = router;

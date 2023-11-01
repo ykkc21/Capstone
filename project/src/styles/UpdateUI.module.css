@@ -51,7 +51,7 @@ body {
 .UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataSidebar {
   width: 23%;
   height: 100%;
-  background-color: red;
+  background-color: #fff;
   float: left;
 }
 
@@ -78,7 +78,7 @@ body {
 .UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems {
   width: 77%;
   height: 100%;
-  background-color: blue;
+  background-color: #fff;
   float: left;
 }
 

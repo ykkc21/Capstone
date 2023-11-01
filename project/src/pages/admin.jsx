@@ -61,7 +61,9 @@ const Admin = ({ userData }) => {
     const user = document.getElementById("User");
     const content = document.getElementById("Content");
     const bulletin = document.getElementById("Bulletin");
+    const Card = document.getElementsByClassName("Card");
 
+    console.log(Card);
     if (selectedButton && selectedText) {
       selectedButton.style.backgroundColor = "initial";
       selectedText.style.color = "initial";

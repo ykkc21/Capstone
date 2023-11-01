@@ -79,7 +79,7 @@
 
 @media (max-width: 1440px) {
   .Card {
-    margin: 8px;
+    margin: 12px;
   }
 
   .Card:hover {

@@ -41,8 +41,12 @@
 }
 
 @media (max-width: 1440px) {
+  .Plate > .board {
+    padding: 30px;
+  }
+
   .Plate > .board > .ItemBox > .AddContentBtn {
-    left: 5.5%;
+    left: 4.5%;
   }
   .Plate > .board > .ItemBox {
     padding: 40px 0px;

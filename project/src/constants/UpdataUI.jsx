@@ -17,6 +17,8 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
   const [location, setLocation] = useState(""); // 위치 내용
   const [youtubeId, setYoutubeId] = useState(""); // 유튭아이디 내용
   const [array, setArray] = useState([]); // 유튭아이디 내용
+  const navigate = useNavigate();
+
   useEffect(() => {
     const SelectContent = async () => {
       try {
@@ -32,7 +34,7 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
   }, []);
 
   const getYoutubeId = (e) => {
-    const IdListbox = document.getElementById("IdList");
+    const UpdateIdlist = document.getElementById("UpdateIdlist");
     // const BtnUpload = document.getElementById("UploadBtn");
     if (e.code === "Enter") {
       const newArray = [...array, youtubeId];
@@ -42,61 +44,67 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
 
       setYoutubeId("");
 
-      IdListbox.style.top = "65%";
-      IdListbox.style.opacity = 1;
-      IdListbox.style.transition = "0.5s";
-      IdListbox.style.zIndex = 10;
+      UpdateIdlist.style.top = "67%";
+      UpdateIdlist.style.opacity = 1;
+      UpdateIdlist.style.transition = "0.5s";
+      UpdateIdlist.style.zIndex = 10;
     }
   };
 
   const deleteData = (idx) => {
-    const IdListbox = document.getElementById("IdList");
+    const UpdateIdlistbox = document.getElementById("UpdateIdlist");
     // const BtnUpload = document.getElementById("UploadBtn");
     const updateArray = array.filter((_, index) => index !== idx);
     setArray(updateArray);
     if (array.length === 1) {
-      IdListbox.style.top = "58%";
-      IdListbox.style.opacity = 0;
-      IdListbox.style.transition = "0.5s";
-      IdListbox.style.zIndex = -1;
+      UpdateIdlistbox.style.top = "58%";
+      UpdateIdlistbox.style.opacity = 0;
+      UpdateIdlistbox.style.transition = "0.5s";
+      UpdateIdlistbox.style.zIndex = -1;
     }
   };
 
   const ClickUpdate = async () => {
     console.log("Click");
-    //   if (
-    //     (classinfo === "" ||
-    //       classinfo === null ||
-    //       title === "" ||
-    //       information === "" ||
-    //       location === "" ||
-    //       array.length === 0,
-    //     selectFile == null)
-    //   ) {
-    //     alert("데이터를 정확하게 작성해주세요!");
-    //   } else {
-    //     if (selectFile) {
-    //       const formData = new FormData();
-    //       formData.append("classinfo", classinfo);
-    //       formData.append("title", title);
-    //       formData.append("information", information);
-    //       formData.append("location", location);
-    //       formData.append("array", JSON.stringify(array));
-    //       formData.append("file", selectFile); // "file"은 서버에서 받을 파일 필드 이름
-    //       const uploadData = await axios.post(
-    //         "http://localhost:9000/Content/AddContent",
-    //         formData,
-    //         { headers: { "Content-Type": "multipart/form-data" } }
-    //       );
-    //       if (uploadData.data.msg === "OK") {
-    //         alert("업로드 완료했습니다.");
-    //         CloseBox();
-    //       } else {
-    //         alert("콘텐츠 업로드 실패");
-    //         AddContentBox();
-    //       }
-    //     }
-    //   }
+    if (
+      (classinfo === "" ||
+        classinfo === null ||
+        title === "" ||
+        information === "" ||
+        location === "" ||
+        array.length === 0,
+      selectFile == null)
+    ) {
+      alert("데이터를 정확하게 작성해주세요!");
+    } else {
+      if (selectFile) {
+        const formData = new FormData();
+        formData.append("contentId", ContentId);
+        formData.append("classinfo", classinfo);
+        formData.append("title", title);
+        formData.append("information", information);
+        formData.append("location", location);
+        formData.append("array", JSON.stringify(array));
+        formData.append("file", selectFile); // "file"은 서버에서 받을 파일 필드 이름
+
+        // for (const a of formData.entries()) {
+        //   console.log(a[0] + ": " + a[1]);
+        // }
+
+        const uploadData = await axios.post(
+          "http://localhost:9000/Content/UpdateContent",
+          formData,
+          { headers: { "Content-Type": "multipart/form-data" } }
+        );
+        if (uploadData.data.msg === "OK") {
+          alert("업데이트 완료했습니다.");
+          CloseUpdateUI();
+        } else {
+          alert("콘텐츠 업데이트 실패");
+          navigate("/admin");
+        }
+      }
+    }
   };
 
   const ChangeFile = (target) => {
@@ -131,15 +139,31 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
               </ul>
             </div>
             <div className={style.UpdataItems}>
-              <select name="UpdateClassification" id="UpdateClassification">
+              <select
+                onChange={(e) => {
+                  setClassInfo(e.target.value);
+                }}
+                name="UpdateClassification"
+                id="UpdateClassification"
+              >
                 <option value="No">선택해주세요.</option>
                 <option value="NorthAmerica">북아메리카</option>
                 <option value="Asia">아시아</option>
                 <option value="Europe">유럽</option>
               </select>
-              <input type="text" name="UpdateTitle" id="UpdateTitle" />
+              <input
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                type="text"
+                name="UpdateTitle"
+                id="UpdateTitle"
+              />
               <input
                 type="text"
+                onChange={(e) => {
+                  setInformation(e.target.value);
+                }}
                 name="UpdateInformation"
                 id="UpdateInformation"
               />

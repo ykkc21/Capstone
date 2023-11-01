@@ -32,7 +32,7 @@ const ContentCard = ({ ShowUpdateUI, listData }) => {
 
   return (
     <Fragment>
-      <div className={style.Card}>
+      <div className={`${style.Card} Card`}>
         {ImageSrc ? (
           <img src={ImageSrc} alt="img" className={style.MainImage} />
         ) : (
