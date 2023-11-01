@@ -66,6 +66,15 @@ body {
   padding: 30px 10px;
 }
 
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataSidebar
+  > ul
+  > li:nth-of-type(6) {
+  margin-top: 90px;
+}
+
 .UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems {
   width: 77%;
   height: 100%;
@@ -73,8 +82,170 @@ body {
   float: left;
 }
 
+.UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems > select {
+  width: 400px;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  top: 15%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+}
+
 .UpdateBox > .UpdateForm > .UpdateInputBox > .UpdataItems > input {
   width: 400px;
   height: 40px;
   border-radius: 20px;
+}
+
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataItems
+  > input:nth-of-type(1) {
+  position: absolute;
+  top: 26%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+}
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataItems
+  > input:nth-of-type(2) {
+  position: absolute;
+  top: 37%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+}
+
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataItems
+  > input:nth-of-type(3) {
+  position: absolute;
+  top: 47%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+}
+
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataItems
+  > input:nth-of-type(4) {
+  position: absolute;
+  top: 58%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.UpdateBox
+  > .UpdateForm
+  > .UpdateInputBox
+  > .UpdataItems
+  > input:nth-of-type(5) {
+  position: absolute;
+  top: 80%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  z-index: -1;
+}
+
+.UpdateIdlist {
+  width: 420px;
+  height: 80px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 65%;
+  opacity: 0;
+  z-index: -1;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  padding: 7px;
+}
+
+.UpdateIdlist > .update_Idlist_item {
+  width: 185px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: aquamarine;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.UpdateIdlist > .update_Idlist_item > .youtubeIcon {
+  width: 20px;
+  height: 20px;
+  line-height: 40px;
+  color: red;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.UpdateIdlist > .update_Idlist_item > .delete {
+  width: 40px;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  float: right;
+}
+
+.Files {
+  width: 350px;
+  height: 150px;
+  position: absolute;
+  top: 82%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  /* border: 2px dashed #000; */
+}
+
+.Files > .Circle {
+  width: 80px;
+  height: 80px;
+  border: 5px solid skyblue;
+  border-radius: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Files > .Circle > .CircleIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: skyblue;
+}
+
+.Files > .Btn {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: skyblue;
+  color: #fff;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.UpdateBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  top: 95%;
+  left: 87%;
+  transform: translate(-50%, -50%);
 }
