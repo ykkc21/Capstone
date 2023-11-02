@@ -1,6 +1,258 @@
+/* .input {
+  display: none;
+} */
 .MainViewBox {
   width: 100%;
-  height: 600px;
+  height: 800px;
   background-color: red;
   float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+}
+
+.SlideBox {
+  width: 100%;
+  height: 100%;
+}
+
+.SlideBox > ul {
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  position: relative;
+}
+
+.SlideBox > ul > li {
+  display: inline-block;
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: perspective(500px) translate(-50%, -50%);
+  transition: 0.5s;
+}
+
+.SlideBox > ul > li:nth-of-type(1) {
+  background-color: aqua;
+  top: 45%;
+  left: -13%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -2;
+}
+.SlideBox > ul > li:nth-of-type(2) {
+  background-color: brown;
+  top: 48%;
+  left: 7%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -1;
+}
+.SlideBox > ul > li:nth-of-type(3) {
+  background-color: salmon;
+  transform: translate(-50%, -50%) scale(1);
+}
+.SlideBox > ul > li:nth-of-type(4) {
+  top: 48%;
+  left: 70%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
+  background-color: slateblue;
+  z-index: -1;
+}
+.SlideBox > ul > li:nth-of-type(5) {
+  background-color: springgreen;
+  top: 45%;
+  left: 92.2%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -2;
+}
+
+.SlideBtnBox {
+  width: 150px;
+  height: 80px;
+  background-color: beige;
+}
+
+.SlideBtnBox > label {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  margin: 5px;
+}
+
+/* 버튼1 */
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  top: 48%;
+  left: 69%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(1);
+}
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  top: 45%;
+  left: 92.2%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -1;
+}
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  top: 45%;
+  left: 93%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -2;
+}
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  top: 45%;
+  left: 94%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -3;
+}
+
+/* 버튼2 */
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  top: 48%;
+  left: 7%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+}
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  top: 48%;
+  left: 70%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
+  z-index: -1;
+}
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  top: 45%;
+  left: 93%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -2;
+}
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  top: 45%;
+  left: 94%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+  z-index: -3;
+}
+
+/* 버튼3 */
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  top: 45%;
+  left: -13%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+}
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  top: 48%;
+  left: 7%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+}
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  top: 48%;
+  left: 70%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
+}
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  top: 45%;
+  left: 92.2%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8); /* 왼쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: left center; /* 왼쪽 중심을 회전 중심으로 설정 */
+}
+
+/* 버튼4 */
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  top: 45%;
+  left: -14%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -2;
+}
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  top: 45%;
+  left: -13%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -1;
+}
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  top: 48%;
+  left: 7%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+}
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  top: 48%;
+  left: 72%;
+  transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
+}
+
+/* 버늩5 */
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  top: 45%;
+  left: -15%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -3;
+}
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  top: 45%;
+  left: -14%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -2;
+}
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  top: 45%;
+  left: -13%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+  z-index: -1;
+}
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  top: 48%;
+  left: 7%;
+  transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9); /* 오른쪽을 기준으로 비스듬하게 회전 및 이동 */
+  transform-origin: right center;
+}
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
 }
