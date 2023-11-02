@@ -1,0 +1,6 @@
+.MainViewBox {
+  width: 100%;
+  height: 600px;
+  background-color: red;
+  float: left;
+}
