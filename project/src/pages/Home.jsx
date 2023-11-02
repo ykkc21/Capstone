@@ -1,18 +1,11 @@
-import React, { Fragment, useState } from "react";
-import { BrowserRouter, Route, Router } from "react-router-dom";
+import { React, Fragment } from "react";
 import Hedaer from "../components/header";
-import View from "../constants/Main_View";
-import About from "../constants/About";
-import SubAbout from "../constants/SubAbout";
 import Footer from "../components/footer";
 const Home = ({ userData }) => {
   return (
     <Fragment>
       <Hedaer userData={userData} />
-      <View />
-      <About />
-      <SubAbout />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };

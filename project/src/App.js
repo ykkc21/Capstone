@@ -1,4 +1,3 @@
-import style from "../src/styles/App.module.css";
 import Home from "./pages/Home";
 import Login from "./pages/login";
 import Join from "./pages/join";

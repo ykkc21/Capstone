@@ -30,14 +30,10 @@ const Header = ({ userData }) => {
     }
   };
   const ChangeBtn = (value, logouthandler) => {
-    // value.some((item) => {
-    //   console.log("some 값", item.states);
-    // });
-    // console.log("ChangeBtn", value);
     if (value.some((item) => item.states == "Admin")) {
       return (
         <Fragment>
-          <Link to={"/admin"} className={style.Hedaer_Login_btn}>
+          <Link to={"/admin"} className={style.Hedaer_Login_btn_Admin}>
             Admin Page
           </Link>
           <button onClick={logouthandler} className={style.Hedaer_Login_btn}>
@@ -48,7 +44,7 @@ const Header = ({ userData }) => {
     } else if (value.some((item) => item.states === "User")) {
       return (
         <Fragment>
-          <Link to={"/mypage"} className={style.Hedaer_Login_btn}>
+          <Link to={"/mypage"} className={style.Hedaer_Login_btn_My}>
             MyPage
           </Link>
           <button onClick={logouthandler} className={style.Hedaer_Login_btn}>
