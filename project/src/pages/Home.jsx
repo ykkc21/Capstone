@@ -5,7 +5,6 @@ const Home = ({ userData }) => {
   return (
     <Fragment>
       <Hedaer userData={userData} />
-      {/* <Footer /> */}
     </Fragment>
   );
 };
