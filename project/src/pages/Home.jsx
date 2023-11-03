@@ -3,6 +3,7 @@ import Hedaer from "../components/header";
 import MainView from "../constants/MainView";
 import About from "../constants/About";
 import HotelAbout from "../constants/HotelAbout";
+import AirlineAbout from "../constants/AirlineAbout";
 import Footer from "../components/footer";
 
 const Home = ({ userData }) => {
@@ -17,6 +18,7 @@ const Home = ({ userData }) => {
       <MainView />
       <About />
       <HotelAbout />
+      <AirlineAbout />
     </div>
   );
 };
