@@ -54,6 +54,17 @@
   transform: translate(-50%, -50%);
 }
 
+.MainAboutBox > div > .AboutBox > .ImageBox::after {
+  content: "";
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  position: absolute;
+  top: 58%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
 .MainAboutBox > div > .AboutBox > .ImageBox::before {
   content: "";
   width: 130px;
