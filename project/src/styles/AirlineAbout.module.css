@@ -1,10 +1,10 @@
 .AirlineAboutBox {
   width: 100%;
-  height: 350px;
+  height: 500px;
   background-color: #262626;
   float: left;
   position: relative;
-  padding: 50px;
+  padding-top: 50px;
 }
 
 .container {
@@ -20,4 +20,107 @@
 .AirlineAboutBox > h1 {
   color: #fff;
   font-size: 50px;
+}
+.AirlineAboutBox > ul {
+  width: 100%;
+  height: 80%;
+}
+.AirlineAboutBox > ul > li {
+  display: inline-block;
+  width: 350px;
+  height: 260px;
+  margin: 30px;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.AirlineAboutBox > ul > li > .AirHover {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+}
+
+.AirlineAboutBox > ul > li > .AirHover > .HoverBtn {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.AirlineAboutBox > ul > li > .AirHover > .HoverBtn > p {
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(1) {
+  background-image: url("../assets/img/Airline/KoreaAir3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80% 10%;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(1):hover .AirHover {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(1):hover .AirHover > .HoverBtn {
+  animation: ShowBtn 1s forwards;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(2) {
+  background-image: url("../assets/img/Airline/Jeju.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% 10%;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(2):hover .AirHover {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(2):hover .AirHover > .HoverBtn {
+  animation: ShowBtn 1s forwards;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(3) {
+  background-image: url("../assets/img/Airline/jin3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% 80%;
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(3):hover .AirHover {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.AirlineAboutBox > ul > li:nth-of-type(3):hover .AirHover > .HoverBtn {
+  animation: ShowBtn 1s forwards;
+}
+
+@keyframes ShowBtn {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

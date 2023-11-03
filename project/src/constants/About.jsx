@@ -1,6 +1,6 @@
 import { React, Fragment } from "react";
 import style from "../styles/About.module.css";
-import TestImage from "../assets/img/view1.jpg";
+import TestImage from "../assets/img/view1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
