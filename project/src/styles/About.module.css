@@ -1,0 +1,54 @@
+.MainAboutBox {
+  width: 100%;
+  height: 800px;
+  background-color: #262626;
+  float: left;
+  position: relative;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.MainAboutBox > div > .AboutBox {
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+}
+
+.MainAboutBox > div > .AboutBox > h1 {
+  font-size: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.MainAboutBox > div > .AboutBox > .ImageBox {
+  width: 400px;
+  height: 500px;
+  background-color: red;
+  position: relative;
+}
+
+.MainAboutBox > div > .AboutBox > .ImageBox > img {
+  width: 100%;
+  height: 100%;
+}
+
+.MainAboutBox > div > .AboutBox > .ImageBox > img::after {
+  display: block;
+  content: "";
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+}
+
+.MainAboutBox > div > .AboutBox > .ImageBox > .Logo {
+  font-size: 100px;
+  color: red;
+  position: relative;
+}

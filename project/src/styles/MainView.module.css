@@ -4,15 +4,10 @@
 .MainViewBox {
   width: 100%;
   height: 800px;
-  background-color: #000;
+  background-color: #262626;
   float: left;
   position: relative;
   overflow: hidden;
-}
-.MainViewBox > .BackColor {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .container {
@@ -33,7 +28,6 @@
 .SlideBox > ul {
   width: 100%;
   height: 100%;
-  padding-top: 80px;
   position: relative;
 }
 
@@ -49,7 +43,6 @@
 }
 
 .SlideBox > ul > li:nth-of-type(1) {
-  top: 45%;
   left: -13%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
@@ -59,7 +52,6 @@
   background-size: 120% 120%;
 }
 .SlideBox > ul > li:nth-of-type(2) {
-  top: 48%;
   left: 7%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9);
   transform-origin: right center;
@@ -75,7 +67,6 @@
   background-size: 120% 120%;
 }
 .SlideBox > ul > li:nth-of-type(4) {
-  top: 48%;
   left: 70%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
   z-index: -1;
@@ -87,7 +78,6 @@
   background-image: url("../assets/img/view5.jpg");
   background-position: center;
   background-size: 120% 120%;
-  top: 45%;
   left: 92.2%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
@@ -125,308 +115,158 @@
   margin: 5px;
 }
 
-.btn1:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(1) {
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
-.btn1:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(2) {
-  top: 48%;
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  /* top: 48%; */
   left: 69%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(1);
 }
-.btn1:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(3) {
-  top: 45%;
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  /* top: 45%; */
   left: 92.2%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
   z-index: -1;
 }
-.btn1:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(4) {
-  top: 45%;
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  /* top: 45%; */
   left: 93%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
   z-index: -2;
 }
-.btn1:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(5) {
-  top: 45%;
+.btn1:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  /* top: 45%; */
   left: 94%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
   z-index: -3;
 }
 
-.btn2:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(1) {
-  top: 48%;
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  /* top: 48%; */
   left: 7%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9);
   transform-origin: right center;
 }
-.btn2:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(2) {
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
-.btn2:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(3) {
-  top: 48%;
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  /* top: 48%; */
   left: 70%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
   z-index: -1;
 }
-.btn2:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(4) {
-  top: 45%;
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  /* top: 45%; */
   left: 93%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
   z-index: -2;
 }
-.btn2:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(5) {
-  top: 45%;
+.btn2:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  /* top: 45%; */
   left: 94%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
   z-index: -3;
 }
 
-.btn3:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(1) {
-  top: 45%;
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  /* top: 45%; */
   left: -13%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
 }
-.btn3:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(2) {
-  top: 48%;
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  /* top: 48%; */
   left: 7%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9);
   transform-origin: right center;
 }
-.btn3:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(3) {
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
-.btn3:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(4) {
-  top: 48%;
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  /* top: 48%; */
   left: 70%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
 }
-.btn3:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(5) {
-  top: 45%;
+.btn3:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  /* top: 45%; */
   left: 92.2%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.8);
   transform-origin: left center;
 }
 
-.btn4:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(1) {
-  top: 45%;
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  /* top: 45%; */
   left: -14%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
   z-index: -2;
 }
-.btn4:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(2) {
-  top: 45%;
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  /* top: 45%; */
   left: -13%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
   z-index: -1;
 }
-.btn4:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(3) {
-  top: 48%;
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  /* top: 48%; */
   left: 7%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9);
   transform-origin: right center;
 }
-.btn4:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(4) {
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
-.btn4:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(5) {
-  top: 48%;
+.btn4:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
+  /* top: 48%; */
   left: 72%;
   transform: perspective(500px) rotateY(-10deg) translate(-50%, -50%) scale(0.9);
 }
 
-.btn5:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(1) {
-  top: 45%;
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(1) {
+  /* top: 45%; */
   left: -15%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
   z-index: -3;
 }
-.btn5:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(2) {
-  top: 45%;
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(2) {
+  /* top: 45%; */
   left: -14%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
   z-index: -2;
 }
-.btn5:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(3) {
-  top: 45%;
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(3) {
+  /* top: 45%; */
   left: -13%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.8);
   transform-origin: right center;
   z-index: -1;
 }
-.btn5:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(4) {
-  top: 48%;
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(4) {
+  /* top: 48%; */
   left: 7%;
   transform: perspective(500px) rotateY(10deg) translate(50%, -50%) scale(0.9);
   transform-origin: right center;
 }
-.btn5:checked
-  ~ .MainViewBox
-  > .BackColor
-  > div
-  > .SlideBox
-  > ul
-  > li:nth-of-type(5) {
+.btn5:checked ~ .MainViewBox > div > .SlideBox > ul > li:nth-of-type(5) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);

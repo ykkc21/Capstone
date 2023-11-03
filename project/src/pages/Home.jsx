@@ -1,6 +1,7 @@
 import { React, Fragment } from "react";
 import Hedaer from "../components/header";
 import MainView from "../constants/MainView";
+import About from "../constants/About";
 import Footer from "../components/footer";
 
 const Home = ({ userData }) => {
@@ -13,6 +14,7 @@ const Home = ({ userData }) => {
     <div style={style}>
       <Hedaer userData={userData} />
       <MainView />
+      <About />
     </div>
   );
 };
