@@ -15,6 +15,12 @@ const About = () => {
               <img src={TestImage} alt="about Image" />
               <FontAwesomeIcon className={style.Logo} icon={faYoutube} />
             </div>
+            <div className={style.AboutText}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              inventore eveniet explicabo suscipit debitis optio sed eum dolorum
+              neque fugiat, ducimus nam in sunt animi accusamus nemo incidunt
+              iure expedita?
+            </div>
           </div>
         </div>
       </div>
