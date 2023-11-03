@@ -1,23 +1,16 @@
-import { React, Fragment, useState } from "react";
+import { React, Fragment, useState, useRef, useEffect } from "react";
 import style from "../styles/MainView.module.css";
+import TypeIt from "typeit-react";
 
 const MainView = () => {
   const [viewtext, setViewText] = useState("a happy trip");
+  const [typeItKey, setTypeItKey] = useState(0); // key 값을 변경하여 TypeIt을 다시 렌더링
 
-  const ChangText = (target) => {
-    const attr = target.getAttribute("for");
-    if (attr === "btn1") {
-      setViewText("a trip to Australia");
-    } else if (attr === "btn2") {
-      setViewText("a trip to London");
-    } else if (attr === "btn3") {
-      setViewText("a trip to Japan");
-    } else if (attr === "btn4") {
-      setViewText("a trip to Paris");
-    } else if (attr === "btn5") {
-      setViewText("a trip to Thailand");
-    }
+  const handleChangeText = (newText) => {
+    setViewText(newText);
+    setTypeItKey(typeItKey + 1); // key 값을 변경하여 TypeIt을 다시 렌더링
   };
+
   return (
     <Fragment>
       <input
@@ -61,37 +54,27 @@ const MainView = () => {
               <li></li>
               <h1>
                 Let's prepare for
-                <br /> - {viewtext}
+                <br /> - <TypeIt key={typeItKey}>{viewtext}</TypeIt>
               </h1>
               <div className={style.SlideBtnBox}>
                 <label
-                  onClick={(e) => {
-                    ChangText(e.target);
-                  }}
+                  onClick={() => handleChangeText("a trip to Australia")}
                   htmlFor="btn1"
                 ></label>
                 <label
-                  onClick={(e) => {
-                    ChangText(e.target);
-                  }}
+                  onClick={() => handleChangeText("a trip to London")}
                   htmlFor="btn2"
                 ></label>
                 <label
-                  onClick={(e) => {
-                    ChangText(e.target);
-                  }}
+                  onClick={() => handleChangeText("a trip to Japan")}
                   htmlFor="btn3"
                 ></label>
                 <label
-                  onClick={(e) => {
-                    ChangText(e.target);
-                  }}
+                  onClick={() => handleChangeText("a trip to Paris")}
                   htmlFor="btn4"
                 ></label>
                 <label
-                  onClick={(e) => {
-                    ChangText(e.target);
-                  }}
+                  onClick={() => handleChangeText("a trip to Thailand")}
                   htmlFor="btn5"
                 ></label>
               </div>

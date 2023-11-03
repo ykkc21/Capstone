@@ -3,6 +3,7 @@
   height: 100px;
   background-color: #1b2049;
   float: left;
+  position: relative;
 }
 
 .FooterConainer {
@@ -10,4 +11,18 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.FooterConainer > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
 }
