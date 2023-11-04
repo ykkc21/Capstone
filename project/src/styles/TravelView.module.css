@@ -1,16 +1,28 @@
 .TravelViewBox {
   width: 100%;
-  height: 1000px;
+  height: 780px;
   background-color: #262626;
   position: relative;
   float: left;
+}
+
+.TravelViewBox::after {
+  content: "";
+  width: 80%;
+  height: 7px;
+  border-radius: 10px;
+  background-color: #363636;
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
   max-width: 1440px;
   width: 100%;
   height: 100%;
-  padding: 50px;
+  padding: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,7 +48,70 @@
   font-size: 20px;
   color: #fff;
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: 14.7%;
+  transform: translate(-50%, -50%);
+}
+
+.ViewBox > .ViewImageBox {
+  width: 98%;
+  height: 500px;
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  background-image: url("../assets/img/Travel1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.ViewBox > .ViewImageBox > .ViewText {
+  width: 40%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  position: relative;
+}
+.ViewBox > .ViewImageBox > .ViewText > h1 {
+  width: 400px;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  font-size: 68px;
+}
+
+.ViewBox > .ViewImageBox > .ViewText > p {
+  width: 130px;
+  height: 40px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+}
+
+.ViewBox > .ViewImageBox > .ViewText > p:nth-of-type(1) {
+  position: absolute;
+  top: 79%;
+  left: 17.9%;
+  transform: translate(-50%, -50%);
+}
+
+.ViewBox > .ViewImageBox > .ViewText > p:nth-of-type(2) {
+  position: absolute;
+  top: 83%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+}
+
+.ViewBox > .ViewImageBox > .ViewText > p:nth-of-type(3) {
+  position: absolute;
+  top: 79%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ViewBox > .ViewImageBox > .ViewText > p:nth-of-type(4) {
+  position: absolute;
+  top: 83%;
+  left: 66%;
   transform: translate(-50%, -50%);
 }

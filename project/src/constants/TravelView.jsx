@@ -14,6 +14,15 @@ const TravelView = () => {
               <option value="Europe">Europe</option>
             </select>
             <p>Number of North American destinations({count})</p>
+            <div className={style.ViewImageBox}>
+              <div className={style.ViewText}>
+                <h1>North American Tourist Attractions</h1>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

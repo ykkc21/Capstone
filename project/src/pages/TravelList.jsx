@@ -3,6 +3,7 @@ import style from "../styles/TraveList.module.css";
 import Header from "../components/header";
 import Animater from "../constants/Animater";
 import TravelView from "../constants/TravelView";
+import TravelItemList from "../constants/TravelItemList";
 import axios from "axios";
 const TravelList = ({ userData }) => {
   const [animater, setAnimater] = useState(true);
@@ -29,6 +30,7 @@ const TravelList = ({ userData }) => {
         <>
           <Header userData={userData} />
           <TravelView />
+          <TravelItemList />
         </>
       )}
     </Fragment>
