@@ -1,14 +1,14 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/TravelView.module.css";
 
-const TravelView = () => {
+const TravelView = ({ ChangeTitle }) => {
   const [count, setCount] = useState(0);
   return (
     <Fragment>
       <div className={style.TravelViewBox}>
         <div className={style.container}>
           <div className={style.ViewBox}>
-            <select name="" id="">
+            <select onChange={(e) => ChangeTitle(e.target.value)}>
               <option value="NorthAmerica">North America</option>
               <option value="Asia">Asia</option>
               <option value="Europe">Europe</option>

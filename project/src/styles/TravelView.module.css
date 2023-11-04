@@ -22,7 +22,6 @@
   max-width: 1440px;
   width: 100%;
   height: 100%;
-  padding: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,14 +41,17 @@
   font-size: 30px;
   font-weight: bold;
   color: #fff;
-  float: left;
+  position: absolute;
+  top: 10%;
+  left: 8.7%;
+  transform: translate(-50%, -50%);
 }
 .ViewBox > p {
   font-size: 20px;
   color: #fff;
   position: absolute;
-  top: 12%;
-  left: 14.7%;
+  top: 18%;
+  left: 13.7%;
   transform: translate(-50%, -50%);
 }
 

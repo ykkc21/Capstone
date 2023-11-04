@@ -8,19 +8,58 @@ import axios from "axios";
 const TravelList = ({ userData }) => {
   const [animater, setAnimater] = useState(true);
   const [array, setArray] = useState([]);
+  const [viewText, setViewText] = useState(
+    "North American Tourist Attractions"
+  );
+  const [titleArray, setTitleArray] = useState([]);
+  const [titleName, setTitleName] = useState("NorthAmerica");
 
   useEffect(() => {
     const feachData = async () => {
       const contentsResponse = await axios.get("/Contents");
       if (contentsResponse.data.msg === "OK") {
-        setTimeout(() => {
-          setArray([...array, contentsResponse.data.contents]);
-        }, 5000);
+        setArray([...new Set([contentsResponse.data.contents])]);
+        const dataArray = array.reduce((acc, curr) => acc.concat(curr), []);
+        const A = dataArray.filter((data) => data.c_classinfo === "Asia");
+        const E = dataArray.filter((data) => data.c_classinfo === "Europe");
+        const N = dataArray.filter(
+          (data) => data.c_classinfo === "NorthAmerica"
+        );
+
+        if (titleName === "Asia") {
+          setTitleArray(A);
+        } else if (titleName === "NorthAmerica") {
+          setTitleArray(N);
+        } else if (titleName === "Europe") {
+          setTitleArray(E);
+        }
+        setAnimater(false);
+        // setTimeout(() => {
+        //   setAnimater(false);
+        // }, 5000);
       }
     };
-    // feachData();
-    setAnimater(false);
-  }, []);
+    feachData();
+
+    const TitleFilterData = () => {
+      const dataArray = array.reduce((acc, curr) => acc.concat(curr), []);
+      const A = dataArray.filter((data) => data.c_classinfo === "Asia");
+      const E = dataArray.filter((data) => data.c_classinfo === "Europe");
+      const N = dataArray.filter((data) => data.c_classinfo === "NorthAmerica");
+      if (titleName === "Asia") {
+        setTitleArray(A);
+      } else if (titleName === "NorthAmerica") {
+        setTitleArray(N);
+      } else if (titleName === "Europe") {
+        setTitleArray(E);
+      }
+    };
+    // TitleFilterData();
+  }, [titleName]);
+
+  const ChangeTitle = (title) => {
+    setTitleName(title);
+  };
 
   return (
     <Fragment>
@@ -29,8 +68,8 @@ const TravelList = ({ userData }) => {
       ) : (
         <>
           <Header userData={userData} />
-          <TravelView />
-          <TravelItemList />
+          <TravelView ChangeTitle={ChangeTitle} />
+          <TravelItemList TitleData={titleArray} />
         </>
       )}
     </Fragment>
