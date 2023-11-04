@@ -1,7 +1,7 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/TravelView.module.css";
 
-const TravelView = ({ ChangeTitle }) => {
+const TravelView = ({ ViewText, ChangeTitle }) => {
   const [count, setCount] = useState(0);
   return (
     <Fragment>
@@ -16,7 +16,7 @@ const TravelView = ({ ChangeTitle }) => {
             <p>Number of North American destinations({count})</p>
             <div className={style.ViewImageBox}>
               <div className={style.ViewText}>
-                <h1>North American Tourist Attractions</h1>
+                <h1>{ViewText}</h1>
                 <p></p>
                 <p></p>
                 <p></p>

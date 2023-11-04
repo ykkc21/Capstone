@@ -74,6 +74,8 @@
   background-color: rgba(0, 0, 0, 0.8);
   padding: 30px;
   position: relative;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 .ViewBox > .ViewImageBox > .ViewText > h1 {
   width: 400px;
