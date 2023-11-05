@@ -1,8 +1,14 @@
 import { React, Fragment } from "react";
-import style from "../styles/ListDetail.module.css";
+import Header from "../components/header";
+import DetailView from "../constants/DetailView";
 
-const ListDetail = () => {
-  return <Fragment></Fragment>;
+const ListDetail = ({ userData }) => {
+  return (
+    <Fragment>
+      <Header userData={userData} />
+      <DetailView />
+    </Fragment>
+  );
 };
 
 export default ListDetail;
