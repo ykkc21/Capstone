@@ -1,7 +1,8 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/TravelView.module.css";
+import TypeIt from "typeit-react";
 
-const TravelView = ({ ViewText, ChangeTitle }) => {
+const TravelView = ({ ViewCount, ViewText, ChangeTitle }) => {
   const [count, setCount] = useState(0);
   return (
     <Fragment>
@@ -16,7 +17,9 @@ const TravelView = ({ ViewText, ChangeTitle }) => {
             <p>Number of North American destinations({count})</p>
             <div className={style.ViewImageBox}>
               <div className={style.ViewText}>
-                <h1>{ViewText}</h1>
+                <h1>
+                  <TypeIt key={ViewCount}>{ViewText}</TypeIt>
+                </h1>
                 <p></p>
                 <p></p>
                 <p></p>

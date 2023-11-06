@@ -13,6 +13,7 @@ const TravelList = ({ userData }) => {
   );
   const [titleArray, setTitleArray] = useState([]);
   const [titleName, setTitleName] = useState("NorthAmerica");
+  const [TitleAnimaterCount, setTitleAnimaterCount] = useState(0);
 
   const ChangTitleData = (TitleValue) => {
     console.log("useEffct실행 title 변경:", TitleValue);
@@ -32,6 +33,7 @@ const TravelList = ({ userData }) => {
       setViewText("Europe Tourist Attractions");
     }
     setAnimater(false);
+    setTitleAnimaterCount(TitleAnimaterCount + 1);
   };
 
   // 기본 데이터 저장하기
@@ -65,7 +67,11 @@ const TravelList = ({ userData }) => {
       ) : (
         <>
           <Header userData={userData} />
-          <TravelView ViewText={viewText} ChangeTitle={ChangeTitle} />
+          <TravelView
+            ViewCount={TitleAnimaterCount}
+            ViewText={viewText}
+            ChangeTitle={ChangeTitle}
+          />
           <TravelItemList TitleData={titleArray} />
         </>
       )}

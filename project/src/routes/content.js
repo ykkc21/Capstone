@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require("../connection/db");
 const cors = require("cors");
 const multer = require("multer");
-const { Routes } = require("react-router-dom");
 
 router.use(
   cors({
@@ -14,9 +13,6 @@ router.use(
 );
 router.use(express.json());
 // 데이터를 json형식으로 파싱하겠다.
-router.use(express.json({ limit: "50mb" }));
-//파싱하는 옵션지정 (false는 기본으로 내장된 querystring으로 받아온다.)
-router.use(express.urlencoded({ extended: false, limit: "50mb" }));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -133,4 +129,16 @@ router.post("/UpdateContent", upload.single("file"), (req, res) => {
   );
 });
 
+router.get("/ListDetail/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `SELECT * FORM content WHERE c_idx=${id}`;
+  db.query(sql, (err, rows, fields) => {
+    if (err) {
+      console.error(err);
+      res.status(505).send("");
+    }
+  });
+
+  res.json({ mes: "Hello" });
+});
 module.exports = router;

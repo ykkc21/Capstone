@@ -46,3 +46,8 @@
   text-align: left;
   color: #fff;
 }
+@media (max-width: 1440px) {
+  .ItemCard {
+    margin: 20px 53px;
+  }
+}
