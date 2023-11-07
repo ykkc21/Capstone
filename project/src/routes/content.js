@@ -129,16 +129,17 @@ router.post("/UpdateContent", upload.single("file"), (req, res) => {
   );
 });
 
-router.get("/ListDetail/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = `SELECT * FORM content WHERE c_idx=${id}`;
+router.post("/ListDetail", (req, res) => {
+  const id = req.body.id.id;
+  const sql = `SELECT * FROM content WHERE c_idx=${id}`;
+  console.log(id);
+  // console.log(sql);
   db.query(sql, (err, rows, fields) => {
     if (err) {
       console.error(err);
-      res.status(505).send("");
+      res.status(505).send("데이터를 가져오는데 오류가 발생했습니다.");
     }
+    res.json({ mes: "OK", content: rows[0] });
   });
-
-  res.json({ mes: "Hello" });
 });
 module.exports = router;

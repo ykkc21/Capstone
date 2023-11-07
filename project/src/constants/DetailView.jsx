@@ -8,8 +8,10 @@ const DetailView = () => {
 
   useEffect(() => {
     const DetailData = async () => {
-      const Detail_Data = await axios.get(`/ListDetail/${id}`);
-      console.log(Detail_Data.data.mes);
+      const Detail_Data = await axios.post(`/ListDetail`, {
+        id,
+      });
+      console.log(Detail_Data.data);
     };
     DetailData();
   }, []);

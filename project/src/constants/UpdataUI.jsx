@@ -44,7 +44,7 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
 
       setYoutubeId("");
 
-      UpdateIdlist.style.top = "67%";
+      UpdateIdlist.style.top = "63%";
       UpdateIdlist.style.opacity = 1;
       UpdateIdlist.style.transition = "0.5s";
       UpdateIdlist.style.zIndex = 10;
@@ -57,7 +57,7 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
     const updateArray = array.filter((_, index) => index !== idx);
     setArray(updateArray);
     if (array.length === 1) {
-      UpdateIdlistbox.style.top = "58%";
+      UpdateIdlistbox.style.top = "53%";
       UpdateIdlistbox.style.opacity = 0;
       UpdateIdlistbox.style.transition = "0.5s";
       UpdateIdlistbox.style.zIndex = -1;

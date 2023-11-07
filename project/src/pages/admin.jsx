@@ -48,12 +48,17 @@ const Admin = ({ userData }) => {
   };
   //콘텐츠 업데이트 UI 보여주기
   const ShowUpdateUI = (idx) => {
+    const dom = document.getElementById("UpdateBox");
+    console.log(dom);
+    dom.style.display = "block";
     setUpdateUI(true);
     setContentUpdateId(idx);
   };
   //콘텐츠 업데이트 UI 닫기
   const CloseUpdateUI = () => {
-    console.log("업데이트 UI 가리기");
+    const dom = document.getElementById("UpdateBox");
+    console.log(dom);
+    dom.style.display = "none";
   };
 
   const ShowIdBox = (e) => {
