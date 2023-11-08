@@ -109,9 +109,8 @@ const Admin = ({ userData }) => {
           ShowUpdateUI={ShowUpdateUI}
         />
       )}
-      {updateui == true ? (
-        <UpdateUI ContentId={contentUpdateId} CloseUpdateUI={CloseUpdateUI} />
-      ) : null}
+
+      <UpdateUI ContentId={contentUpdateId} CloseUpdateUI={CloseUpdateUI} />
     </Fragment>
   );
 };

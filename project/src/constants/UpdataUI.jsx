@@ -99,6 +99,7 @@ const UpdateUI = ({ ContentId, CloseUpdateUI }) => {
         if (uploadData.data.msg === "OK") {
           alert("업데이트 완료했습니다.");
           CloseUpdateUI();
+          window.location.reload();
         } else {
           alert("콘텐츠 업데이트 실패");
           navigate("/admin");

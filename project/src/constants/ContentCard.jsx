@@ -30,6 +30,13 @@ const ContentCard = ({ ShowUpdateUI, listData }) => {
     }
   };
 
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + "...";
+  };
+
   return (
     <Fragment>
       <div className={`${style.Card} Card`}>
@@ -43,7 +50,9 @@ const ContentCard = ({ ShowUpdateUI, listData }) => {
           <h3 className={style.ClassInfo}>{listData.c_classinfo}</h3>
         </div>
         <div className={style.InfoBox}>
-          <h3 className={style.Info}>{listData.c_information}</h3>
+          <h3 className={style.Info}>
+            {truncateText(listData.c_information, 20)}
+          </h3>
         </div>
         <div className={style.BtnBox}>
           <button
