@@ -51,12 +51,4 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
-
-  app.use(
-    "/ListDetail",
-    createProxyMiddleware({
-      target: "http://localhost:9000/Content",
-      changeOrigin: true,
-    })
-  );
 };

@@ -68,12 +68,12 @@ router.post("/AddContent", upload.single("file"), (req, res) => {
   const { classinfo, title, information, location, array, formData } = req.body;
   const imageFile = req.file;
   const lens = `/upload_Image/${imageFile.originalname}`;
-  const YouTubeId = JSON.stringify(array);
-  console.log(lens);
+  // const YouTubeId = JSON.stringify(array);
+
   // console.log(imageFile.destination, imageFile.originalname);
 
   const sql = `INSERT INTO content(c_classinfo, c_title,c_information,c_location,c_youtubeId,c_lens)
-  VALUES('${classinfo}','${title}','${information}','${location}','${YouTubeId}','${lens}')`;
+  VALUES('${classinfo}','${title}','${information}','${location}','${array}','${lens}')`;
 
   db.query(sql, (err, results) => {
     if (err) {
@@ -137,9 +137,15 @@ router.post("/ListDetail", (req, res) => {
   db.query(sql, (err, rows, fields) => {
     if (err) {
       console.error(err);
-      res.status(505).send("데이터를 가져오는데 오류가 발생했습니다.");
+      res
+        .status(505)
+        .json({ mes: "NO", text: "데이터를 가져오는데 오류가 발생했습니다." });
     }
-    res.json({ mes: "OK", content: rows[0] });
+    if (rows.length === 0) {
+      res.json({ mes: "NO", text: "일치하는 데이터가 없습니다." });
+    } else {
+      res.json({ mes: "OK", content: rows[0] });
+    }
   });
 });
 module.exports = router;
