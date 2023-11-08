@@ -2,6 +2,7 @@ import { React, Fragment } from "react";
 import style from "../styles/YoutubeCard.module.css";
 
 const YoutubeCard = ({ VideoId }) => {
+  console.log(VideoId);
   return (
     <Fragment>
       <iframe

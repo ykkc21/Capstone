@@ -111,14 +111,13 @@ router.post("/UpdateContent", upload.single("file"), (req, res) => {
   } = req.body;
   const imageFile = req.file;
   const lens = `/upload_Image/${imageFile.originalname}`;
-  const YouTubeId = JSON.stringify(array);
   console.log(lens);
 
   const sql = `UPDATE content SET c_classinfo=?, c_title=?, c_information=?, c_location=?, c_youtubeId=?, c_lens=? WHERE c_idx=?`;
 
   db.query(
     sql,
-    [classinfo, title, information, location, YouTubeId, lens, contentId],
+    [classinfo, title, information, location, array, lens, contentId],
     (err, results) => {
       if (err) {
         console.error(err);

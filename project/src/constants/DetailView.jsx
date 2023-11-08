@@ -65,8 +65,7 @@ const DetailView = () => {
                 <h1>Related Video</h1>
                 <div className={style.VideoBox}>
                   {Youtube.map((item, idx) => {
-                    console.log(item);
-                    return <YoutubeCard />;
+                    return <YoutubeCard VideoId={item} />;
                   })}
                 </div>
               </div>
