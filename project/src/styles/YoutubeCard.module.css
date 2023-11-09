@@ -1,3 +1,8 @@
+.YoutubeCard {
+  float: left;
+  margin: 55px;
+}
+
 @media (max-width: 1440px) {
   .YoutubeCard {
     float: left;
