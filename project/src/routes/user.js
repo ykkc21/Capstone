@@ -146,4 +146,22 @@ router.post("/DeleteUser", (req, res) => {
   });
 });
 
+router.post("/MyData", (req, res) => {
+  const id = req.body.userId;
+  const sql = `SELECT * FROM user WHERE idx=${id}`;
+  db.query(sql, (err, rows, fields) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("데이터를 찾는데 오류가 발생했습니다.");
+    }
+
+    if (rows.length === 0) {
+      console.error(err);
+      res.status(500).send("데이터를 찾는데 오류가 발생했습니다.");
+    } else {
+      res.json({ mes: "OK", user: rows[0] });
+    }
+  });
+});
+
 module.exports = router;
