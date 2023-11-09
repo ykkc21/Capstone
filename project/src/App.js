@@ -5,6 +5,8 @@ import TravelList from "./pages/TravelList";
 import Admin from "./pages/admin";
 import Mypage from "./pages/mypage";
 import ListDetail from "./pages/ListDetail";
+import Hotel from "./pages/Hotel";
+import AirlineTicket from "./pages/AirlineTicket";
 import { React, useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -51,6 +53,12 @@ function App() {
           <Route
             path="/listdetail/:id"
             element={<ListDetail userData={session} />}
+          />
+          airlineticket
+          <Route path="/hotel" element={<Hotel userData={session} />} />
+          <Route
+            path="/airlineticket"
+            element={<AirlineTicket userData={session} />}
           />
         </Routes>
       </Fragment>

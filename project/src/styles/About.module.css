@@ -80,10 +80,11 @@
   width: 700px;
   height: 300px;
   text-align: left;
+  line-height: 48px;
   position: absolute;
   top: 43%;
   left: 65%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
 }
