@@ -78,7 +78,7 @@
 
 .DetailBox > .TitleBox {
   width: 100%;
-  height: 100px;
+  height: 80px;
   float: left;
 }
 .DetailBox > .TitleBox > h1 {
@@ -90,7 +90,6 @@
 .DetailBox > .InfoBox {
   width: 100%;
   height: 350px;
-  padding-top: 20px;
   float: left;
 }
 .DetailBox > .InfoBox > p {
@@ -101,9 +100,8 @@
 }
 .DetailBox > .YoutubeBox {
   width: 100%;
-  height: 470px;
+  height: 300px;
   float: left;
-  background-color: red;
 }
 .DetailBox > .YoutubeBox > h1 {
   width: 100%;
@@ -113,12 +111,12 @@
 }
 .DetailBox > .YoutubeBox > .VideoBox {
   width: 100%;
-  height: 400px;
+  height: 180px;
   margin-top: 70px;
   overflow-y: scroll;
 }
 
-/* @media (max-width: 1440px) {
+@media (max-width: 1440px) {
   .DetailBox {
     width: 70%;
     height: 100%;
@@ -142,4 +140,4 @@
     float: left;
     padding-top: 30px;
   }
-} */
+}

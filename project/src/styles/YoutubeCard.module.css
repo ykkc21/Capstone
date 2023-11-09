@@ -1,6 +1,9 @@
 .YoutubeCard {
+  width: 280px;
+  height: 180px;
   float: left;
-  margin: 55px;
+  margin-right: 30px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 1440px) {

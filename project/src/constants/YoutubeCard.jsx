@@ -7,8 +7,6 @@ const YoutubeCard = ({ VideoId }) => {
     <Fragment>
       <iframe
         className={style.YoutubeCard}
-        width="370"
-        height="250"
         src={`https://www.youtube.com/embed/${VideoId}`}
         allowFullScreen
       ></iframe>
