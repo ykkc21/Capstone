@@ -149,19 +149,28 @@ router.post("/DeleteUser", (req, res) => {
 router.post("/MyData", (req, res) => {
   const id = req.body.userId;
   const sql = `SELECT * FROM user WHERE idx=${id}`;
-  db.query(sql, (err, rows, fields) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("데이터를 찾는데 오류가 발생했습니다.");
-    }
+  console.log(id);
+  if (id === undefined) {
+    res.json({ msg: "NO", text: "회원 아이디를 찾을 수 없습니다." });
+  } else {
+    db.query(sql, (err, rows, fields) => {
+      if (err) {
+        console.error(err);
+        res
+          .status(500)
+          .json({ msg: "NO", text: "데이터를 찾는데 오류가 발생했습니다." });
+      }
 
-    if (rows.length === 0) {
-      console.error(err);
-      res.status(500).send("데이터를 찾는데 오류가 발생했습니다.");
-    } else {
-      res.json({ mes: "OK", user: rows[0] });
-    }
-  });
+      if (rows.length === 0) {
+        console.error(err);
+        res
+          .status(500)
+          .json({ msg: "NO", text: "데이터를 찾는데 오류가 발생했습니다." });
+      } else {
+        res.json({ msg: "OK", user: rows[0] });
+      }
+    });
+  }
 });
 
 module.exports = router;

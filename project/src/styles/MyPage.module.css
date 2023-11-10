@@ -1,0 +1,71 @@
+.MyPageWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.MyPageWrap > .ViewBox {
+  width: 100%;
+  height: 350px;
+  float: left;
+  background-image: url("../assets/img/mypageView.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.MyPageWrap > .MyPageSubBox {
+  width: 100%;
+  height: 700px;
+  float: left;
+}
+.MyPageWrap > .MyPageSubBox > .MyPageSideBar {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-color: blue;
+  position: relative;
+}
+.MyPageWrap > .MyPageSubBox > .MyPageSideBar > .MyInfoCard {
+  width: 300px;
+  height: 450px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px #000;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPageSideBar > .MyInfoCard > .IconBox {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .IconBox
+  > .CardIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPageSideBar > .MyInfoCard > .CardTextBox {
+  width: 100%;
+  height: 60%;
+  float: left;
+  background-color: red;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate {
+  width: 70%;
+  height: 100%;
+  background-color: red;
+  float: left;
+}

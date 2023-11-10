@@ -71,6 +71,7 @@ const TravelList = ({ userData }) => {
             ViewCount={TitleAnimaterCount}
             ViewText={viewText}
             ChangeTitle={ChangeTitle}
+            TitleData={titleArray}
           />
           <TravelItemList TitleData={titleArray} />
         </>

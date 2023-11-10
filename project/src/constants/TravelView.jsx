@@ -2,8 +2,10 @@ import { React, Fragment, useState } from "react";
 import style from "../styles/TravelView.module.css";
 import TypeIt from "typeit-react";
 
-const TravelView = ({ ViewCount, ViewText, ChangeTitle }) => {
+const TravelView = ({ ViewCount, ViewText, ChangeTitle, TitleData }) => {
   const [count, setCount] = useState(0);
+  const Arraycount = TitleData.reduce((acc) => acc + 1, 0);
+
   return (
     <Fragment>
       <div className={style.TravelViewBox}>
@@ -14,7 +16,7 @@ const TravelView = ({ ViewCount, ViewText, ChangeTitle }) => {
               <option value="Asia">Asia</option>
               <option value="Europe">Europe</option>
             </select>
-            <p>Number of North American destinations({count})</p>
+            <p>Number of North American destinations({Arraycount})</p>
             <div className={style.ViewImageBox}>
               <div className={style.ViewText}>
                 <h1>

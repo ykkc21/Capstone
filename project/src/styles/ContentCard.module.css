@@ -32,8 +32,8 @@
   padding: 13px;
 }
 .Card > .TitleBox > .ClassInfo {
-  float: left;
-  font-size: 15px;
+  float: right;
+  font-size: 13px;
   padding: 15px;
 }
 .Card > .InfoBox {
