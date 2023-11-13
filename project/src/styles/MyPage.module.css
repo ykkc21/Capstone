@@ -18,13 +18,14 @@
   width: 100%;
   height: 700px;
   float: left;
+  background-color: #262626;
 }
 .MyPageWrap > .MyPageSubBox > .MyPageSideBar {
   width: 30%;
   height: 100%;
   float: left;
-  background-color: blue;
   position: relative;
+  border-right: 4px solid #333232;
 }
 .MyPageWrap > .MyPageSubBox > .MyPageSideBar > .MyInfoCard {
   width: 300px;
@@ -60,12 +61,77 @@
   width: 100%;
   height: 60%;
   float: left;
-  background-color: red;
+}
+
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .CardTextBox
+  > div {
+  width: 100%;
+  height: 80px;
+}
+
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .CardTextBox
+  > div
+  > h1 {
+  float: left;
+  padding: 20px;
+}
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .CardTextBox
+  > div
+  > h3 {
+  float: right;
+  padding: 29px;
+}
+
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .CardTextBox
+  > .UserEmail {
+  position: absolute;
+  top: 65%;
+  left: 29%;
+  transform: translate(-50%, -50%);
+}
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPageSideBar
+  > .MyInfoCard
+  > .CardTextBox
+  > .UserBD {
+  position: absolute;
+  top: 72%;
+  left: 23%;
+  transform: translate(-50%, -50%);
 }
 
 .MyPageWrap > .MyPageSubBox > .MyPagePlate {
   width: 70%;
   height: 100%;
-  background-color: red;
   float: left;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm {
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .SubBox {
+  width: 20%;
+  height: 100%;
+  float: left;
+  border-left: 4px solid #333232;
 }

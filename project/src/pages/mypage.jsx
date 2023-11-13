@@ -45,12 +45,19 @@ const MyPage = ({ userData }) => {
                 />
               </div>
               <div className={style.CardTextBox}>
-                <h1>{userInfo.name}</h1>
-                <p>{userInfo.email}</p>
+                <div>
+                  <h1>{userInfo.name}</h1>
+                  <h3>{userInfo.nickname}</h3>
+                </div>
+                <h3 className={style.UserEmail}>{userInfo.email}</h3>
+                <h3 className={style.UserBD}>{userInfo.bd}</h3>
               </div>
             </div>
           </div>
-          <div className={style.MyPagePlate}></div>
+          <div className={style.MyPagePlate}>
+            <div className={style.UserUpdateForm}></div>
+            <div className={style.SubBox}></div>
+          </div>
         </div>
       </div>
     </Fragment>

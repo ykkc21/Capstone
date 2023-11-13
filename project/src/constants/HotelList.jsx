@@ -8,9 +8,12 @@ const HotelList = ({ data }) => {
     <Fragment>
       <Link to={data.h_url}>
         <div className={style.HotelListItem}>
-          <div className={style.BackImage}>
-            <img src={data.h_image} alt="listImage" />
+          <img src={data.h_image} alt="listImage" />
+          <div className={style.HotelTitleBox}>
+            <h1>{data.h_name}</h1>
           </div>
+          <h2>{data.h_roomtype}</h2>
+          <h4>{data.h_area}</h4>
         </div>
       </Link>
     </Fragment>
