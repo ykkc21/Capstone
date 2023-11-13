@@ -2,7 +2,7 @@ import { React, Fragment } from "react";
 import style from "../styles/AirlineTicket.module.css";
 import Header from "../components/header";
 
-const AirlineTicket = ({ userData }) => {
+const AirLineInForMation = ({ userData }) => {
   return (
     <Fragment>
       <Header userData={userData} />
@@ -10,4 +10,4 @@ const AirlineTicket = ({ userData }) => {
     </Fragment>
   );
 };
-export default AirlineTicket;
+export default AirLineInForMation;

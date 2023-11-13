@@ -2,5 +2,45 @@
   width: 25%;
   height: 90vh;
   float: left;
-  background-color: blue;
+  background-color: #1c1b1b;
+  padding: 100px 40px;
+  position: relative;
+}
+
+.HotelSideBarBox > .ChangeSeletBox {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+.HotelSideBarBox > .ChangeSeletBox > label {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  color: #fff;
+}
+
+.HotelSideBarBox > .ChangeSeletBox > .SelectBox {
+  width: 100%;
+  height: 50%;
+  margin-top: 20px;
+  border: 1px solid #000;
+  background-color: inherit;
+  color: #fff;
+  font-size: 20px;
+}
+
+.SearchBtn {
+  width: 100px;
+  height: 40px;
+  background-color: #d9d9d9;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  top: 70%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }

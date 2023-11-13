@@ -80,8 +80,8 @@ const Header = ({ userData }) => {
             </Link>
           </li>
           <li className={style.Header_li}>
-            <Link to={"/airlineticket"} className={style.Header_li_a}>
-              AirlineTicket
+            <Link to={"/airlineInformation"} className={style.Header_li_a}>
+              AirlineInforMation
             </Link>
           </li>
         </ul>

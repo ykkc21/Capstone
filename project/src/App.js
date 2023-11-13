@@ -6,7 +6,7 @@ import Admin from "./pages/admin";
 import Mypage from "./pages/mypage";
 import ListDetail from "./pages/ListDetail";
 import Hotel from "./pages/Hotel";
-import AirlineTicket from "./pages/AirlineTicket";
+import AirLineInForMation from "./pages/AirLineInForMation";
 import { React, useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -57,8 +57,8 @@ function App() {
           airlineticket
           <Route path="/hotel" element={<Hotel userData={session} />} />
           <Route
-            path="/airlineticket"
-            element={<AirlineTicket userData={session} />}
+            path="/airlineInformation"
+            element={<AirLineInForMation userData={session} />}
           />
         </Routes>
       </Fragment>
