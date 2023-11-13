@@ -55,7 +55,24 @@ const MyPage = ({ userData }) => {
             </div>
           </div>
           <div className={style.MyPagePlate}>
-            <div className={style.UserUpdateForm}></div>
+            <div className={style.UserUpdateForm}>
+              <h1>정보 변경</h1>
+              <input
+                type="text"
+                className={`${style.input} ${style.NickNameInput}`}
+                id="NickNameInput"
+              />
+              <input
+                type="email"
+                className={`${style.input} ${style.EmailInput}`}
+                id="EmailInput"
+              />
+              <input
+                type="password"
+                className={`${style.input} ${style.PasswordInput}`}
+                id="PasswordInput"
+              />
+            </div>
             <div className={style.SubBox}></div>
           </div>
         </div>

@@ -126,7 +126,27 @@
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm {
   width: 80%;
   height: 100%;
+  padding: 90px;
   float: left;
+  position: relative;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > h1 {
+  float: left;
+  color: #fff;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .input {
+  width: 70%;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .NickNameInput {
+}
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .EmailInput {
+}
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .PasswordInput {
 }
 
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .SubBox {
