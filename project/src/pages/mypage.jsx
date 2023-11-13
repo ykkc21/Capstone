@@ -61,16 +61,19 @@ const MyPage = ({ userData }) => {
                 type="text"
                 className={`${style.input} ${style.NickNameInput}`}
                 id="NickNameInput"
+                placeholder="ex) NickName"
               />
               <input
                 type="email"
                 className={`${style.input} ${style.EmailInput}`}
                 id="EmailInput"
+                placeholder="ex) Email"
               />
               <input
                 type="password"
                 className={`${style.input} ${style.PasswordInput}`}
                 id="PasswordInput"
+                placeholder="ex) Password"
               />
             </div>
             <div className={style.SubBox}></div>
