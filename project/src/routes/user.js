@@ -173,4 +173,22 @@ router.post("/MyData", (req, res) => {
   }
 });
 
+router.post("/UpdateUser", (req, res) => {
+  const { idx, userNickName, userEmail, userPassword } = req.body;
+  const sql = `UPDATE user SET nickname=?, email=?, pw=? WHERE idx=?`;
+  db.query(
+    sql,
+    [userNickName, userEmail, userPassword, idx],
+    (err, results) => {
+      if (err) {
+        res.status(500).json({
+          msg: "NO",
+          text: "데이터를 처리하는데 오류가 발생하였습니다.",
+        });
+      }
+      res.json({ msg: "OK" });
+    }
+  );
+});
+
 module.exports = router;

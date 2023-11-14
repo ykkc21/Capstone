@@ -8,6 +8,9 @@ import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 const MyPage = ({ userData }) => {
   const [count, setCount] = useState(0);
   const [userInfo, setUserInfo] = useState({});
+  const [userNickName, setNickName] = useState("");
+  const [userEmail, setEmail] = useState("");
+  const [userPassword, setPassword] = useState("");
   useEffect(() => {
     const SelectUser = async () => {
       const GetData = Array.from(userData);
@@ -30,6 +33,22 @@ const MyPage = ({ userData }) => {
     };
     SelectUser();
   }, [count]);
+
+  const UpdateUserInfo = async () => {
+    const UpdateUserInfo = await axios.post(
+      "http://localhost:9000/User/UpdateUser",
+      {
+        idx: userInfo.idx,
+        userNickName,
+        userEmail,
+        userPassword,
+      }
+    );
+    if (UpdateUserInfo.data.msg === "OK") {
+      alert("정보수정 완료했습니다.");
+      window.location.reload();
+    }
+  };
   return (
     <Fragment>
       <div className={style.MyPageWrap}>
@@ -62,19 +81,32 @@ const MyPage = ({ userData }) => {
                 className={`${style.input} ${style.NickNameInput}`}
                 id="NickNameInput"
                 placeholder="ex) NickName"
+                value={userNickName}
+                onChange={(e) => setNickName(e.target.value)}
               />
               <input
                 type="email"
                 className={`${style.input} ${style.EmailInput}`}
                 id="EmailInput"
                 placeholder="ex) Email"
+                value={userEmail}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 className={`${style.input} ${style.PasswordInput}`}
                 id="PasswordInput"
                 placeholder="ex) Password"
+                onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                onClick={(e) => {
+                  UpdateUserInfo();
+                }}
+                className={style.UserUpdateBtn}
+              >
+                Update
+              </button>
             </div>
             <div className={style.SubBox}></div>
           </div>

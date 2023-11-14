@@ -134,19 +134,54 @@
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > h1 {
   float: left;
   color: #fff;
+  margin-left: 70px;
 }
 
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .input {
   width: 70%;
-  height: 50px;
+  height: 70px;
   border-radius: 10px;
 }
 
+.MyPageWrap
+  > .MyPageSubBox
+  > .MyPagePlate
+  > .UserUpdateForm
+  > .input::placeholder {
+  text-align: left;
+  padding-left: 10px;
+  font-size: 17px;
+}
+
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .NickNameInput {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .EmailInput {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .PasswordInput {
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MyPageWrap > .MyPageSubBox > .MyPagePlate > .UserUpdateForm > .UserUpdateBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  position: absolute;
+  top: 85%;
+  left: 79%;
+  transform: translate(-50%, -50%);
 }
 
 .MyPageWrap > .MyPageSubBox > .MyPagePlate > .SubBox {
