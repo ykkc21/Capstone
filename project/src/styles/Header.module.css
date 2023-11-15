@@ -105,3 +105,30 @@
   line-height: 45px;
   font-weight: bold;
 }
+
+@media (max-width: 1440px) {
+  .Header_ul {
+    width: 60%;
+  }
+  .Hedaer_Login {
+    width: 20%;
+    position: relative;
+  }
+
+  .Hedaer_Login > .Hedaer_Login_btn_Admin {
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+  .Hedaer_Login > .Hedaer_Login_btn {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+  }
+}

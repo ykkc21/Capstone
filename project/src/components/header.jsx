@@ -76,7 +76,7 @@ const Header = ({ userData }) => {
           </li>
           <li className={style.Header_li}>
             <Link to={"/hotel"} className={style.Header_li_a}>
-              Hotel
+              Hotel/Motel
             </Link>
           </li>
           <li className={style.Header_li}>

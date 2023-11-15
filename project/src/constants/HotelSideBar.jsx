@@ -17,7 +17,7 @@ const HotelSideBar = ({ ChangeInput }) => {
             className={style.SelectBox}
             id="RoomBox"
           >
-            <option value="">선택해주세요</option>
+            <option value="">ALL</option>
             <option value="Hotel">Hotel</option>
             <option value="Motel">Motel</option>
           </select>
@@ -31,7 +31,7 @@ const HotelSideBar = ({ ChangeInput }) => {
             className={style.SelectBox}
             id="AreaBox"
           >
-            <option value="">선택해주세요</option>
+            <option value="">ALL</option>
             <option value="NorthAmerica">NorthAmerica</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
