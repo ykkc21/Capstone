@@ -4,8 +4,6 @@ import Header from "../components/header";
 import axios from "axios";
 
 const AirLineInForMation = ({ userData }) => {
-  useEffect(async () => {}, []);
-
   return (
     <Fragment>
       <Header userData={userData} />

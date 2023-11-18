@@ -6,6 +6,10 @@ const axios = require("axios");
 router.use(express.json());
 // 데이터를 json형식으로 파싱하겠다.
 
-router.get("/", async (req, res) => {});
+router.get("/", async (req, res) => {
+  const api = await axios.get(
+    "/FlightStatusListDTL/v1/getFlightStatusListDetail"
+  );
+});
 
 module.exports = router;
