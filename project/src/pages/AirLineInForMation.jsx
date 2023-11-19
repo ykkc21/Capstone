@@ -7,7 +7,6 @@ const AirLineInForMation = ({ userData }) => {
   return (
     <Fragment>
       <Header userData={userData} />
-      <h1>AirlineTicket</h1>
     </Fragment>
   );
 };
