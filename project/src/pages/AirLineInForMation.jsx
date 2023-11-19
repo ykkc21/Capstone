@@ -19,6 +19,10 @@ const AirLineInForMation = ({ userData }) => {
         }
       );
       console.log(AirPortData.data);
+
+      if (AirPortData.data === "NoData") {
+        console.log("123");
+      }
     };
     GetData();
   }, [aircode, Lan]);
