@@ -1,12 +1,12 @@
 import { React, Fragment, useState } from "react";
 import style from "../styles/AirLineView.module.css";
 
-const AirLineView = ({}) => {
+const AirLineView = ({ ChangeValue }) => {
   const [aircode, setAirCode] = useState("");
   const [Lan, setLan] = useState("");
 
-  const Test = () => {
-    console.log(aircode, Lan);
+  const ClickEvent = () => {
+    ChangeValue(aircode, Lan);
   };
   return (
     <Fragment>
@@ -42,7 +42,7 @@ const AirLineView = ({}) => {
 
               <button
                 onClick={() => {
-                  Test();
+                  ClickEvent();
                 }}
                 className={style.SearchBtn}
               >
