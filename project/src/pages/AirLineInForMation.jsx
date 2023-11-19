@@ -9,6 +9,8 @@ const AirLineInForMation = ({ userData }) => {
   return (
     <Fragment>
       <Header userData={userData} />
+      <AirLineView />
+      <AirLinePlate />
     </Fragment>
   );
 };
