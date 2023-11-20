@@ -17,22 +17,33 @@ router.use(express.json());
 
 router.post("/AirPortData", async (req, res) => {
   const { aircode, Lan } = req.body;
+  console.log(aircode, Lan);
 
   if (aircode === "" || Lan === "") {
-    res.send("NoData");
+    res.send("CheckData");
+  } else if (aircode === "Null" || Lan === "Null") {
+    res.send("CheckData");
+  } else if (aircode === "??" || Lan === "문서를 선택해 주세요") {
+    res.send("CheckData");
   } else {
     const apiUrl =
       "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsOdp/getPassengerDeparturesOdp";
     const type = "json";
-
     const queryParams = `?serviceKey=${encodeURIComponent(
       process.env.APIKEY
     )}&airport=${encodeURIComponent(aircode)}&lang=${encodeURIComponent(
       Lan
     )}&type=${encodeURIComponent(type)}`;
-
     const requestUrl = `${apiUrl}${queryParams}`;
-    console.log(requestUrl);
+
+    // axios
+    //   .get(requestUrl)
+    //   .then((result) => {
+    //     console.log(result.data);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   }
 });
 

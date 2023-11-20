@@ -8,6 +8,7 @@ import axios from "axios";
 const AirLineInForMation = ({ userData }) => {
   const [aircode, setAirCode] = useState("");
   const [Lan, setLan] = useState("");
+  const [randerCount, setRanderCount] = useState(0);
 
   useEffect(() => {
     const GetData = async () => {
@@ -18,10 +19,14 @@ const AirLineInForMation = ({ userData }) => {
           Lan,
         }
       );
-      console.log(AirPortData.data);
 
-      if (AirPortData.data === "NoData") {
-        console.log("123");
+      if (AirPortData.data === "CheckData") {
+        if (randerCount == 0) {
+          setRanderCount((data) => (data += 1));
+        } else {
+          alert("검색 옵션을 확인해주세요!!");
+          setRanderCount((data) => (data += 1));
+        }
       }
     };
     GetData();
@@ -31,8 +36,6 @@ const AirLineInForMation = ({ userData }) => {
     setAirCode(code);
     setLan(lan);
   };
-
-  console.log("MAIN", aircode, Lan);
   return (
     <Fragment>
       <Header userData={userData} />

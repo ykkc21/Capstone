@@ -1,17 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Rubik:wght@500&display=swap");
 .AirLineViewBox {
   width: 100%;
   height: 700px;
   float: left;
   position: relative;
-  background-image: url("../assets//img/AirLine3.jpg");
+  /* background-image: url("../assets//img/AirLine3.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .container {
   max-width: 1440px;
   width: 100%;
   height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.AirLineViewBox > .viewImage {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,29 +33,123 @@
   position: relative;
 }
 
-.ItemBox > .InputBox {
-  width: 70%;
-  height: 70%;
-  border-radius: 30px;
+.ItemBox > h1 {
+  width: 1000px;
+  height: 200px;
+  font-size: 55px;
+  text-align: left;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
+  font-family: "Acme", sans-serif;
+  font-family: "Anton", sans-serif;
+  font-family: "Rubik", sans-serif;
+  color: #242323;
 }
 
-.ItemBox > .InputBox > h1 {
-  font-size: 50px;
-  color: #fff;
+.ItemBox > .InputBox {
+  width: 70%;
+  height: 35%;
+  border-radius: 30px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0px 2px 4px #000;
 }
 
-.AirportCode {
+.ItemBox > .InputBox > .SelectBox {
+  width: 100%;
+  height: 50px;
+  float: left;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding-left: 30px;
+  box-shadow: 0px 1px 5px #000;
 }
-.Language {
+
+.ItemBox > .InputBox > .SelectBox > select {
+  width: 150px;
+  height: 80%;
+  border: none;
+  float: left;
+  margin: 6px;
 }
+
+.ItemBox > .InputBox > .MenuTextBox {
+  width: 100%;
+  height: 125px;
+  float: left;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding-left: 55px;
+}
+
+.ItemBox > .InputBox > .MenuTextBox > .FromBox {
+  width: 200px;
+  height: 100%;
+  padding: 30px;
+  float: left;
+}
+
+.ItemBox > .InputBox > .MenuTextBox > .FromBox > p {
+  text-align: left;
+  font-weight: bold;
+}
+.ItemBox > .InputBox > .MenuTextBox > .FromBox > h3 {
+  text-align: left;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.ItemBox > .InputBox > .MenuTextBox > .IconArrow {
+  font-size: 30px;
+  float: left;
+  margin-top: 45px;
+}
+.ItemBox > .InputBox > .MenuTextBox > .ToBox {
+  width: 200px;
+  height: 100%;
+  padding: 30px;
+  margin-left: 30px;
+  float: left;
+}
+
+.ItemBox > .InputBox > .MenuTextBox > .ToBox > p {
+  text-align: left;
+  font-weight: bold;
+}
+.ItemBox > .InputBox > .MenuTextBox > .ToBox > h3 {
+  text-align: left;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.ItemBox > .InputBox > .MenuTextBox > .Document {
+  width: 220px;
+  height: 100%;
+  padding: 30px;
+  float: left;
+}
+.ItemBox > .InputBox > .MenuTextBox > .Document > p {
+  text-align: left;
+  font-weight: bold;
+}
+.ItemBox > .InputBox > .MenuTextBox > .Document > h3 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
 .SearchBtn {
   width: 100px;
   height: 40px;
+  position: absolute;
+  top: 80%;
+  left: 90%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1440px) {
