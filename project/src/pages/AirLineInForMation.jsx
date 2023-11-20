@@ -40,12 +40,11 @@ const AirLineInForMation = ({ userData }) => {
     setLan(lan);
   };
 
-  console.log(airportArray);
   return (
     <Fragment>
       <Header userData={userData} />
       <AirLineView ChangeValue={ChangeValue} />
-      <AirLinePlate />
+      <AirLinePlate DataList={airportArray} />
     </Fragment>
   );
 };

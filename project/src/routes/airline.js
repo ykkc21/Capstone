@@ -29,7 +29,9 @@ router.post("/AirPortData", async (req, res) => {
     const apiUrl =
       "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsOdp/getPassengerDeparturesOdp";
     const type = "json";
-    const queryParams = `?serviceKey=${process.env.APIKEY}&airport=${aircode}&lang=${Lan}&type=${type}`;
+    const from_time = "0000";
+    const to_time = "2400";
+    const queryParams = `?serviceKey=${process.env.APIKEY}&airport=${aircode}&from_time=${from_time}&to_time=${to_time}&lang=${Lan}&type=${type}`;
     const requestUrl = `${apiUrl}${queryParams}`;
     const SelectData = await axios.get(requestUrl);
 
