@@ -1,6 +1,13 @@
 .AirListBox {
-  width: 1200px;
-  height: 200px;
+  width: 900px;
+  height: 140px;
   background-color: red;
   margin-bottom: 30px;
+}
+
+.AirportInfoBox {
+  width: 70%;
+  height: 100%;
+  float: left;
+  background-color: aquamarine;
 }

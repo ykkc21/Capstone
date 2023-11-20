@@ -5,7 +5,9 @@ const AirLineList = ({ airdata }) => {
   console.log(airdata);
   return (
     <Fragment>
-      <div className={style.AirListBox}>{airdata.airline}</div>
+      <div className={style.AirListBox}>
+        <div className={style.AirportInfoBox}></div>
+      </div>
     </Fragment>
   );
 };
