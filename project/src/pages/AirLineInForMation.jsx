@@ -9,6 +9,7 @@ const AirLineInForMation = ({ userData }) => {
   const [aircode, setAirCode] = useState("");
   const [Lan, setLan] = useState("");
   const [randerCount, setRanderCount] = useState(0);
+  const [airportArray, setAirPortArray] = useState([]);
 
   useEffect(() => {
     const GetData = async () => {
@@ -27,6 +28,8 @@ const AirLineInForMation = ({ userData }) => {
           alert("검색 옵션을 확인해주세요!!");
           setRanderCount((data) => (data += 1));
         }
+      } else if (AirPortData.data.msg === "OK") {
+        setAirPortArray(AirPortData.data.data);
       }
     };
     GetData();
@@ -36,6 +39,8 @@ const AirLineInForMation = ({ userData }) => {
     setAirCode(code);
     setLan(lan);
   };
+
+  console.log(airportArray);
   return (
     <Fragment>
       <Header userData={userData} />

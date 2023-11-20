@@ -29,21 +29,11 @@ router.post("/AirPortData", async (req, res) => {
     const apiUrl =
       "http://apis.data.go.kr/B551177/StatusOfPassengerFlightsOdp/getPassengerDeparturesOdp";
     const type = "json";
-    const queryParams = `?serviceKey=${encodeURIComponent(
-      process.env.APIKEY
-    )}&airport=${encodeURIComponent(aircode)}&lang=${encodeURIComponent(
-      Lan
-    )}&type=${encodeURIComponent(type)}`;
+    const queryParams = `?serviceKey=${process.env.APIKEY}&airport=${aircode}&lang=${Lan}&type=${type}`;
     const requestUrl = `${apiUrl}${queryParams}`;
+    const SelectData = await axios.get(requestUrl);
 
-    // axios
-    //   .get(requestUrl)
-    //   .then((result) => {
-    //     console.log(result.data);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+    res.json({ msg: "OK", data: SelectData.data.response.body.items });
   }
 });
 

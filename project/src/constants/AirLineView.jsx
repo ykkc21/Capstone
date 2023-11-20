@@ -36,12 +36,13 @@ const AirLineView = ({ ChangeValue }) => {
                   id="AirportCode"
                 >
                   <option value="Null">항공지역</option>
-                  <option value="PEK">베이징</option>
+                  {/* <option value="PEK">베이징</option>
                   <option value="PVG">상하이</option>
                   <option value="CHI">시카고</option>
                   <option value="TOJ">스페인 마드리드</option>
-                  <option value="NKM">나고야</option>
+                  <option value="NKM">나고야</option> */}
                   <option value="MMM">호주</option>
+                  <option value="FUK">후쿠오카</option>
                 </select>
                 <select
                   onChange={(e) => {
