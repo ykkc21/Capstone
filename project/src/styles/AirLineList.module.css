@@ -1,13 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Noto+Serif&family=Rubik:wght@500&display=swap");
 .AirListBox {
-  width: 900px;
-  height: 140px;
-  background-color: red;
-  margin-bottom: 30px;
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;
+  background-image: url("../assets/img/ticat1.jpg");
+  background-position: center;
+  float: left;
+  margin: 30px;
+  padding-top: 30px;
+  position: relative;
 }
 
-.AirportInfoBox {
-  width: 70%;
+.AirListBox > .backBox {
+  width: 100%;
   height: 100%;
-  float: left;
-  background-color: aquamarine;
+  background-color: rgba(52, 86, 221, 0.13);
+  position: absolute;
+  top: 0;
+}
+
+.AirListBox > h3 {
+  text-align: left;
 }

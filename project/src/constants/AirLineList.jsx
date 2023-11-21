@@ -6,7 +6,7 @@ const AirLineList = ({ airdata }) => {
   return (
     <Fragment>
       <div className={style.AirListBox}>
-        <div className={style.AirportInfoBox}></div>
+        <div className={style.backBox}></div>
       </div>
     </Fragment>
   );
