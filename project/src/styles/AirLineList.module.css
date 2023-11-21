@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Noto+Serif&family=Rubik:wght@500&display=swap");
 .AirListBox {
   width: 300px;
-  height: 500px;
+  height: 550px;
   border-radius: 20px;
   background-image: url("../assets/img/ticat1.jpg");
   background-position: center;
@@ -30,7 +30,7 @@
 .AirListBox > .backBox > .airportInfoBox {
   width: 100%;
   height: 70%;
-  background-color: rgba(128, 142, 179, 0.37);
+  background-color: rgba(128, 142, 179, 0.6);
   margin-bottom: 20px;
 }
 
@@ -38,25 +38,123 @@
   width: 100%;
   height: 30%;
   float: left;
-  background-color: blueviolet;
+  position: relative;
+}
+
+.AirListBox > .backBox > .airportInfoBox > .firstbox::after {
+  display: block;
+  content: "";
+  width: 90%;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.AirListBox > .backBox > .airportInfoBox > .firstbox > .firstTitle {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.AirListBox > .backBox > .airportInfoBox > .firstbox > .lastTitle {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.AirListBox > .backBox > .airportInfoBox > .firstbox > .AirportIcon {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
 }
 .AirListBox > .backBox > .airportInfoBox > .middlebox {
   width: 100%;
   height: 50%;
   float: left;
-  background-color: aqua;
+  position: relative;
+}
+.AirListBox > .backBox > .airportInfoBox > .middlebox > .infobox {
+  width: 40%;
+  height: 40%;
+  color: #fff;
+  padding: 15px;
+  float: left;
+}
+
+.AirListBox
+  > .backBox
+  > .airportInfoBox
+  > .middlebox
+  > .infobox:nth-of-type(2) {
+  width: 50%;
+}
+.AirListBox
+  > .backBox
+  > .airportInfoBox
+  > .middlebox
+  > .infobox:nth-of-type(3) {
+  width: 50%;
+}
+
+.AirListBox > .backBox > .airportInfoBox > .middlebox > .infobox > h4,
+p {
+  text-align: left;
+}
+.AirListBox > .backBox > .airportInfoBox > .middlebox::after {
+  display: block;
+  content: "";
+  width: 90%;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .AirListBox > .backBox > .airportInfoBox > .lastbox {
   width: 100%;
   height: 20%;
   float: left;
-  background-color: brown;
+}
+.AirListBox > .backBox > .airportInfoBox > .lastbox > .subbox {
+  width: 30%;
+  height: 100%;
+  color: #fff;
+  padding: 15px;
+  text-align: left;
+  float: left;
+}
+
+.AirListBox > .backBox > .airportInfoBox > .lastbox > .subbox > h4,
+p {
+  text-align: left;
+}
+.AirListBox > .backBox > .airportInfoBox > .lastbox > .subbox:nth-of-type(2) {
+  margin-left: 100px;
 }
 
 .BarcodeBox {
   width: 100%;
   height: 20%;
-  background-color: blue;
+  position: relative;
+}
+
+.BarcodeBox > .barcode {
+  width: 90px !important;
+  height: 90px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1440px) {
