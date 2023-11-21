@@ -151,13 +151,3 @@
   left: 90%;
   transform: translate(-50%, -50%);
 }
-
-@media (max-width: 1440px) {
-  .AirLineViewBox {
-    height: 500px;
-  }
-
-  .ItemBox {
-    height: 500px;
-  }
-}

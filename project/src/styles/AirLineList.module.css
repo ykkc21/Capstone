@@ -14,11 +14,66 @@
 .AirListBox > .backBox {
   width: 100%;
   height: 100%;
-  background-color: rgba(52, 86, 221, 0.13);
+  border-radius: 20px;
+  background-color: rgba(52, 86, 221, 0.2);
   position: absolute;
   top: 0;
+  padding: 20px;
 }
 
-.AirListBox > h3 {
+.AirListBox > .backBox > h3 {
   text-align: left;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.AirListBox > .backBox > .airportInfoBox {
+  width: 100%;
+  height: 70%;
+  background-color: rgba(128, 142, 179, 0.37);
+  margin-bottom: 20px;
+}
+
+.AirListBox > .backBox > .airportInfoBox > .firstbox {
+  width: 100%;
+  height: 30%;
+  float: left;
+  background-color: blueviolet;
+}
+.AirListBox > .backBox > .airportInfoBox > .middlebox {
+  width: 100%;
+  height: 50%;
+  float: left;
+  background-color: aqua;
+}
+.AirListBox > .backBox > .airportInfoBox > .lastbox {
+  width: 100%;
+  height: 20%;
+  float: left;
+  background-color: brown;
+}
+
+.BarcodeBox {
+  width: 100%;
+  height: 20%;
+  background-color: blue;
+}
+
+@media (max-width: 1440px) {
+  .AirListBox {
+    margin: 28px;
+  }
+
+  /* .airportInfoBox {
+    width: 100%;
+    height: 70%;
+    background-color: rgba(128, 142, 179, 0.37);
+    margin-bottom: 20px;
+  } */
+
+  /* .BarcodeBox {
+    width: 100%;
+    height: 20%;
+    background-color: blue;
+  } */
 }
