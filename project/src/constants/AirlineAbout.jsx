@@ -10,21 +10,27 @@ const AirlineAbout = () => {
           <li>
             <div className={style.AirHover}>
               <div className={style.HoverBtn}>
-                <p>Check</p>
+                <p>
+                  <a href="/airlineInformation">Check</a>
+                </p>
               </div>
             </div>
           </li>
           <li>
             <div className={style.AirHover}>
               <div className={style.HoverBtn}>
-                <p>Check</p>
+                <p>
+                  <a href="/airlineInformation">Check</a>
+                </p>
               </div>
             </div>
           </li>
           <li>
             <div className={style.AirHover}>
               <div className={style.HoverBtn}>
-                <p>Check</p>
+                <p>
+                  <a href="/airlineInformation">Check</a>
+                </p>
               </div>
             </div>
           </li>
