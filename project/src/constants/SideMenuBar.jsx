@@ -2,7 +2,7 @@ import { React, Fragment } from "react";
 import style from "../styles/SideMenuBar.module.css";
 import Button from "../constants/button";
 
-const SideMenuBar = ({ BtnTitle, ShowIdBox }) => {
+const SideMenuBar = ({ ShowIdBox, BtnTitle }) => {
   return (
     <Fragment>
       <div className={style.SideMenuBar}>

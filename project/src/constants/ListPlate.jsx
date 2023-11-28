@@ -78,7 +78,6 @@ const ListPlate = ({
                   })}
                 </div>
               ) : null}
-              {item.title == "Bulletin" ? <div>Bulletin</div> : null}
             </div>
           );
         })}
