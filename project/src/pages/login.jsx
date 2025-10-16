@@ -46,9 +46,14 @@ const Login = () => {
         <div className={style.login_container}>
           <div className={style.login_box}>
             <h1 className={style.login_box_h1}>
-              <Link to={"/"}>LOGO</Link>
+              <Link to={"/"}>Login</Link>
             </h1>
-            <p className={style.login_text}>Login</p>
+            <p
+              style={{ fontSize: "14px", color: "rgb(164 163 163)" }}
+              className={style.login_text}
+            >
+              로그인 해주세요!
+            </p>
             <div className={style.loginBox}>
               <input
                 type="text"

@@ -46,7 +46,11 @@ const Join = () => {
       <div className={style.Join}>
         <div className={style.Join_BackWave}>
           <div className={style.JoinBox}>
-            <h1>Create Account</h1>
+            <h1>
+              <a href="/" style={{ color: "#000" }}>
+                Create Account
+              </a>
+            </h1>
             <div className={style.JoinForm}>
               <div className={style.inputbox}>
                 <label>Name</label>
