@@ -42,8 +42,6 @@
 - 메인페이지</br>
   <img width="132" height="224" alt="Image" src="https://github.com/user-attachments/assets/7d0925e2-da15-48c3-8f94-32e75ee8a29f" />
 
-s
-
 </br>
 - 한눈에 보기</br>
 
