@@ -21,7 +21,7 @@
 | **API 형태**  | RESTful                             | JSON 기반 요청/응답 구조                        |
 | **환경**      | macOS (VS Code), 8GB RAM, 500GB SSD | 개발 환경 및 툴                                 |
 
-</br></br>
+</br>
 
 - 아키텍처 개요
   React (Client) ↔ Express (Server) ↔ MySQL (DB)
