@@ -39,6 +39,10 @@
   UI/UX 개선 및 모바일 대응 강화.</br>
   데이터 크롤링, 추천 알고리즘(crawling + personalization + collaborative filtering) 추가 입니다.
 
+- 메인페이지</br>
+  <img width="132" height="224" alt="Image" src="https://github.com/user-attachments/assets/7d0925e2-da15-48c3-8f94-32e75ee8a29f" />
+
+</br>
 - 한눈에 보기
   | 구분 | 주요 내용 |
   | ----------- | ---------------------------------------- |
