@@ -1,5 +1,6 @@
 - 프로젝트명
   세계탐험가이드 (World Travel Guide)
+  📄 [전체 보고서 (.docx) 다운로드](https://github.com/ykkc21/Capstone/raw/master/project/심화응용프로젝트.docx)
 
 - 개발 목적
   전 세계 여행지 정보를 제공하고, 각 관광지와 관련된 YouTube 영상을 함께 보여주는 서비스를 개발
