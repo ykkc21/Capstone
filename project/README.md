@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+- 프로젝트명
+  세계탐험가이드 (World Travel Guide)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 개발 목적
+  전 세계 여행지 정보를 제공하고, 각 관광지와 관련된 YouTube 영상을 함께 보여주는 서비스를 개발
+  사용자가 여행을 준비할 때 시각적으로 여행지를 미리 경험하도록 돕는 웹 애플리케이션입니다.
 
-## Available Scripts
+- 개발 배경
+  현대 사회에서 여행은 휴식, 스트레스 해소, 문화 체험 등 다양한 동기로 증가 하고있고
+  소셜미디어(YouTube, Instagram 등)의 여행 콘텐츠 공유로 여행 욕구가 늘어나고 있습니다.
+  항공권 할인, 예약 플랫폼, 숙박 다양화 등으로 여행 접근성이 올라가고 다양한 정보를 흩어져 있는 여러 플랫폼 대신, 하나로 통합된 여행 정보 시스템을 구축하고자 하였습니다.
 
-In the project directory, you can run:
+| 구분          | 사용 기술                           | 설명                                            |
+| ------------- | ----------------------------------- | ----------------------------------------------- |
+| **Frontend**  | React                               | 컴포넌트 기반 UI, Virtual DOM으로 효율적 렌더링 |
+| **Backend**   | Node.js (Express)                   | REST API 서버, 비동기 이벤트 기반 구조          |
+| **Database**  | MySQL                               | 사용자, 여행지, 숙박 데이터 저장                |
+| **HTTP 통신** | Axios                               | 클라이언트와 서버 간 데이터 요청/응답 수행      |
+| **API 형태**  | RESTful                             | JSON 기반 요청/응답 구조                        |
+| **환경**      | macOS (VS Code), 8GB RAM, 500GB SSD | 개발 환경 및 툴                                 |
 
-### `npm start`
+- 아키텍처 개요
+  React (Client) ↔ Express (Server) ↔ MySQL (DB)
+  클라이언트는 REST API 방식으로 서버에 요청하고, 서버는 DB에서 데이터를 가져와 응답.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 결론 및 개선점 </br>
+  결론
+  사용자는 관광지 정보를 한 곳에서 확인할 수 있고,
+  YouTube 영상을 함께 시청해 여행지 분위기를 미리 체험할 수 있다.
+  여행 계획을 수립하는 데 시각적·정보적 도움을 제공하는 플랫폼 완성
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 개선점 및 향후 계획
+  현재는 정보 제공 중심 → 향후 사용자 맞춤형 추천 서비스 필요하고다른 사용자와의 상호작용(리뷰, 찜 목록 등)을 고려한 확장 예정입니다.
+  UI/UX 개선 및 모바일 대응 강화.
+  데이터 크롤링, 추천 알고리즘(crawling + personalization + collaborative filtering) 추가 입니다.
