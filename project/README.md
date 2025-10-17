@@ -23,8 +23,8 @@
 
 </br>
 
-- 아키텍처 개요
-  React (Client) ↔ Express (Server) ↔ MySQL (DB)
+- 아키텍처 개요</br>
+  React (Client) ↔ Express (Server) ↔ MySQL (DB)</br>
   클라이언트는 REST API 방식으로 서버에 요청하고, 서버는 DB에서 데이터를 가져와 응답.
 
 - 결론 및 개선점 </br>
